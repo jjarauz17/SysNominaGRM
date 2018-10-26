@@ -1,0 +1,384 @@
+﻿Imports System.IO
+Imports DevExpress.XtraPivotGrid
+
+Public Class frmCatalogos
+#Region "Variables"
+    Public Tabla As DataTable = Nothing
+#End Region
+    Private Sub frmCatalogos_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        Me.gcReportes.DataSource = RH_Reportes._RH_List
+        Me.vReportes.Columns("id").Caption = "ID"
+        Me.vReportes.Columns("Descripcion").Caption = "Descripcion"
+        Me.vReportes.Columns("reporte").Caption = "Reporte"
+        Me.vReportes.BestFitColumns()
+
+        Me.cbDesde.Properties.DataSource = VB.SysContab.PeriodoNominaDB.GetList(False)
+        Me.cbDesde.Properties.DisplayMember = "per_descripcion"
+        Me.cbDesde.Properties.ValueMember = "per_codigo"
+
+        Me.cbHasta.Properties.DataSource = VB.SysContab.PeriodoNominaDB.GetList(False)
+        Me.cbHasta.Properties.DisplayMember = "per_descripcion"
+        Me.cbHasta.Properties.ValueMember = "per_codigo"
+
+        Me.cbTDeduccion.Properties.DataSource = VB.SysContab.TipoDeduccionDB.GetList("%")
+        Me.cbTDeduccion.Properties.DisplayMember = "Descripcion"
+        Me.cbTDeduccion.Properties.ValueMember = "Codigo"
+
+        Me.cbTIngreso.Properties.DataSource = VB.SysContab.TipoIngresoDB.GetList("%").Tables(0)
+        Me.cbTIngreso.Properties.DisplayMember = "Descripcion"
+        Me.cbTIngreso.Properties.ValueMember = "Codigo"
+    End Sub
+
+    Private Sub chkMasDatos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkMasDatos.CheckedChanged
+        If Me.lcGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always Then
+            If chkMasDatos.Checked Then Me.vCatalogo.ColumnsCustomization() Else Me.vCatalogo.DestroyCustomization()
+        Else
+            If chkMasDatos.Checked Then Me.pgCatalogo.FieldsCustomization() Else Me.pgCatalogo.DestroyCustomization()
+        End If
+    End Sub
+
+    Private Sub vCatalogo_HideCustomizationForm(ByVal sender As Object, ByVal e As System.EventArgs) Handles vCatalogo.HideCustomizationForm
+        Me.chkMasDatos.Checked = False
+    End Sub
+
+    Private Sub cmdExportar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExportar.Click
+        Dim forma As New frmexportaciongrid
+        If lcGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always Then
+            forma.Mostrar(gcCatalogo)
+        ElseIf lcPivot.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always Then
+            forma.Mostrar(pgCatalogo)
+        Else
+            forma.Dispose()
+        End If
+
+    End Sub
+
+
+    Private Sub vReportes_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles vReportes.FocusedRowChanged
+        Me.gcCatalogo.DataSource = Nothing
+        Me.pgCatalogo.DataSource = Nothing
+
+        If Me.vReportes.GetFocusedRowCellValue("id") = 1 Then
+            Me.lcEstatus.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcMostrarDatos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcPivot.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcDesde.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcHasta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcAgrupar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcTipoDeduccion.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcTipoIngreso.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.Espacio.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+        End If
+
+        If Me.vReportes.GetFocusedRowCellValue("id") = 2 Then
+            Me.lcEstatus.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcMostrarDatos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcPivot.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcDesde.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcHasta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcAgrupar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcTipoDeduccion.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcTipoIngreso.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.Espacio.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+        End If
+
+        If Me.vReportes.GetFocusedRowCellValue("id") >= 3 Then
+            Me.lcEstatus.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcMostrarDatos.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcPivot.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcDesde.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.lcHasta.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+            Me.lcAgrupar.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            Me.Espacio.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+
+            Select Case Me.vReportes.GetFocusedRowCellValue("id")
+                Case 3
+                    Me.lcTipoDeduccion.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+                    Me.lcTipoIngreso.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+                Case 4
+                    Me.lcTipoDeduccion.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never
+                    Me.lcTipoIngreso.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+            End Select
+        End If
+
+
+    End Sub
+
+    Private Sub cmdConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdConsultar.Click
+
+        If Me.vReportes.GetFocusedRowCellValue("id") = 1 Then
+            If Me.cbEstatusEmpleados.EditValue Is Nothing Then
+                MsgBox("Seleccione el estatus de los empleados por favor", MsgBoxStyle.Critical, "StS.Nomina")
+                Exit Sub
+            End If
+            Tabla = VB.SysContab.EmpleadosDB.GetCatalogoEmpleados(Me.cbEstatusEmpleados.EditValue.ToString.Substring(0, 1))
+        End If
+        If Me.vReportes.GetFocusedRowCellValue("id") = 2 Then
+            If Me.cbEstatusEmpleados.EditValue Is Nothing Then
+                MsgBox("Seleccione el estatus de los empleados por favor", MsgBoxStyle.Critical, "StS.Nomina")
+                Exit Sub
+            End If
+            If Me.cbDesde.EditValue Is Nothing Then
+                MsgBox("Seleccione un periodo de nomina por favor", MsgBoxStyle.Critical, "StS.Nomina")
+                Exit Sub
+            End If
+            If Me.cbHasta.EditValue Is Nothing Then
+                MsgBox("Seleccione un periodo de nomina por favor", MsgBoxStyle.Critical, "StS.Nomina")
+                Exit Sub
+            End If
+            Tabla = RH_Reportes._RH_DetalleIngresos(Me.cbDesde.EditValue.ToString.Substring(1, 8), Me.cbHasta.EditValue.ToString.Substring(1, 8), _
+                                            Me.cbEstatusEmpleados.EditValue.ToString.Substring(0, 1))
+        End If
+
+        ' Estas son las consultas en pantalla
+        If Me.vReportes.GetFocusedRowCellValue("id") = 1 Or Me.vReportes.GetFocusedRowCellValue("id") = 2 Then
+            If Not Tabla Is Nothing Then
+                If Tabla.TableName = "Detalle" Then
+                    Me.pgCatalogo.DataSource = Tabla
+
+                    Me.pgCatalogo.Fields.Clear()
+                    Try
+                        pgCatalogo.OptionsView.ShowDataHeaders = True
+                        pgCatalogo.OptionsView.ShowColumnHeaders = True
+                        pgCatalogo.OptionsView.ShowColumnGrandTotals = True
+                        pgCatalogo.OptionsView.ShowRowGrandTotals = False
+                        'pgCatalogo.OptionsView.ShowCustomTotalsForSingleValues = True
+
+
+                        pgCatalogo.Fields.Add("Codigo", DevExpress.XtraPivotGrid.PivotArea.RowArea)
+                        pgCatalogo.Fields("Codigo").FieldName = "Codigo"
+                        pgCatalogo.Fields("Codigo").Caption = "Codigo"
+
+                        pgCatalogo.Fields.Add("Nombre", DevExpress.XtraPivotGrid.PivotArea.RowArea)
+                        pgCatalogo.Fields("Nombre").FieldName = "Nombre"
+                        pgCatalogo.Fields("Nombre").Caption = "Nombre"
+
+                        pgCatalogo.Fields.Add("Nomina", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Nomina").FieldName = "Nomina"
+                        pgCatalogo.Fields("Nomina").Caption = "Nomina"
+
+                        pgCatalogo.Fields.Add("Acum Vac", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Acum Vac").FieldName = "Acum Vac"
+                        pgCatalogo.Fields("Acum Vac").Caption = "Acum Vac"
+
+                        pgCatalogo.Fields.Add("Acum Agu", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Acum Agu").FieldName = "Acum Agu"
+                        pgCatalogo.Fields("Acum Agu").Caption = "Acum Agu"
+
+                        pgCatalogo.Fields.Add("Mes", DevExpress.XtraPivotGrid.PivotArea.ColumnArea)
+                        pgCatalogo.Fields("Mes").FieldName = "Mes"
+                        pgCatalogo.Fields("Mes").Caption = "Mes"
+
+                        pgCatalogo.Fields.Add("Fecha de Ingreso", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Fecha de Ingreso").FieldName = "Fecha de Ingreso"
+                        pgCatalogo.Fields("Fecha de Ingreso").Caption = "Fecha de Ingreso"
+
+                        pgCatalogo.Fields.Add("Fecha de Baja", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Fecha de Baja").FieldName = "Fecha de Baja"
+                        pgCatalogo.Fields("Fecha de Baja").Caption = "Fecha de Baja"
+
+                        pgCatalogo.Fields.Add("Tipo Ingreso", DevExpress.XtraPivotGrid.PivotArea.ColumnArea)
+                        pgCatalogo.Fields("Tipo Ingreso").FieldName = "Tipo Ingreso"
+                        pgCatalogo.Fields("Tipo Ingreso").Caption = "Tipo Ingreso"
+
+                        pgCatalogo.Fields.Add("Cantidad", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Cantidad").FieldName = "Cantidad"
+                        pgCatalogo.Fields("Cantidad").Caption = "Cantidad"
+
+                        pgCatalogo.Fields.Add("Valor", DevExpress.XtraPivotGrid.PivotArea.DataArea)
+                        pgCatalogo.Fields("Valor").FieldName = "Valor"
+                        pgCatalogo.Fields("Valor").Caption = "Valor"
+                        pgCatalogo.Fields("Valor").CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+                        pgCatalogo.Fields("Valor").CellFormat.FormatString = "n2"
+
+
+                        pgCatalogo.Fields.Add("Calc Aguinaldo", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Calc Aguinaldo").FieldName = "Calc Aguinaldo"
+                        pgCatalogo.Fields("Calc Aguinaldo").Caption = "Calc Aguinaldo"
+
+                        pgCatalogo.Fields.Add("Calc Vacaciones", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Calc Vacaciones").FieldName = "Calc Vacaciones"
+                        pgCatalogo.Fields("Calc Vacaciones").Caption = "Calc Vacaciones"
+
+                        pgCatalogo.Fields.Add("Calc Indemnizacion", DevExpress.XtraPivotGrid.PivotArea.FilterArea)
+                        pgCatalogo.Fields("Calc Indemnizacion").FieldName = "Calc Indemnizacion"
+                        pgCatalogo.Fields("Calc Indemnizacion").Caption = "Calc Indemnizacion"
+
+                        For i As Integer = 0 To pgCatalogo.Fields.Count - 1
+                            If pgCatalogo.Fields(i).Area = DevExpress.XtraPivotGrid.PivotArea.RowArea Then
+                                'If pgCatalogo.Fields(i).AreaIndex = 0 Then
+                                '    If pgCatalogo.Fields(i).CustomTotals.Count = 0 Then
+                                '        pgCatalogo.Fields(i).CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Count)
+                                '        pgCatalogo.Fields(i).CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Sum)
+                                '        pgCatalogo.Fields(i).TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals
+                                '    End If
+                                'Else
+
+                                '    pgCatalogo.Fields(i).CustomTotals.Clear()
+                                '    pgCatalogo.Fields(i).TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None
+                                'End If
+                            ElseIf pgCatalogo.Fields(i).Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea Then
+                                If pgCatalogo.Fields(i).AreaIndex = 0 Then
+                                    If pgCatalogo.Fields(i).CustomTotals.Count = 0 Then
+                                        pgCatalogo.Fields(i).SummaryType = DevExpress.Data.PivotGrid.PivotSummaryType.Average
+                                        'pgCatalogo.Fields(i).CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Average)
+                                        pgCatalogo.Fields(i).CustomTotals.Add(DevExpress.Data.PivotGrid.PivotSummaryType.Sum)
+                                        pgCatalogo.Fields(i).TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals
+                                    End If
+                                Else
+
+                                    pgCatalogo.Fields(i).CustomTotals.Clear()
+                                    pgCatalogo.Fields(i).TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None
+                                End If
+                            End If
+                        Next
+
+
+                    Catch ex As Exception
+
+                    End Try
+
+                End If
+                If Tabla.TableName = "Catalogo" Then
+                    Me.gcCatalogo.DataSource = Tabla
+                    For i As Integer = 0 To Me.vCatalogo.Columns.Count - 1
+                        Me.vCatalogo.Columns(i).Visible = 0
+                    Next
+
+                    Me.vCatalogo.Columns("D").Caption = "Depto"
+                    Me.vCatalogo.Columns("D").Visible = True
+                    Me.vCatalogo.Columns("D").VisibleIndex = 0
+
+                    Me.vCatalogo.Columns("A").Caption = "Area"
+                    Me.vCatalogo.Columns("A").Visible = True
+                    Me.vCatalogo.Columns("A").VisibleIndex = 1
+
+                    Me.vCatalogo.Columns("Codigo").Visible = True
+                    Me.vCatalogo.Columns("Codigo").VisibleIndex = 2
+
+                    Me.vCatalogo.Columns("INSS").Visible = True
+                    Me.vCatalogo.Columns("INSS").VisibleIndex = 3
+
+                    Me.vCatalogo.Columns("Nombre").Visible = True
+                    Me.vCatalogo.Columns("Nombre").VisibleIndex = 4
+
+                    Me.vCatalogo.Columns("Fecha Ingreso").Visible = True
+                    Me.vCatalogo.Columns("Fecha Ingreso").VisibleIndex = 5
+
+                    Me.vCatalogo.Columns("Fecha Nacimiento").Visible = True
+                    Me.vCatalogo.Columns("Fecha Nacimiento").VisibleIndex = 6
+
+                    Me.vCatalogo.Columns("Liquidado").Visible = True
+                    Me.vCatalogo.Columns("Liquidado").VisibleIndex = 7
+
+
+                    Me.vCatalogo.Columns("D").Group()
+                    Me.vCatalogo.Columns("A").Group()
+                    Me.vCatalogo.CollapseAllGroups()
+                End If
+            End If
+        End If
+
+
+        'Reportes Deducciones
+        If Me.vReportes.GetFocusedRowCellValue("id") = 3 Then
+
+            If Not File.Exists(Application.StartupPath & "\REPORTES\rpt_dedUCCIONES.rpt") Then
+                MsgBox("No se encuentra el reporte: " & Application.StartupPath & "\REPORTES\rpt_dedUCCIONES.rpt")
+                Exit Sub
+            End If
+            Dim reporte As New Object
+            reporte = New CrystalDecisions.CrystalReports.Engine.ReportDocument
+            reporte.Load(Application.StartupPath & "\REPORTES\rpt_dedUCCIONES.rpt", CrystalDecisions.Shared.OpenReportMethod.OpenReportByDefault)
+
+            Dim fReportes As New frmReportes()
+
+            Dim dt As New DataTable
+            Dim tde_codigo As String = ""
+
+            If Me.cbTDeduccion.EditValue Is Nothing Then
+                tde_codigo = "%"
+            ElseIf Me.cbTDeduccion.EditValue Is DBNull.Value Then
+                tde_codigo = "%"
+            Else
+                tde_codigo = Me.cbTDeduccion.EditValue
+            End If
+
+            dt = RH_Reportes.Deducciones(Me.cbDesde.EditValue.ToString.Substring(1, 8), _
+                        Me.cbDesde.EditValue.ToString.Substring(0, 1), _
+                        tde_codigo, Me.chkAgrupar.EditValue, 0)
+
+            If dt.Rows.Count = 0 Then
+                MsgBox("No se han recuperado registros que cumplan su criterio")
+                Exit Sub
+            End If
+            dt.WriteXml(Application.StartupPath & "\de.xml", XmlWriteMode.WriteSchema)
+
+            reporte.Database.Tables("DEDUCCIONES").Location = Application.StartupPath & "\de.xml"
+
+            fReportes.crvReportes.ReportSource = reporte
+            fReportes.ShowDialog()
+            fReportes.Dispose()
+            fReportes = Nothing
+        End If
+        'Reportes Deducciones
+        If Me.vReportes.GetFocusedRowCellValue("id") = 4 Then
+            If Not File.Exists(Application.StartupPath & "\REPORTES\rpt_INGRESOS.rpt") Then
+                MsgBox("No se encuentra el reporte: " & Application.StartupPath & "\REPORTES\rpt_INGRESOS.rpt")
+                Exit Sub
+            End If
+            Dim reporte As New Object
+            reporte = New CrystalDecisions.CrystalReports.Engine.ReportDocument
+            reporte.Load(Application.StartupPath & "\REPORTES\rpt_INGRESOS.rpt", CrystalDecisions.Shared.OpenReportMethod.OpenReportByDefault)
+
+            Dim fReportes As New frmReportes()
+
+            Dim dt As New DataTable
+            Dim tdi_codigo As String = ""
+
+            If Me.cbTIngreso.EditValue Is Nothing Then
+                tdi_codigo = "%"
+            ElseIf Me.cbTIngreso.EditValue Is DBNull.Value Then
+                tdi_codigo = "%"
+            Else
+                tdi_codigo = Me.cbTIngreso.EditValue
+            End If
+
+            dt = RH_Reportes.Ingresos(Me.cbDesde.EditValue.ToString.Substring(1, 8), _
+                        Me.cbDesde.EditValue.ToString.Substring(0, 1), _
+                        tdi_codigo, Me.chkAgrupar.EditValue, 0)
+
+            If dt.Rows.Count = 0 Then
+                MsgBox("No se han recuperado registros que cumplan su criterio")
+                Exit Sub
+            End If
+            dt.WriteXml(Application.StartupPath & "\dI.xml", XmlWriteMode.WriteSchema)
+
+            reporte.Database.Tables("INGRESOS").Location = Application.StartupPath & "\di.xml"
+
+            fReportes.crvReportes.ReportSource = reporte
+            fReportes.ShowDialog()
+            fReportes.Dispose()
+            fReportes = Nothing
+        End If
+    End Sub
+
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+
+    'Private Sub pgCatalogo_CustomCellDisplayText(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCellDisplayTextEventArgs) Handles pgCatalogo.CustomCellDisplayText
+    '    Dim ds As PivotDrillDownDataSource = e.CreateDrillDownDataSource
+    '    If e.RowValueType = DevExpress.XtraPivotGrid.PivotGridValueType.CustomTotal Then
+    '        Dim r As Integer = 0
+    '    End If
+    'End Sub
+
+    'Private Sub pgCatalogo_CustomDrawFieldValue(ByVal sender As Object, ByVal e As DevExpress.XtraPivotGrid.PivotCustomDrawFieldValueEventArgs) Handles pgCatalogo.CustomDrawFieldValue
+
+    'End Sub
+End Class

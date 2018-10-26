@@ -1,0 +1,158 @@
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+Imports DbConnect
+
+Namespace VB.SysContab
+
+    Public Class TipoDeduccionDetails
+        Public Empresa As String
+        Public Codigo As String
+        Public Descripcion As String
+        Public Tipo As String
+        Public Editable As Boolean
+        Public Borrable As Boolean
+        Public CtaContable As String = ""
+        Public Valor_Fijo As Boolean = False
+        Public Aguinaldo As Boolean = False
+        Public Prefijo_Detalle As String
+        Public Sufijo_CCosto As String
+        Public Factor As Decimal
+    End Class
+
+    Public Class TipoDeduccionDB
+
+        Public Shared Function GetDetails(ByVal Codigo As String) As TipoDeduccionDetails
+
+            Dim Tabla As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion())
+            v.AddParameter("Codigo", SqlDbType.NVarChar, 3, ParameterDirection.Input, Codigo)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            Tabla = v.EjecutarComando("_GetListTipoDeduccionDetails", "TipoDeduccion")
+            v = Nothing
+            Dim Details As New TipoDeduccionDetails()
+            If Tabla.Rows.Count = 1 Then
+                Details.Empresa = Tabla.Rows(0)("empr_codigo")
+                Details.Codigo = Tabla.Rows(0)("tde_codigo")
+                Details.Descripcion = Tabla.Rows(0)("tde_descripcion")
+                Details.Tipo = Tabla.Rows(0)("tdm_codigo")
+                Details.Borrable = Tabla.Rows(0)("tde_borrable")
+                Details.Editable = Tabla.Rows(0)("tde_editable")
+                Details.CtaContable = Tabla.Rows(0)("tde_ctacontable")
+                Details.Valor_Fijo = Tabla.Rows(0)("tde_valorfijo")
+                Details.Aguinaldo = Tabla.Rows(0)("Aguinaldo")
+
+                Details.Prefijo_Detalle = Tabla.Rows(0).Item("Prefijo_Detalle")
+                Details.Sufijo_CCosto = Tabla.Rows(0).Item("Sufijo_CCosto")
+                Details.Factor = Tabla.Rows(0).Item("tde_codigo")
+            End If
+            Return Details
+            
+        End Function
+
+        Public Shared Function GetList(ByVal Filtro As String) As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion())
+            v.AddParameter("Filtro", SqlDbType.NVarChar, 50, ParameterDirection.Input, Filtro)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            Return v.EjecutarComando("_GetListTipoDeduccion", "TipoDeduccion")
+            v = Nothing
+        End Function
+
+        Public Shared Function GetListBuscar(ByVal Filtro As String) As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion())
+            v.AddParameter("Filtro", SqlDbType.NVarChar, 50, ParameterDirection.Input, Filtro)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            Return v.EjecutarComando("_GetListTipoDeduccionBuscar", "TipoDeduccion")
+            v = Nothing
+        End Function
+
+        Public Shared Function GetListCodigo(ByVal Codigo As String) As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion())
+            v.AddParameter("Codigo", SqlDbType.NVarChar, 3, ParameterDirection.Input, Codigo)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            Return v.EjecutarComando("_GetListTipoDeduccionCodigo", "TipoDeduccion")
+            v = Nothing
+        End Function
+
+        Public Shared Function GetListCodigoNvo() As String
+            Dim Tabla As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion())
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            Tabla = v.EjecutarComando("_GetListTipoDeduccionCodigoNvo", "TipoDeduccion")
+            v = Nothing
+            If Tabla.Rows(0).Item("CODIGO") Is DBNull.Value Then
+                Return "001"
+            Else
+                Return Tabla.Rows(0).Item("CODIGO")
+            End If
+            Tabla = Nothing
+        End Function
+
+
+        Public Shared Sub Delete(ByVal Codigo As String)
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion())
+            v.AddParameter("Codigo", SqlDbType.NVarChar, 3, ParameterDirection.Input, Codigo)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.EjecutarComando("_TipoDeduccionDelete")
+            v = Nothing
+        End Sub
+
+        Public Shared Sub Additem(ByVal Codigo As String, ByVal Descripcion As String, ByVal Tipo As String, _
+            ByVal Editable As Boolean, ByVal Borrable As Boolean, ByVal Cuenta As String, _
+            ByVal ValorFijo As Boolean, ByVal Aguinaldo As Boolean, _
+            ByVal Prefijo_Detalle As String, ByVal Sufijo_CCosto As String, ByVal Factor As Decimal)
+
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("Codigo", SqlDbType.NVarChar, 3, ParameterDirection.Input, Codigo)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("Descripcion", SqlDbType.NVarChar, 50, ParameterDirection.Input, Descripcion)
+            v.AddParameter("Tipo", SqlDbType.NVarChar, 1, ParameterDirection.Input, Tipo)
+            v.AddParameter("Editable", SqlDbType.Bit, 3, ParameterDirection.Input, Editable)
+            v.AddParameter("Borrable", SqlDbType.Bit, 1, ParameterDirection.Input, Borrable)
+            v.AddParameter("CtaContable", SqlDbType.NVarChar, 64, ParameterDirection.Input, Cuenta)
+            v.AddParameter("ValorFijo", SqlDbType.Bit, 1, ParameterDirection.Input, ValorFijo)
+            v.AddParameter("Aguinaldo", SqlDbType.Bit, 1, ParameterDirection.Input, Aguinaldo)
+
+            v.AddParameter("Prefijo_Detalle", SqlDbType.NVarChar, 64, ParameterDirection.Input, Prefijo_Detalle)
+            v.AddParameter("Sufijo_CCosto", SqlDbType.NVarChar, 64, ParameterDirection.Input, Sufijo_CCosto)
+            v.AddParameter("Factor", SqlDbType.Float, 64, ParameterDirection.Input, Factor)
+
+            Try
+                v.EjecutarComando("_TipoDeduccionAdd")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Sub
+
+
+
+        Public Shared Sub Update(ByVal Codigo As String, _
+            ByVal Descripcion As String, ByVal Tipo As String, ByVal Cuenta As String, _
+            ByVal ValorFijo As Boolean, ByVal Aguinaldo As Boolean, _
+            ByVal Prefijo_Detalle As String, ByVal Sufijo_CCosto As String, ByVal Factor As Decimal)
+
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("Codigo", SqlDbType.NVarChar, 3, ParameterDirection.Input, Codigo)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("Descripcion", SqlDbType.NVarChar, 50, ParameterDirection.Input, Descripcion)
+            v.AddParameter("Tipo", SqlDbType.NVarChar, 1, ParameterDirection.Input, Tipo)
+            v.AddParameter("CtaContable", SqlDbType.NVarChar, 64, ParameterDirection.Input, Cuenta)
+            v.AddParameter("ValorFijo", SqlDbType.Bit, 1, ParameterDirection.Input, ValorFijo)
+            v.AddParameter("Aguinaldo", SqlDbType.Bit, 1, ParameterDirection.Input, Aguinaldo)
+
+            v.AddParameter("Prefijo_Detalle", SqlDbType.NVarChar, 64, ParameterDirection.Input, Prefijo_Detalle)
+            v.AddParameter("Sufijo_CCosto", SqlDbType.NVarChar, 64, ParameterDirection.Input, Sufijo_CCosto)
+            v.AddParameter("Factor", SqlDbType.Float, 64, ParameterDirection.Input, Factor)
+
+            Try
+                v.EjecutarComando("_TipoDeduccionUpdate")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End Sub
+
+    End Class
+
+End Namespace

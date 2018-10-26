@@ -1,0 +1,50 @@
+Imports Clases
+Imports DevExpress.XtraEditors
+
+Public Class FrmLogin
+
+    Private vUsuario As UsuariosCLS
+
+    Private Sub Cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cerrar.Click
+        DialogResult = Windows.Forms.DialogResult.Cancel
+        Close()
+        End
+    End Sub
+
+    Private Sub Aceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Aceptar.Click
+
+        Cadena = New Conection(Usuario.Text, Contraseña.Text)
+        If Cadena.Test Then
+            vUsuario = New UsuariosCLS
+            Dim DT As DataTable = vUsuario.UserData
+            If DT.Rows.Count = 0 Then
+                XtraMessageBox.Show("Usuario no registrado para este modulo")
+                Exit Sub
+            End If
+            Cadena.Tipo = DT.Rows(0)("Tipo")
+            Cadena.Rol = DT.Rows(0)("IdRol")
+            'Cadena.Ruta = DT.Rows(0)("Ruta")
+            Usuario.Dispose()
+            DialogResult = Windows.Forms.DialogResult.OK
+            Close()
+        Else
+            XtraMessageBox.Show("Error : Verifique usuario y contraseña", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+    End Sub
+
+
+    Private Sub FrmLogin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        If GetSetting("Simtesis", "SysComisiones", "Skin") <> Nothing Then DevExpress.LookAndFeel.UserLookAndFeel.Default.SetSkinStyle(GetSetting("Simtesis", "SysComisiones", "Skin"))
+
+    End Sub
+
+    Private Sub Configurar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Configurar.Click
+        FrmConfiguracionServer.Dispose()
+        FrmConfiguracionServer.ShowDialog()
+    End Sub
+
+    Private Sub Contraseña_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Contraseña.KeyDown
+        If e.KeyCode = Keys.Enter Then Aceptar_Click(Nothing, Nothing)
+    End Sub
+End Class

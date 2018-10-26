@@ -1,0 +1,69 @@
+﻿Public Class frmCat_Produccion_Detalle 
+    Public ID As Integer = 0
+    Private dias As Integer = 30
+    Private minimo As Integer = 99
+    Private Sub frmCat_Produccion_Detalle_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If ID = 0 Then
+            Me.cat_descCorta.EditValue = ""
+            Me.cat_descripcion.EditValue = ""
+            Me.cat_valor.EditValue = 0.0
+            Me.cat_dias.EditValue = dias
+            Me.cat_salarioxdia.EditValue = 0
+            Me.cat_minimo.EditValue = minimo
+            Me.cat_factor.EditValue = 0
+            Me.cat_activo.EditValue = True
+        Else
+            Dim det As New Cat_Prod_Details
+            det = Cat_ProdDB.Detalles(EmpresaActual, ID)
+            Me.cat_descCorta.EditValue = det.cat_descCorta
+            Me.cat_descripcion.EditValue = det.cat_descripcion
+            Me.cat_valor.EditValue = det.cat_valor
+            Me.cat_dias.EditValue = det.cat_dias
+            Me.cat_salarioxdia.EditValue = det.cat_salarioxdia
+            Me.cat_minimo.EditValue = det.cat_minimo
+            Me.cat_factor.EditValue = det.cat_factor
+            Me.cat_activo.EditValue = det.cat_activo
+        End If
+    End Sub
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmdGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdGuardar.Click
+        Cat_ProdDB.Agregar_Editar(ID, EmpresaActual, Me.cat_descCorta.EditValue, Me.cat_descripcion.EditValue, _
+            Me.cat_valor.EditValue, Me.cat_dias.EditValue, Me.cat_salarioxdia.EditValue, _
+            Me.cat_minimo.EditValue, Me.cat_factor.EditValue, Me.cat_activo.EditValue)
+        Me.Close()
+    End Sub
+    Private Sub Calcular()
+        Me.cat_salarioxdia.EditValue = Math.Round(Me.cat_valor.EditValue / IIf(Me.cat_dias.EditValue = 0, dias, Me.cat_dias.EditValue), 2)
+        Me.cat_factor.EditValue = Math.Round(Me.cat_salarioxdia.EditValue / IIf(Me.cat_minimo.EditValue = 0, minimo, Me.cat_minimo.EditValue), 4)
+    End Sub
+
+    Private Sub cat_valor_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cat_valor.Validating
+        If Me.cat_valor.EditValue <= 0 Then
+            e.Cancel = True
+        Else
+            e.Cancel = False
+            Me.Calcular()
+        End If
+
+    End Sub
+    Private Sub cat_dias_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cat_dias.Validating
+        If Me.cat_dias.EditValue <= 0 Then
+            e.Cancel = True
+        Else
+            e.Cancel = False
+            Me.Calcular()
+        End If
+    End Sub
+
+    Private Sub cat_minimo_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cat_minimo.Validating
+        If Me.cat_minimo.EditValue <= 0 Then
+            e.Cancel = True
+        Else
+            e.Cancel = False
+            Me.Calcular()
+        End If
+    End Sub
+End Class

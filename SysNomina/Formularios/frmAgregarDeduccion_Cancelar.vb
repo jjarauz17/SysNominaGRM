@@ -1,0 +1,36 @@
+Imports DbConnect
+Public Class frmAgregarDeduccion_Cancelar
+
+#Region "Variables"
+    Public Codigo As String
+#End Region
+
+    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
+        Me.Close()
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        If Me.Monto.EditValue <= 0 Then
+            Me.Close()
+        End If
+        Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion)
+        v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+        v.AddParameter("Codigo", SqlDbType.NVarChar, 6, ParameterDirection.Input, Me.Codigo)
+        v.AddParameter("Fecha", SqlDbType.SmallDateTime, 5, ParameterDirection.Input, Me.dtpFecha.EditValue)
+        v.AddParameter("Monto", SqlDbType.Money, 5, ParameterDirection.Input, Me.Monto.EditValue)
+        v.AddParameter("Comentario", SqlDbType.Text, 400, ParameterDirection.Input, Me.Comentarios.Text)
+        v.EjecutarComando("_Deduccion_Notas_Add")
+        v = Nothing
+        Me.Close()
+    End Sub
+
+    Private Sub frmAgregarDeduccion_Cancelar_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.dtpFecha.EditValue = Now
+    End Sub
+
+    Private Sub Monto_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Monto.EditValueChanged
+        If Me.Monto.EditValue < 0 Then
+            Me.Monto.EditValue = 0
+        End If
+    End Sub
+End Class

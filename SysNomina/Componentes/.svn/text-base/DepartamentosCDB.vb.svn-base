@@ -1,0 +1,31 @@
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+
+Namespace VB.SysContab
+
+
+    Public Class DepartamentosCDB
+
+        Public Shared Function GetList() As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("SELECT Codigo_Departamento AS Codigo, Nombre_Departamento AS Nombre FROM DepartamentosC WHERE Empresa ='" & EmpresaActual & "'", DBConn)
+            DBCommand.Fill(dsFicha, "DepartamentosC")
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+
+    End Class
+
+End Namespace
+

@@ -1,0 +1,1168 @@
+Imports System.IO
+
+Public Class frmAgregarIngreso
+    Inherits System.Windows.Forms.Form
+
+    Private Shared ChildInstance As frmAgregarIngreso = Nothing
+
+#Region "Variables"
+    'Public Unico As Boolean
+    Dim inicio, final As Date
+    Dim detIngreso As New VB.SysContab.IngresoDetails()
+    Dim Tipo As Integer
+    Dim Doble As Boolean
+    Dim Cargado As Boolean = False
+    Dim detEmpleados As New VB.SysContab.EmpleadosDetails()
+#End Region
+#Region "Calaches"
+    Friend WithEvents cbempleado As DevExpress.XtraEditors.GridLookUpEdit
+    Friend WithEvents VistaEmpleado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents Codigo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cbTIngreso As DevExpress.XtraEditors.GridLookUpEdit
+    Friend WithEvents VTIngresos As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents dgDetalleIngreso As DevExpress.XtraGrid.GridControl
+    Friend WithEvents VDetalleIngreso As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents lblValor As System.Windows.Forms.Label
+    Friend WithEvents txtValor As System.Windows.Forms.TextBox
+    Friend WithEvents lblDiasHoras As System.Windows.Forms.Label
+    Friend WithEvents txtDiasHoras As System.Windows.Forms.TextBox
+    Friend WithEvents txtMonedaPago As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents Descripcion As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents Nombre As DevExpress.XtraGrid.Columns.GridColumn
+#End Region
+
+    Public Shared Function Instance() As frmAgregarIngreso
+        If ChildInstance Is Nothing OrElse ChildInstance.IsDisposed = True Then
+            ChildInstance = New frmAgregarIngreso()
+        End If
+        ChildInstance.BringToFront()
+
+        Return ChildInstance
+    End Function
+
+#Region " Código generado por el Diseñador de Windows Forms "
+
+    Private Sub New()
+        MyBase.New()
+
+        'El Diseñador de Windows Forms requiere esta llamada.
+        InitializeComponent()
+
+        'Agregar cualquier inicialización después de la llamada a InitializeComponent()
+
+    End Sub
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    Protected Overloads Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing Then
+            If Not (components Is Nothing) Then
+                components.Dispose()
+            End If
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms requiere el siguiente procedimiento
+    'Puede modificarse utilizando el Diseñador de Windows Forms. 
+    'No lo modifique con el editor de código.
+    Friend WithEvents cmdCancelar As System.Windows.Forms.Button
+    Friend WithEvents cmdAceptar As System.Windows.Forms.Button
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents txtptm_monto As System.Windows.Forms.TextBox
+    Friend WithEvents txting_Codigo As System.Windows.Forms.TextBox
+    Friend WithEvents txting_Fecha As System.Windows.Forms.TextBox
+    Friend WithEvents dtping_FechaInicio As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cbMoneda As System.Windows.Forms.ComboBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents chkCancelado As System.Windows.Forms.CheckBox
+    Friend WithEvents gbDetalle As System.Windows.Forms.GroupBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents chkNREgular As System.Windows.Forms.CheckBox
+    <System.Diagnostics.DebuggerStepThrough()> Private Sub InitializeComponent()
+        Me.cmdCancelar = New System.Windows.Forms.Button()
+        Me.cmdAceptar = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.txtMonedaPago = New DevExpress.XtraEditors.TextEdit()
+        Me.cbempleado = New DevExpress.XtraEditors.GridLookUpEdit()
+        Me.VistaEmpleado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Codigo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.Nombre = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txting_Codigo = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txting_Fecha = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.dtping_FechaInicio = New System.Windows.Forms.DateTimePicker()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtptm_monto = New System.Windows.Forms.TextBox()
+        Me.gbDetalle = New System.Windows.Forms.GroupBox()
+        Me.lblValor = New System.Windows.Forms.Label()
+        Me.txtValor = New System.Windows.Forms.TextBox()
+        Me.lblDiasHoras = New System.Windows.Forms.Label()
+        Me.txtDiasHoras = New System.Windows.Forms.TextBox()
+        Me.cbTIngreso = New DevExpress.XtraEditors.GridLookUpEdit()
+        Me.VTIngresos = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.chkNREgular = New System.Windows.Forms.CheckBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.chkCancelado = New System.Windows.Forms.CheckBox()
+        Me.cbMoneda = New System.Windows.Forms.ComboBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dgDetalleIngreso = New DevExpress.XtraGrid.GridControl()
+        Me.VDetalleIngreso = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Descripcion = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.txtMonedaPago.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbempleado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VistaEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        Me.gbDetalle.SuspendLayout()
+        CType(Me.cbTIngreso.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VTIngresos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgDetalleIngreso, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VDetalleIngreso, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'cmdCancelar
+        '
+        Me.cmdCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdCancelar.ForeColor = System.Drawing.Color.Black
+        Me.cmdCancelar.Location = New System.Drawing.Point(16, 56)
+        Me.cmdCancelar.Name = "cmdCancelar"
+        Me.cmdCancelar.Size = New System.Drawing.Size(72, 24)
+        Me.cmdCancelar.TabIndex = 32
+        Me.cmdCancelar.Text = "Salir"
+        '
+        'cmdAceptar
+        '
+        Me.cmdAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdAceptar.ForeColor = System.Drawing.Color.Black
+        Me.cmdAceptar.Location = New System.Drawing.Point(16, 16)
+        Me.cmdAceptar.Name = "cmdAceptar"
+        Me.cmdAceptar.Size = New System.Drawing.Size(72, 24)
+        Me.cmdAceptar.TabIndex = 30
+        Me.cmdAceptar.Text = "Aceptar"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.GroupBox3.Controls.Add(Me.txtMonedaPago)
+        Me.GroupBox3.Controls.Add(Me.cbempleado)
+        Me.GroupBox3.Controls.Add(Me.Label43)
+        Me.GroupBox3.Controls.Add(Me.Label21)
+        Me.GroupBox3.Controls.Add(Me.Label16)
+        Me.GroupBox3.Controls.Add(Me.TextBox12)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.ForeColor = System.Drawing.Color.Maroon
+        Me.GroupBox3.Location = New System.Drawing.Point(16, 4)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(840, 88)
+        Me.GroupBox3.TabIndex = 0
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "DATOS GENERALES DEL EMPLEADO"
+        '
+        'txtMonedaPago
+        '
+        Me.txtMonedaPago.Enabled = False
+        Me.txtMonedaPago.Location = New System.Drawing.Point(144, 42)
+        Me.txtMonedaPago.Name = "txtMonedaPago"
+        Me.txtMonedaPago.Size = New System.Drawing.Size(415, 20)
+        Me.txtMonedaPago.TabIndex = 167
+        '
+        'cbempleado
+        '
+        Me.cbempleado.EditValue = ""
+        Me.cbempleado.Location = New System.Drawing.Point(144, 16)
+        Me.cbempleado.Name = "cbempleado"
+        Me.cbempleado.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbempleado.Properties.NullText = ""
+        Me.cbempleado.Properties.PopupFormSize = New System.Drawing.Size(600, 0)
+        Me.cbempleado.Properties.PopupSizeable = False
+        Me.cbempleado.Properties.ShowFooter = False
+        Me.cbempleado.Properties.View = Me.VistaEmpleado
+        Me.cbempleado.Size = New System.Drawing.Size(415, 20)
+        Me.cbempleado.TabIndex = 166
+        '
+        'VistaEmpleado
+        '
+        Me.VistaEmpleado.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.ColumnFilterButton.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.ColumnFilterButton.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.ColumnFilterButton.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.ColumnFilterButtonActive.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.ColumnFilterButtonActive.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.Empty.BackColor2 = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.Empty.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(234, Byte), Integer), CType(CType(237, Byte), Integer))
+        Me.VistaEmpleado.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black
+        Me.VistaEmpleado.Appearance.EvenRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.EvenRow.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FilterCloseButton.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.FilterCloseButton.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.FilterCloseButton.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.FilterPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FilterPanel.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.FilterPanel.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FixedLine.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.FocusedCell.BackColor = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black
+        Me.VistaEmpleado.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.FocusedRow.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FooterPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.FooterPanel.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.FooterPanel.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.FooterPanel.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupButton.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.GroupButton.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.GroupButton.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupFooter.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupFooter.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.GroupFooter.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.GroupFooter.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black
+        Me.VistaEmpleado.Appearance.GroupPanel.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.GroupPanel.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.GroupRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.GroupRow.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.GroupRow.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VistaEmpleado.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VistaEmpleado.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black
+        Me.VistaEmpleado.Appearance.HeaderPanel.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.HeaderPanel.Options.UseBorderColor = True
+        Me.VistaEmpleado.Appearance.HeaderPanel.Options.UseFont = True
+        Me.VistaEmpleado.Appearance.HeaderPanel.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(195, Byte), Integer))
+        Me.VistaEmpleado.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.VistaEmpleado.Appearance.HorzLine.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.VistaEmpleado.Appearance.OddRow.ForeColor = System.Drawing.Color.Black
+        Me.VistaEmpleado.Appearance.OddRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.OddRow.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.VistaEmpleado.Appearance.Preview.Font = New System.Drawing.Font("Verdana", 7.5!)
+        Me.VistaEmpleado.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VistaEmpleado.Appearance.Preview.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.Preview.Options.UseFont = True
+        Me.VistaEmpleado.Appearance.Preview.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.VistaEmpleado.Appearance.Row.ForeColor = System.Drawing.Color.Black
+        Me.VistaEmpleado.Appearance.Row.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.Row.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.VistaEmpleado.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VistaEmpleado.Appearance.SelectedRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.SelectedRow.Options.UseForeColor = True
+        Me.VistaEmpleado.Appearance.TopNewRow.BackColor = System.Drawing.Color.White
+        Me.VistaEmpleado.Appearance.TopNewRow.Options.UseBackColor = True
+        Me.VistaEmpleado.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.VistaEmpleado.Appearance.VertLine.Options.UseBackColor = True
+        Me.VistaEmpleado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Codigo, Me.Nombre})
+        Me.VistaEmpleado.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.VistaEmpleado.Name = "VistaEmpleado"
+        Me.VistaEmpleado.OptionsBehavior.Editable = False
+        Me.VistaEmpleado.OptionsCustomization.AllowColumnMoving = False
+        Me.VistaEmpleado.OptionsCustomization.AllowColumnResizing = False
+        Me.VistaEmpleado.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.VistaEmpleado.OptionsView.EnableAppearanceEvenRow = True
+        Me.VistaEmpleado.OptionsView.EnableAppearanceOddRow = True
+        Me.VistaEmpleado.OptionsView.ShowAutoFilterRow = True
+        Me.VistaEmpleado.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
+        Me.VistaEmpleado.OptionsView.ShowGroupPanel = False
+        '
+        'Codigo
+        '
+        Me.Codigo.Caption = "Código"
+        Me.Codigo.FieldName = "Codigo"
+        Me.Codigo.Name = "Codigo"
+        Me.Codigo.Visible = True
+        Me.Codigo.VisibleIndex = 0
+        '
+        'Nombre
+        '
+        Me.Nombre.Caption = "Nombre"
+        Me.Nombre.FieldName = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Visible = True
+        Me.Nombre.VisibleIndex = 1
+        '
+        'Label43
+        '
+        Me.Label43.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label43.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label43.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label43.Location = New System.Drawing.Point(8, 43)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(136, 24)
+        Me.Label43.TabIndex = 163
+        Me.Label43.Text = "Moneda de Pago:"
+        '
+        'Label21
+        '
+        Me.Label21.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.Maroon
+        Me.Label21.Location = New System.Drawing.Point(272, 440)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(336, 24)
+        Me.Label21.TabIndex = 77
+        Me.Label21.Visible = False
+        '
+        'Label16
+        '
+        Me.Label16.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label16.Location = New System.Drawing.Point(24, 440)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(128, 24)
+        Me.Label16.TabIndex = 71
+        Me.Label16.Text = "Cuenta Contable:"
+        Me.Label16.Visible = False
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox12.Location = New System.Drawing.Point(160, 440)
+        Me.TextBox12.MaxLength = 16
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(88, 20)
+        Me.TextBox12.TabIndex = 72
+        Me.TextBox12.Visible = False
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.Location = New System.Drawing.Point(8, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(64, 24)
+        Me.Label1.TabIndex = 30
+        Me.Label1.Text = "Código:"
+        '
+        'Label33
+        '
+        Me.Label33.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label33.Location = New System.Drawing.Point(8, 40)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(136, 24)
+        Me.Label33.TabIndex = 146
+        Me.Label33.Text = "Tipo de Ingreso:"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.cmdCancelar)
+        Me.GroupBox2.Controls.Add(Me.cmdAceptar)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Maroon
+        Me.GroupBox2.Location = New System.Drawing.Point(864, 4)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(112, 465)
+        Me.GroupBox2.TabIndex = 5
+        Me.GroupBox2.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label2.Location = New System.Drawing.Point(8, 16)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(96, 24)
+        Me.Label2.TabIndex = 148
+        Me.Label2.Text = "#Ingreso:"
+        '
+        'txting_Codigo
+        '
+        Me.txting_Codigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txting_Codigo.Enabled = False
+        Me.txting_Codigo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txting_Codigo.Location = New System.Drawing.Point(144, 16)
+        Me.txting_Codigo.MaxLength = 6
+        Me.txting_Codigo.Name = "txting_Codigo"
+        Me.txting_Codigo.Size = New System.Drawing.Size(88, 20)
+        Me.txting_Codigo.TabIndex = 147
+        '
+        'Label3
+        '
+        Me.Label3.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label3.Location = New System.Drawing.Point(672, 16)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(56, 24)
+        Me.Label3.TabIndex = 150
+        Me.Label3.Text = "Fecha:"
+        '
+        'txting_Fecha
+        '
+        Me.txting_Fecha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txting_Fecha.Enabled = False
+        Me.txting_Fecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txting_Fecha.Location = New System.Drawing.Point(736, 16)
+        Me.txting_Fecha.MaxLength = 15
+        Me.txting_Fecha.Name = "txting_Fecha"
+        Me.txting_Fecha.Size = New System.Drawing.Size(88, 20)
+        Me.txting_Fecha.TabIndex = 149
+        '
+        'Label4
+        '
+        Me.Label4.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label4.Location = New System.Drawing.Point(8, 120)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(136, 24)
+        Me.Label4.TabIndex = 152
+        Me.Label4.Text = "Iniciar Ingreso el:"
+        '
+        'dtping_FechaInicio
+        '
+        Me.dtping_FechaInicio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtping_FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtping_FechaInicio.Location = New System.Drawing.Point(144, 120)
+        Me.dtping_FechaInicio.Name = "dtping_FechaInicio"
+        Me.dtping_FechaInicio.Size = New System.Drawing.Size(112, 20)
+        Me.dtping_FechaInicio.TabIndex = 153
+        '
+        'Label5
+        '
+        Me.Label5.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label5.Location = New System.Drawing.Point(632, 79)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(63, 24)
+        Me.Label5.TabIndex = 155
+        Me.Label5.Text = "Monto:"
+        '
+        'txtptm_monto
+        '
+        Me.txtptm_monto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtptm_monto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtptm_monto.Location = New System.Drawing.Point(701, 79)
+        Me.txtptm_monto.MaxLength = 15
+        Me.txtptm_monto.Name = "txtptm_monto"
+        Me.txtptm_monto.Size = New System.Drawing.Size(120, 20)
+        Me.txtptm_monto.TabIndex = 154
+        '
+        'gbDetalle
+        '
+        Me.gbDetalle.Controls.Add(Me.lblValor)
+        Me.gbDetalle.Controls.Add(Me.txtValor)
+        Me.gbDetalle.Controls.Add(Me.lblDiasHoras)
+        Me.gbDetalle.Controls.Add(Me.txtDiasHoras)
+        Me.gbDetalle.Controls.Add(Me.cbTIngreso)
+        Me.gbDetalle.Controls.Add(Me.Label7)
+        Me.gbDetalle.Controls.Add(Me.chkNREgular)
+        Me.gbDetalle.Controls.Add(Me.Label10)
+        Me.gbDetalle.Controls.Add(Me.chkCancelado)
+        Me.gbDetalle.Controls.Add(Me.cbMoneda)
+        Me.gbDetalle.Controls.Add(Me.Label6)
+        Me.gbDetalle.Controls.Add(Me.txting_Codigo)
+        Me.gbDetalle.Controls.Add(Me.Label4)
+        Me.gbDetalle.Controls.Add(Me.Label3)
+        Me.gbDetalle.Controls.Add(Me.dtping_FechaInicio)
+        Me.gbDetalle.Controls.Add(Me.txting_Fecha)
+        Me.gbDetalle.Controls.Add(Me.Label2)
+        Me.gbDetalle.Controls.Add(Me.Label33)
+        Me.gbDetalle.Controls.Add(Me.Label5)
+        Me.gbDetalle.Controls.Add(Me.txtptm_monto)
+        Me.gbDetalle.Location = New System.Drawing.Point(16, 98)
+        Me.gbDetalle.Name = "gbDetalle"
+        Me.gbDetalle.Size = New System.Drawing.Size(840, 160)
+        Me.gbDetalle.TabIndex = 160
+        Me.gbDetalle.TabStop = False
+        '
+        'lblValor
+        '
+        Me.lblValor.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.lblValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblValor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblValor.Location = New System.Drawing.Point(635, 128)
+        Me.lblValor.Name = "lblValor"
+        Me.lblValor.Size = New System.Drawing.Size(60, 24)
+        Me.lblValor.TabIndex = 173
+        Me.lblValor.Text = "Valor:"
+        '
+        'txtValor
+        '
+        Me.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtValor.Enabled = False
+        Me.txtValor.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtValor.Location = New System.Drawing.Point(701, 127)
+        Me.txtValor.MaxLength = 15
+        Me.txtValor.Name = "txtValor"
+        Me.txtValor.Size = New System.Drawing.Size(88, 20)
+        Me.txtValor.TabIndex = 172
+        '
+        'lblDiasHoras
+        '
+        Me.lblDiasHoras.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.lblDiasHoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiasHoras.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblDiasHoras.Location = New System.Drawing.Point(586, 101)
+        Me.lblDiasHoras.Name = "lblDiasHoras"
+        Me.lblDiasHoras.Size = New System.Drawing.Size(109, 24)
+        Me.lblDiasHoras.TabIndex = 171
+        Me.lblDiasHoras.Text = "Dias / Horas:"
+        '
+        'txtDiasHoras
+        '
+        Me.txtDiasHoras.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtDiasHoras.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDiasHoras.Location = New System.Drawing.Point(701, 105)
+        Me.txtDiasHoras.MaxLength = 15
+        Me.txtDiasHoras.Name = "txtDiasHoras"
+        Me.txtDiasHoras.Size = New System.Drawing.Size(120, 20)
+        Me.txtDiasHoras.TabIndex = 170
+        '
+        'cbTIngreso
+        '
+        Me.cbTIngreso.EditValue = ""
+        Me.cbTIngreso.Location = New System.Drawing.Point(144, 40)
+        Me.cbTIngreso.Name = "cbTIngreso"
+        Me.cbTIngreso.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbTIngreso.Properties.NullText = ""
+        Me.cbTIngreso.Properties.PopupFormSize = New System.Drawing.Size(600, 0)
+        Me.cbTIngreso.Properties.PopupSizeable = False
+        Me.cbTIngreso.Properties.ShowFooter = False
+        Me.cbTIngreso.Properties.View = Me.VTIngresos
+        Me.cbTIngreso.Size = New System.Drawing.Size(310, 20)
+        Me.cbTIngreso.TabIndex = 167
+        '
+        'VTIngresos
+        '
+        Me.VTIngresos.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.ColumnFilterButton.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.ColumnFilterButton.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.ColumnFilterButton.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.ColumnFilterButtonActive.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.ColumnFilterButtonActive.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.Empty.BackColor2 = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.Empty.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(229, Byte), Integer), CType(CType(234, Byte), Integer), CType(CType(237, Byte), Integer))
+        Me.VTIngresos.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black
+        Me.VTIngresos.Appearance.EvenRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.EvenRow.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.FilterCloseButton.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.FilterCloseButton.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.FilterCloseButton.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.FilterPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.FilterPanel.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.FilterPanel.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.VTIngresos.Appearance.FixedLine.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.FocusedCell.BackColor = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black
+        Me.VTIngresos.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.FocusedRow.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.FooterPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.FooterPanel.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.FooterPanel.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.FooterPanel.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupButton.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.GroupButton.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.GroupButton.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupFooter.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupFooter.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.GroupFooter.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.GroupFooter.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black
+        Me.VTIngresos.Appearance.GroupPanel.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.GroupPanel.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.GroupRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.GroupRow.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.GroupRow.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(81, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(158, Byte), Integer))
+        Me.VTIngresos.Appearance.HeaderPanel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VTIngresos.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black
+        Me.VTIngresos.Appearance.HeaderPanel.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.HeaderPanel.Options.UseBorderColor = True
+        Me.VTIngresos.Appearance.HeaderPanel.Options.UseFont = True
+        Me.VTIngresos.Appearance.HeaderPanel.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(195, Byte), Integer))
+        Me.VTIngresos.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.VTIngresos.Appearance.HorzLine.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.VTIngresos.Appearance.OddRow.ForeColor = System.Drawing.Color.Black
+        Me.VTIngresos.Appearance.OddRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.OddRow.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(CType(CType(251, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(248, Byte), Integer))
+        Me.VTIngresos.Appearance.Preview.Font = New System.Drawing.Font("Verdana", 7.5!)
+        Me.VTIngresos.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.VTIngresos.Appearance.Preview.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.Preview.Options.UseFont = True
+        Me.VTIngresos.Appearance.Preview.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(252, Byte), Integer))
+        Me.VTIngresos.Appearance.Row.ForeColor = System.Drawing.Color.Black
+        Me.VTIngresos.Appearance.Row.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.Row.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(107, Byte), Integer), CType(CType(133, Byte), Integer), CType(CType(179, Byte), Integer))
+        Me.VTIngresos.Appearance.SelectedRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.VTIngresos.Appearance.SelectedRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.SelectedRow.Options.UseForeColor = True
+        Me.VTIngresos.Appearance.TopNewRow.BackColor = System.Drawing.Color.White
+        Me.VTIngresos.Appearance.TopNewRow.Options.UseBackColor = True
+        Me.VTIngresos.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(167, Byte), Integer), CType(CType(178, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.VTIngresos.Appearance.VertLine.Options.UseBackColor = True
+        Me.VTIngresos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.Descripcion})
+        Me.VTIngresos.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
+        Me.VTIngresos.Name = "VTIngresos"
+        Me.VTIngresos.OptionsBehavior.Editable = False
+        Me.VTIngresos.OptionsCustomization.AllowColumnMoving = False
+        Me.VTIngresos.OptionsCustomization.AllowColumnResizing = False
+        Me.VTIngresos.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.VTIngresos.OptionsView.EnableAppearanceEvenRow = True
+        Me.VTIngresos.OptionsView.EnableAppearanceOddRow = True
+        Me.VTIngresos.OptionsView.ShowAutoFilterRow = True
+        Me.VTIngresos.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
+        Me.VTIngresos.OptionsView.ShowGroupPanel = False
+        '
+        'Label7
+        '
+        Me.Label7.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label7.Location = New System.Drawing.Point(8, 96)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(130, 24)
+        Me.Label7.TabIndex = 169
+        Me.Label7.Text = "Nomina Regular:"
+        '
+        'chkNREgular
+        '
+        Me.chkNREgular.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.chkNREgular.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkNREgular.Location = New System.Drawing.Point(144, 96)
+        Me.chkNREgular.Name = "chkNREgular"
+        Me.chkNREgular.Size = New System.Drawing.Size(16, 24)
+        Me.chkNREgular.TabIndex = 168
+        Me.chkNREgular.UseVisualStyleBackColor = False
+        '
+        'Label10
+        '
+        Me.Label10.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label10.Location = New System.Drawing.Point(672, 40)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(88, 24)
+        Me.Label10.TabIndex = 167
+        Me.Label10.Text = "Cancelado:"
+        '
+        'chkCancelado
+        '
+        Me.chkCancelado.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.chkCancelado.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chkCancelado.Location = New System.Drawing.Point(808, 36)
+        Me.chkCancelado.Name = "chkCancelado"
+        Me.chkCancelado.Size = New System.Drawing.Size(16, 24)
+        Me.chkCancelado.TabIndex = 166
+        Me.chkCancelado.UseVisualStyleBackColor = False
+        '
+        'cbMoneda
+        '
+        Me.cbMoneda.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbMoneda.ItemHeight = 15
+        Me.cbMoneda.Location = New System.Drawing.Point(144, 64)
+        Me.cbMoneda.Name = "cbMoneda"
+        Me.cbMoneda.Size = New System.Drawing.Size(310, 23)
+        Me.cbMoneda.TabIndex = 164
+        '
+        'Label6
+        '
+        Me.Label6.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label6.Location = New System.Drawing.Point(8, 64)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(73, 24)
+        Me.Label6.TabIndex = 165
+        Me.Label6.Text = "Moneda:"
+        '
+        'dgDetalleIngreso
+        '
+        Me.dgDetalleIngreso.Location = New System.Drawing.Point(16, 264)
+        Me.dgDetalleIngreso.MainView = Me.VDetalleIngreso
+        Me.dgDetalleIngreso.Name = "dgDetalleIngreso"
+        Me.dgDetalleIngreso.Size = New System.Drawing.Size(840, 205)
+        Me.dgDetalleIngreso.TabIndex = 161
+        Me.dgDetalleIngreso.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.VDetalleIngreso})
+        '
+        'VDetalleIngreso
+        '
+        Me.VDetalleIngreso.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.DarkOrange
+        Me.VDetalleIngreso.Appearance.ColumnFilterButton.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.ColumnFilterButton.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.ColumnFilterButton.Options.UseForeColor = True
+        Me.VDetalleIngreso.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.DarkOrange
+        Me.VDetalleIngreso.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.DarkOrange
+        Me.VDetalleIngreso.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.White
+        Me.VDetalleIngreso.Appearance.ColumnFilterButtonActive.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.ColumnFilterButtonActive.Options.UseForeColor = True
+        Me.VDetalleIngreso.Appearance.Empty.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.VDetalleIngreso.Appearance.Empty.BackColor2 = System.Drawing.Color.SkyBlue
+        Me.VDetalleIngreso.Appearance.Empty.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal
+        Me.VDetalleIngreso.Appearance.Empty.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.EvenRow.BackColor = System.Drawing.Color.Linen
+        Me.VDetalleIngreso.Appearance.EvenRow.BackColor2 = System.Drawing.Color.AntiqueWhite
+        Me.VDetalleIngreso.Appearance.EvenRow.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal
+        Me.VDetalleIngreso.Appearance.EvenRow.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.FilterCloseButton.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.FilterCloseButton.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.FilterPanel.BackColor = System.Drawing.Color.DarkOrange
+        Me.VDetalleIngreso.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.FilterPanel.ForeColor = System.Drawing.Color.Black
+        Me.VDetalleIngreso.Appearance.FilterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal
+        Me.VDetalleIngreso.Appearance.FilterPanel.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.FilterPanel.Options.UseForeColor = True
+        Me.VDetalleIngreso.Appearance.FocusedRow.BackColor = System.Drawing.Color.RoyalBlue
+        Me.VDetalleIngreso.Appearance.FocusedRow.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.VDetalleIngreso.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White
+        Me.VDetalleIngreso.Appearance.FocusedRow.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.VDetalleIngreso.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.FocusedRow.Options.UseForeColor = True
+        Me.VDetalleIngreso.Appearance.FooterPanel.BackColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.FooterPanel.BorderColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.FooterPanel.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.FooterPanel.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.GroupButton.BackColor = System.Drawing.Color.Wheat
+        Me.VDetalleIngreso.Appearance.GroupButton.BorderColor = System.Drawing.Color.Wheat
+        Me.VDetalleIngreso.Appearance.GroupButton.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.GroupButton.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.GroupFooter.BackColor = System.Drawing.Color.Wheat
+        Me.VDetalleIngreso.Appearance.GroupFooter.BorderColor = System.Drawing.Color.Wheat
+        Me.VDetalleIngreso.Appearance.GroupFooter.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.GroupFooter.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.GroupPanel.BackColor = System.Drawing.Color.RoyalBlue
+        Me.VDetalleIngreso.Appearance.GroupPanel.ForeColor = System.Drawing.Color.White
+        Me.VDetalleIngreso.Appearance.GroupPanel.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.GroupPanel.Options.UseForeColor = True
+        Me.VDetalleIngreso.Appearance.GroupRow.BackColor = System.Drawing.Color.Wheat
+        Me.VDetalleIngreso.Appearance.GroupRow.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.VDetalleIngreso.Appearance.GroupRow.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.GroupRow.Options.UseFont = True
+        Me.VDetalleIngreso.Appearance.HeaderPanel.BackColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.Orange
+        Me.VDetalleIngreso.Appearance.HeaderPanel.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.HeaderPanel.Options.UseBorderColor = True
+        Me.VDetalleIngreso.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.LightSlateGray
+        Me.VDetalleIngreso.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.HorzLine.BackColor = System.Drawing.Color.Tan
+        Me.VDetalleIngreso.Appearance.HorzLine.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.OddRow.BackColor = System.Drawing.Color.White
+        Me.VDetalleIngreso.Appearance.OddRow.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.Preview.BackColor = System.Drawing.Color.Khaki
+        Me.VDetalleIngreso.Appearance.Preview.BackColor2 = System.Drawing.Color.Cornsilk
+        Me.VDetalleIngreso.Appearance.Preview.Font = New System.Drawing.Font("Tahoma", 7.5!)
+        Me.VDetalleIngreso.Appearance.Preview.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.BackwardDiagonal
+        Me.VDetalleIngreso.Appearance.Preview.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.Preview.Options.UseFont = True
+        Me.VDetalleIngreso.Appearance.Row.BackColor = System.Drawing.Color.White
+        Me.VDetalleIngreso.Appearance.Row.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.RowSeparator.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.VDetalleIngreso.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.VDetalleIngreso.Appearance.VertLine.BackColor = System.Drawing.Color.Tan
+        Me.VDetalleIngreso.Appearance.VertLine.Options.UseBackColor = True
+        Me.VDetalleIngreso.GridControl = Me.dgDetalleIngreso
+        Me.VDetalleIngreso.Name = "VDetalleIngreso"
+        Me.VDetalleIngreso.OptionsBehavior.Editable = False
+        Me.VDetalleIngreso.OptionsView.EnableAppearanceEvenRow = True
+        Me.VDetalleIngreso.OptionsView.EnableAppearanceOddRow = True
+        Me.VDetalleIngreso.OptionsView.ShowAutoFilterRow = True
+        Me.VDetalleIngreso.OptionsView.ShowFilterPanelMode = DevExpress.XtraGrid.Views.Base.ShowFilterPanelMode.Never
+        Me.VDetalleIngreso.OptionsView.ShowFooter = True
+        Me.VDetalleIngreso.OptionsView.ShowGroupPanel = False
+        '
+        'Descripcion
+        '
+        Me.Descripcion.Caption = "Descripcion"
+        Me.Descripcion.FieldName = "Descripcion"
+        Me.Descripcion.Name = "Descripcion"
+        Me.Descripcion.Visible = True
+        Me.Descripcion.VisibleIndex = 0
+        '
+        'frmAgregarIngreso
+        '
+        Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(236, Byte), Integer))
+        Me.ClientSize = New System.Drawing.Size(992, 482)
+        Me.Controls.Add(Me.dgDetalleIngreso)
+        Me.Controls.Add(Me.gbDetalle)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Name = "frmAgregarIngreso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        CType(Me.txtMonedaPago.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbempleado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VistaEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.gbDetalle.ResumeLayout(False)
+        Me.gbDetalle.PerformLayout()
+        CType(Me.cbTIngreso.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VTIngresos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgDetalleIngreso, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VDetalleIngreso, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+
+#End Region
+
+    Private Sub frmAgregarIngreso_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Me.cbTIngreso.Properties.DataSource = VB.SysContab.TipoIngresoDB.GetList("%").Tables("TipoIngreso")
+        'Me.VTIngresos.PopulateColumns()
+        'Me.VTIngresos.Columns("Descripcion").Width = 100
+        'Me.VTIngresos.Columns("TipoMovimiento").Visible = False
+        'Me.VTIngresos.Columns("Codigo").Visible = False
+        'Me.VTIngresos.Columns("Unico").Visible = False
+        'Me.VTIngresos.Columns("Tipo").Visible = False
+
+        Me.cbTIngreso.Properties.ValueMember = "Codigo"
+        Me.cbTIngreso.Properties.DisplayMember = "Descripcion"
+
+        cbMoneda.DataSource = VB.SysContab.MonedaDB.GetListBuscarCombo("%").Tables("Monedas")
+        cbMoneda.ValueMember = "Codigo"
+        cbMoneda.DisplayMember = "Descripcion"
+
+        Me.cbempleado.Properties.DataSource = VB.SysContab.EmpleadosDB.GetList().Tables(0)
+        'Me.VistaEmpleado.Columns("Codigo").Width = 100
+        'Me.VistaEmpleado.Columns("Nombre").Width = 250
+        Me.cbempleado.Properties.DisplayMember = "Nombre"
+        Me.cbempleado.Properties.ValueMember = "Codigo"
+
+
+        Me.chkNREgular.Checked = True
+
+        VB.SysContab.PeriodoNominaDB.GetListFechaMinima_Nominas(inicio, final)
+
+        If Nuevo = "NO" Then
+
+            detIngreso = VB.SysContab.IngresoDB.GetDetails(Registro)
+            detEmpleados = VB.SysContab.EmpleadosDB.GetDetails(detIngreso.Empleado)
+            Me.Text = "Editar Ingreso de Empleado"
+
+            Me.cbempleado.EditValue = detIngreso.Empleado
+            Me.cbempleado.Enabled = False
+
+            Me.txtMonedaPago.Text = VB.SysContab.MonedaDB.GetDetails(detEmpleados.Moneda).Descripcion
+            Me.cbMoneda.SelectedValue = detIngreso.Moneda
+
+            Me.txting_Codigo.Text = detIngreso.Codigo
+            Me.cbTIngreso.EditValue = detIngreso.TipoIngreso
+            Me.dtping_FechaInicio.Value = detIngreso.FInicio
+            Me.txting_Fecha.Text = detIngreso.Fecha
+            Me.txtptm_monto.Text = detIngreso.Monto
+            Me.txtValor.Text = detIngreso.Valor
+            Me.txtDiasHoras.Text = detIngreso.DiaHora
+            Me.chkCancelado.Checked = detIngreso.Cancelado
+            Me.chkCancelado.Enabled = True
+            Me.chkNREgular.Checked = detIngreso.NRegular
+
+            'buscar el detalle de cuotas en nomina
+            Me.dgDetalleIngreso.DataSource = VB.SysContab.DetalleIngresoDB.GetList(Me.txting_Codigo.Text).Tables("DetalleIngreso")
+
+            If Me.VDetalleIngreso.DataRowCount <> 0 Then
+                If detIngreso.Cancelado And detIngreso.Unico Then
+                    Me.chkCancelado.Enabled = False
+                Else
+                    Me.chkCancelado.Enabled = True
+                End If
+            End If
+            Tipo = VB.SysContab.TipoIngresoDB.GetDetails(Me.cbTIngreso.EditValue).Tipo
+            Doble = VB.SysContab.TipoIngresoDB.GetDetails(Me.cbTIngreso.EditValue).Doble
+            Select Case Tipo
+                Case 3
+                    Me.lblDiasHoras.Visible = False
+                    Me.lblValor.Visible = False
+                    Me.txtDiasHoras.Visible = False
+                    Me.txtValor.Visible = False
+
+                    Me.txtptm_monto.Enabled = True
+                    Me.txtDiasHoras.Enabled = False
+
+                Case 5, 6, 7
+
+                    Me.lblDiasHoras.Visible = True
+                    Me.lblValor.Visible = True
+                    Me.txtDiasHoras.Visible = True
+                    Me.txtValor.Visible = True
+
+                    Me.txtptm_monto.Enabled = False
+                    Me.txtDiasHoras.Enabled = True
+
+                Case Else
+
+                    Me.lblDiasHoras.Visible = False
+                    Me.lblValor.Visible = False
+                    Me.txtDiasHoras.Visible = False
+                    Me.txtValor.Visible = False
+
+                    Me.txtptm_monto.Enabled = True
+                    Me.txtDiasHoras.Enabled = False
+
+            End Select
+        Else
+            Me.Text = "Agregar Ingreso de Empleado"
+
+            Me.cbempleado.EditValue = ""
+            Me.cbempleado.Enabled = True
+            Me.txting_Codigo.Text = VB.SysContab.IngresoDB.GetListCodigoNvo()
+            Me.chkCancelado.Checked = False
+            Me.chkCancelado.Enabled = False
+
+            Me.dtping_FechaInicio.Value = Now.Date
+            Me.txting_Fecha.Text = Now.Date
+            Me.txtptm_monto.Text = "0.00"
+            Me.txtValor.Text = "0.00"
+            Me.txtDiasHoras.Text = "0.00"
+
+
+        End If
+        Me.gbDetalle.Enabled = Not Me.chkCancelado.Checked
+
+        Cargado = True
+        Me.Refresh()
+    End Sub
+
+    Private Sub cmdCancelar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCancelar.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmdAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAceptar.Click
+
+        If Me.cbempleado.EditValue = "" Or Me.cbempleado.EditValue Is DBNull.Value Then
+            MsgBox("Seleccione el empleado por favor", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+        If Me.txtptm_monto.Text = "" Or Me.txtptm_monto.Text = "0" Then
+            MsgBox("Digite el monto por favor", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+        If Me.cbTIngreso.EditValue = "" Or Me.cbTIngreso.EditValue Is DBNull.Value Then
+            MsgBox("Seleccione el tipo de Ingreso por favor", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+        If Nuevo = "SI" Then
+            VB.SysContab.IngresoDB.Additem(Me.txting_Codigo.Text, Me.cbempleado.EditValue, Me.txting_Fecha.Text, Me.dtping_FechaInicio.Value, _
+                Me.txtptm_monto.Text, Me.cbTIngreso.EditValue, Me.chkCancelado.Checked, Me.cbMoneda.SelectedValue, _
+                Me.VTIngresos.GetFocusedRowCellValue("Unico"), _
+                Me.chkNREgular.Checked, False, Me.txtDiasHoras.Text, Me.txtValor.Text)
+        Else
+            VB.SysContab.IngresoDB.Update(Me.txting_Codigo.Text, Me.cbempleado.EditValue, Me.txting_Fecha.Text, Me.dtping_FechaInicio.Value, _
+                Me.txtptm_monto.Text, Me.cbTIngreso.EditValue, Me.chkCancelado.Checked, Me.cbMoneda.SelectedValue, _
+                Me.VTIngresos.GetFocusedRowCellValue("Unico"), _
+                Me.chkNREgular.Checked, False, Me.txtDiasHoras.Text, Me.txtValor.Text)
+        End If
+        MsgBox("Registro actualizado satisfactoriamente", MsgBoxStyle.OkOnly)
+        Me.Close()
+
+    End Sub
+
+
+
+    Private Sub cbempleado_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cbempleado.Validating
+        If Not Me.cbempleado.EditValue = "" Then
+            detEmpleados = VB.SysContab.EmpleadosDB.GetDetails(Me.cbempleado.EditValue)
+            Me.txtMonedaPago.Text = VB.SysContab.MonedaDB.GetDetails(detEmpleados.Moneda).Descripcion
+        End If
+    End Sub
+    Private Sub cbTIngreso_EditValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbTIngreso.EditValueChanged
+        If Cargado Then
+            Tipo = Me.VTIngresos.GetRow(Me.cbTIngreso.Properties.GetIndexByKeyValue(Me.cbTIngreso.EditValue))("Tipo")
+            Doble = Me.VTIngresos.GetRow(Me.cbTIngreso.Properties.GetIndexByKeyValue(Me.cbTIngreso.EditValue))("Doble")
+            Select Case Tipo
+                Case 3
+                    Me.lblDiasHoras.Visible = False
+                    Me.lblValor.Visible = False
+                    Me.txtDiasHoras.Visible = False
+                    Me.txtValor.Visible = False
+                    Me.txtDiasHoras.Text = "0.00"
+                    Me.txtValor.Text = "0.00"
+                    Me.txtptm_monto.Text = "0.00"
+                    Me.txtptm_monto.Enabled = True
+
+                Case 5, 6, 7
+                    Me.lblDiasHoras.Visible = True
+                    Me.lblValor.Visible = True
+                    Me.txtDiasHoras.Visible = True
+                    Me.txtValor.Visible = True
+                    Me.txtptm_monto.Enabled = False
+
+                    Dim TC As Double
+                    TC = VB.SysContab.Tasa_CambioDB.TasaCambioDia(Me.dtping_FechaInicio.Value.Day, _
+                        Me.dtping_FechaInicio.Value.Month, _
+                        Me.dtping_FechaInicio.Value.Year, _
+                        Me.cbMoneda.SelectedValue, _
+                        detEmpleados.Moneda)
+
+                    'If Me.txtDiasHoras.Text <> "0.00" And IsNumeric(Me.txtDiasHoras.Text) And IsNumeric(Me.txtValor.Text) Then
+                    If Tipo = 5 Then
+                        Me.txtValor.Text = detEmpleados.SalarioxDia
+                    ElseIf Tipo = 6 Then
+                        Me.txtValor.Text = detEmpleados.SalarioxHora
+                    ElseIf Tipo = 7 Then
+                        Me.txtValor.Text = Me.VTIngresos.GetRow(Me.cbTIngreso.Properties.GetIndexByKeyValue(Me.cbTIngreso.EditValue))("Factor")
+                    End If
+                    Me.txtValor.Text = Math.Round(CDbl(Me.txtValor.Text) * TC * IIf(Doble = True, 2, 1), 2)
+                    'End If
+                    Me.txtptm_monto.Text = Math.Round(CDbl(Me.txtDiasHoras.Text) * CDbl(Me.txtValor.Text), 2)
+
+
+                Case Else
+                    Me.lblDiasHoras.Visible = False
+                    Me.lblValor.Visible = False
+                    Me.txtDiasHoras.Visible = False
+                    Me.txtValor.Visible = False
+                    Me.txtDiasHoras.Text = "0.0"
+                    Me.txtValor.Text = "0.0"
+                    Me.txtptm_monto.Text = "0.00"
+                    Me.txtptm_monto.Enabled = True
+
+            End Select
+        End If
+
+    End Sub
+
+    Private Sub txtDiasHoras_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtDiasHoras.TextChanged
+        If Cargado Then
+            If Me.txtDiasHoras.Text <> "0.00" And IsNumeric(Me.txtDiasHoras.Text) And IsNumeric(Me.txtValor.Text) Then
+                Me.txtptm_monto.Text = Math.Round(CDbl(Me.txtDiasHoras.Text) * CDbl(Me.txtValor.Text), 2)
+            End If
+        End If
+    End Sub
+
+    Private Sub cbMoneda_SelectedValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbMoneda.SelectedValueChanged
+        If Cargado Then
+            Dim TC As Double
+            TC = VB.SysContab.Tasa_CambioDB.TasaCambioDia(Me.dtping_FechaInicio.Value.Day, _
+                Me.dtping_FechaInicio.Value.Month, _
+                Me.dtping_FechaInicio.Value.Year, _
+                Me.cbMoneda.SelectedValue, _
+                detEmpleados.Moneda)
+
+            If Me.txtDiasHoras.Text <> "0.00" And IsNumeric(Me.txtDiasHoras.Text) And IsNumeric(Me.txtValor.Text) Then
+                If Tipo = 5 Then
+                    Me.txtValor.Text = detEmpleados.SalarioxDia
+                ElseIf Tipo = 6 Then
+                    Me.txtValor.Text = detEmpleados.SalarioxHora
+                ElseIf Tipo = 7 Then
+                    Me.txtValor.Text = Me.VTIngresos.GetRow(Me.cbTIngreso.Properties.GetIndexByKeyValue(Me.cbTIngreso.EditValue))("Tipo")
+                Else
+                    Me.txtValor.Text = "0.00"
+                End If
+                Me.txtValor.Text = Math.Round(CDbl(Me.txtValor.Text) * TC * IIf(Doble = True, 2, 1), 2)
+            End If
+            Me.txtptm_monto.Text = Math.Round(CDbl(Me.txtDiasHoras.Text) * CDbl(Me.txtValor.Text), 2)
+        End If
+    End Sub
+  
+End Class

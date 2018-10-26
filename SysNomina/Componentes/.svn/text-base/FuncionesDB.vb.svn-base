@@ -1,0 +1,378 @@
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+
+Namespace VB.SysContab
+
+    Public Class FuncionesDetails
+        Public Codigo As String
+        Public Nombre As String
+
+    End Class
+
+    Public Class FuncionesDB
+
+        Public Function GetListReporte(ByVal Filtro As String, ByVal Empresa As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionesReporte", DBConn)
+
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Filtro", SqlDbType.NVarChar)
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+
+            pIdent.Value = Filtro
+            pIdent2.Value = Empresa
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "FUNCIONES")
+
+            DBConn.Close()
+
+            Return dsFicha
+        End Function
+
+        Public Function GetDetails(ByVal Codigo As String) As FuncionesDetails
+
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFunciones As New DataSet()
+            Dim Details As New FuncionesDetails()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionDetails", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Codigo", SqlDbType.NVarChar)
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+
+            pIdent.Value = Codigo
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFunciones, "Funciones")
+
+            If dsFunciones.Tables("Funciones").Rows.Count = 1 Then
+                Details.Codigo = dsFunciones.Tables("Funciones").Rows(0).Item("fun_Codigo")
+                Details.Nombre = dsFunciones.Tables("Funciones").Rows(0).Item("fun_Nombre")
+
+            End If
+
+            Return Details
+
+        End Function
+
+        Public Shared Function GetList() As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncion", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "Funciones")
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+
+        Public Function GetListNuevo() As String
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionNuevo", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "Funciones")
+
+            DBConn.Close()
+          
+            Return dsFicha.Tables("Funciones").Rows(0).Item("CODIGO")
+
+
+        End Function
+
+        Public Function GetListBuscar(ByVal Filtro As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionBuscar", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Filtro", SqlDbType.NVarChar)
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+            pIdent.Value = Filtro
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "Funciones")
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+
+        Public Shared Function GetListBuscarCombo(ByVal Filtro As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionBuscarCombo", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Filtro", SqlDbType.NVarChar)
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+            pIdent.Value = Filtro
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "Funciones")
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+        Public Shared Function GetListBuscarCombo0(ByVal Filtro As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionBuscarCombo0", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Filtro", SqlDbType.NVarChar)
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+            pIdent.Value = Filtro
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "Funciones")
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+
+
+        Public Function GetListNombre(ByVal Filtro As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_GetListFuncionBuscar", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Filtro", SqlDbType.NVarChar)
+            Dim pIdent2 As New SqlParameter("@Empresa", SqlDbType.Int)
+            pIdent.Value = Filtro
+            pIdent2.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+            DBCommand.Fill(dsFicha, "Funciones")
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+
+        Public Sub Additem(ByVal Codigo As String, ByVal Nombre As String)
+
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_FuncionAdd", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Empresa", SqlDbType.Int)
+            Dim pIdent2 As New SqlParameter("@Codigo", SqlDbType.NVarChar)
+            Dim pIdent3 As New SqlParameter("@Descripcion", SqlDbType.NVarChar)
+
+            pIdent.Value = EmpresaActual
+            pIdent2.Value = Codigo
+            pIdent3.Value = Nombre
+
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+            DBCommand.SelectCommand.Parameters.Add(pIdent3)
+
+
+            Try
+                'Se asigna conexion al comando y se abre conexion 
+                DBConn.Open()
+                DBCommand.SelectCommand.ExecuteNonQuery()
+                DBConn.Close()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+
+            End Try
+
+
+        End Sub
+
+        Public Sub Update(ByVal Codigo As String, ByVal Nombre As String)
+
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_FuncionUpdate", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Empresa", SqlDbType.Int)
+            Dim pIdent2 As New SqlParameter("@Codigo", SqlDbType.NVarChar)
+            Dim pIdent3 As New SqlParameter("@Descripcion", SqlDbType.NVarChar)
+
+            pIdent.Value = EmpresaActual
+            pIdent2.Value = Codigo
+            pIdent3.Value = Nombre
+
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+            DBCommand.SelectCommand.Parameters.Add(pIdent3)
+
+
+            Try
+                'Se asigna conexion al comando y se abre conexion 
+                DBConn.Open()
+                DBCommand.SelectCommand.ExecuteNonQuery()
+                DBConn.Close()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+        End Sub
+
+        Public Shared Sub delete(ByVal Codigo As String)
+
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_FuncionDelete", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pIdent As New SqlParameter("@Empresa", SqlDbType.Int)
+            Dim pIdent2 As New SqlParameter("@Codigo", SqlDbType.NVarChar)
+
+            pIdent.Value = EmpresaActual
+            pIdent2.Value = Codigo
+            DBCommand.SelectCommand.Parameters.Add(pIdent)
+            DBCommand.SelectCommand.Parameters.Add(pIdent2)
+
+
+
+            Try
+                'Se asigna conexion al comando y se abre conexion 
+                DBConn.Open()
+                DBCommand.SelectCommand.ExecuteNonQuery()
+                DBConn.Close()
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+
+            End Try
+
+        End Sub
+
+        Public Shared Function ProcedureParameters(ByVal Parametros As ArrayList, ByVal Variables As ArrayList, ByVal Procedimiento As String) As DataTable
+            Dim DC As New SqlConnection(VB.SysContab.RutinasNomina.AbrirConexion)
+            Dim Command As New SqlCommand(Procedimiento, DC)
+            Dim DT As New DataTable
+            Command.CommandType = CommandType.StoredProcedure
+            If Not Parametros Is Nothing Then
+                Dim Parametro(Parametros.Count) As SqlParameter
+                For i As Integer = 0 To Parametros.Count - 1
+                    Parametro(i) = New SqlParameter("@" & Variables(i).ToString, TipoDatos(Parametros(i).GetType))
+                    Parametro(i).Value = Parametros(i)
+                    Command.Parameters.Add(Parametro(i))
+                Next
+            End If
+            Try
+                DC.Open()
+                Dim DA As New SqlDataAdapter(Command)
+                DA.Fill(DT)
+            Catch ex As Exception
+                MsgBox("Error :" & ex.Message, MsgBoxStyle.Critical)
+            Finally
+                DC.Close()
+            End Try
+            Return DT
+        End Function
+
+        Public Shared Function TipoDatos(ByVal Value As Type) As SqlDbType
+            Select Case Value.Name
+                Case "String" : Return SqlDbType.NVarChar
+                Case "Int32" : Return SqlDbType.Int
+                Case "Double" : Return SqlDbType.Money
+                Case "Decimal" : Return SqlDbType.Money
+                Case "DateTime" : Return SqlDbType.SmallDateTime
+            End Select
+        End Function
+    End Class
+
+End Namespace

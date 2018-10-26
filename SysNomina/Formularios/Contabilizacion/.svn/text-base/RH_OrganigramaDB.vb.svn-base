@@ -1,0 +1,207 @@
+Imports DbConnect
+
+Namespace VB.SysContab
+
+    Public Class RH_OrganigramaDB
+
+        Public Shared Function RH_PlanillaContabilizar_Detalle(ByVal rubro As String, _
+            ByVal Periodo As String, ByVal org_codigo As Integer) As DataTable
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("rub_codigo", SqlDbType.NVarChar, 4, ParameterDirection.Input, rubro)
+            v.AddParameter("periodo", SqlDbType.NVarChar, 9, ParameterDirection.Input, Periodo)
+            v.AddParameter("org_codigo", SqlDbType.Int, 5, ParameterDirection.Input, org_codigo)
+
+            Try
+                Return v.EjecutarComando("_RH_PlanillaContabilizar_Detalle", "Tabla")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return Nothing
+            End Try
+        End Function
+
+        Public Shared Sub Organigrama_Detalle(ByVal Organigrama As Integer, ByVal Empleado As String, ByVal Porcentaje As Double)
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 8, ParameterDirection.Input, Empleado)
+            v.AddParameter("org_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Organigrama)
+            v.AddParameter("porcentaje", SqlDbType.Float, 5, ParameterDirection.Input, Porcentaje)
+
+            Try
+                v.EjecutarComando("_RH_Organigrama_Empleado_Add")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Sub
+
+        Public Shared Sub Organigrama_Detalle_Borrar(ByVal Organigrama As Integer, ByVal Empleado As String)
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 8, ParameterDirection.Input, Empleado)
+            v.AddParameter("org_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Organigrama)
+
+            Try
+                v.EjecutarComando("_RH_Organigrama_Empleado_Delete")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Sub
+
+        Public Shared Function Plantilla(ByRef CuentasVacias As Integer, ByVal Periodo As String, _
+            ByVal TPeriodo As String, ByVal Moneda As String, ByVal AgruparCuentas As Boolean) As DataTable
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            Dim dt As New DataTable
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("CuentasVacias", SqlDbType.Int, 5, ParameterDirection.Output, CuentasVacias)
+            v.AddParameter("Periodo", SqlDbType.NVarChar, 8, ParameterDirection.Input, Periodo)
+            v.AddParameter("TPeriodo", SqlDbType.NVarChar, 1, ParameterDirection.Input, TPeriodo)
+            v.AddParameter("Moneda", SqlDbType.NVarChar, 2, ParameterDirection.Input, Moneda)
+            v.AddParameter("Agrupar", SqlDbType.Bit, 2, ParameterDirection.Input, AgruparCuentas)
+
+            Try
+
+                dt = v.EjecutarComando("_RH_PlanillaContabilizar", "Tabla")
+                CuentasVacias = v.GetParameter("CuentasVacias").Valor
+                Return dt
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return New DataTable
+                CuentasVacias = 0
+            End Try
+        End Function
+
+        Public Shared Function Listar() As DataTable
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            Try
+                Return v.EjecutarComando("_RH_Organigrama_List", "Tabla")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return New DataTable
+            End Try
+        End Function
+        Public Shared Function Plantilla(ByVal Codigo As Integer) As DataTable
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("org_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Codigo)
+            Try
+                Return v.EjecutarComando("_RH_Plantilla_List", "Tabla")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return New DataTable
+            End Try
+        End Function
+
+        Public Shared Sub Plantilla_Add(ByVal Codigo As Integer, ByVal Rubro As String, ByVal TRubro As String, ByVal Debito As String, ByVal Credito As String)
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("org_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Codigo)
+            v.AddParameter("rub_codigo", SqlDbType.NVarChar, 50, ParameterDirection.Input, Rubro)
+            v.AddParameter("rub_tipo", SqlDbType.NVarChar, 1, ParameterDirection.Input, TRubro)
+            v.AddParameter("rub_cuentaDebito", SqlDbType.NVarChar, 64, ParameterDirection.Input, Debito)
+            v.AddParameter("rub_cuentaCredito", SqlDbType.NVarChar, 64, ParameterDirection.Input, Credito)
+            Try
+                v.EjecutarComando("_RH_Plantilla_Rubros")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Sub
+
+        Public Shared Function Agregar(ByVal Padre As Integer, ByVal Descripcion As String, _
+                ByVal Empleado As String, ByVal Email As String, ByVal Camino As String, ByVal Sufijo As String) As Integer
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("ID", SqlDbType.Int, 5, ParameterDirection.Output, 0)
+            v.AddParameter("Padre", SqlDbType.Int, 5, ParameterDirection.Input, Padre)
+            v.AddParameter("Descripcion", SqlDbType.NVarChar, 50, ParameterDirection.Input, Descripcion)
+            v.AddParameter("sufijo", SqlDbType.NVarChar, 50, ParameterDirection.Input, Sufijo)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 50, ParameterDirection.Input, Empleado)
+            v.AddParameter("email", SqlDbType.NVarChar, 50, ParameterDirection.Input, Email)
+            v.AddParameter("nivel", SqlDbType.Int, 50, ParameterDirection.Input, 0)
+            v.AddParameter("empresa", SqlDbType.Int, 50, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("camino", SqlDbType.NVarChar, 200, ParameterDirection.Input, Camino)
+            Try
+                v.EjecutarComando("_RH_Organigrama_Add")
+                Return v.GetParameter("ID").Valor
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return -1
+            End Try
+        End Function
+
+        Public Shared Sub Modificar(ByVal Id As Integer, ByVal Padre As Integer, _
+            ByVal Descripcion As String, ByVal Empleado As String, ByVal Email As String, ByVal Camino As String, _
+            ByVal Sufijo As String)
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+
+            v.AddParameter("Descripcion", SqlDbType.NVarChar, 50, ParameterDirection.Input, Descripcion)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 50, ParameterDirection.Input, Empleado)
+            v.AddParameter("email", SqlDbType.NVarChar, 50, ParameterDirection.Input, Email)
+            v.AddParameter("id", SqlDbType.Int, 50, ParameterDirection.Input, Id)
+            v.AddParameter("padre", SqlDbType.Int, 50, ParameterDirection.Input, Padre)
+            v.AddParameter("camino", SqlDbType.NVarChar, 200, ParameterDirection.Input, Camino)
+            v.AddParameter("org_sufijo", SqlDbType.NVarChar, 50, ParameterDirection.Input, Sufijo)
+            Try
+                v.EjecutarComando("_RH_Organigrama_Update")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+
+            End Try
+        End Sub
+
+        Public Shared Sub Borrar(ByVal Id As Integer)
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+
+            v.AddParameter("id", SqlDbType.Int, 50, ParameterDirection.Input, Id)
+            Try
+                v.EjecutarComando("_RH_Organigrama_Delete")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+
+            End Try
+        End Sub
+
+        Public Shared Function PlantillaDetalle(Optional ByVal Empleado As String = "%", _
+        Optional ByVal TRubro As String = "%", Optional ByVal Rubro As String = "%") As DataTable
+
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 8, ParameterDirection.Input, Empleado)
+            v.AddParameter("trubro", SqlDbType.NVarChar, 1, ParameterDirection.Input, TRubro)
+            v.AddParameter("rubro", SqlDbType.NVarChar, 10, ParameterDirection.Input, Rubro)
+            Try
+                Return v.EjecutarComando("_RH_PlantillaDetalle_GetList", "Detalle")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return New DataTable
+            End Try
+        End Function
+
+        Public Shared Function PlantillaDetalle_Add(ByVal Empleado As String, _
+           ByVal TRubro As String, ByVal Rubro As String, ByVal CuentaDebito As String, _
+           ByVal CuentaCredito As String, ByVal Activo As Boolean) As Boolean
+
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 8, ParameterDirection.Input, Empleado)
+            v.AddParameter("trubro", SqlDbType.NVarChar, 1, ParameterDirection.Input, TRubro)
+            v.AddParameter("rubro", SqlDbType.NVarChar, 10, ParameterDirection.Input, Rubro)
+            v.AddParameter("CDebito", SqlDbType.NVarChar, 64, ParameterDirection.Input, CuentaDebito)
+            v.AddParameter("CCredito", SqlDbType.NVarChar, 64, ParameterDirection.Input, CuentaCredito)
+            v.AddParameter("Activo", SqlDbType.Bit, 1, ParameterDirection.Input, Activo)
+            Try
+                v.EjecutarComando("_RH_PlantillaDetalle_Add")
+                Return True
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+
+        End Function
+
+    End Class
+
+End Namespace
+
+

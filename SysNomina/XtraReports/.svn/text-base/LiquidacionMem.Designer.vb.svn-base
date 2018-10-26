@@ -1,0 +1,404 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Public Class LiquidacionMem
+    Inherits DevExpress.XtraReports.UI.XtraReport
+
+    'XtraReport overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Designer
+    'It can be modified using the Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.Detail = New DevExpress.XtraReports.UI.DetailBand
+        Me.ss = New DevExpress.XtraReports.UI.XRLabel
+        Me.monsimb = New DevExpress.XtraReports.UI.XRLabel
+        Me.raya2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.NyA = New DevExpress.XtraReports.UI.XRLabel
+        Me.Codigo = New DevExpress.XtraReports.UI.XRLabel
+        Me.XrLabel10 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Dep = New DevExpress.XtraReports.UI.XRLabel
+        Me.Salariom = New DevExpress.XtraReports.UI.XRLabel
+        Me.Ingreso = New DevExpress.XtraReports.UI.XRLabel
+        Me.Salida = New DevExpress.XtraReports.UI.XRLabel
+        Me.NyA2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Codigo2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Dep2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Cargo2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Salariom2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Ingreso2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Salida2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.TC = New DevExpress.XtraReports.UI.XRLabel
+        Me.salariocord = New DevExpress.XtraReports.UI.XRLabel
+        Me.PageHeader = New DevExpress.XtraReports.UI.PageHeaderBand
+        Me.raya = New DevExpress.XtraReports.UI.XRLabel
+        Me.Picture = New DevExpress.XtraReports.UI.XRPictureBox
+        Me.Fecha2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Fecha = New DevExpress.XtraReports.UI.XRLabel
+        Me.Liqnum2 = New DevExpress.XtraReports.UI.XRLabel
+        Me.Liqnum = New DevExpress.XtraReports.UI.XRLabel
+        Me.Liquidacionf = New DevExpress.XtraReports.UI.XRLabel
+        Me.empresa = New DevExpress.XtraReports.UI.XRLabel
+        Me.PageFooter = New DevExpress.XtraReports.UI.PageFooterBand
+        Me.Detalle = New DevExpress.XtraReports.UI.XRSubreport
+        CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
+        '
+        'Detail
+        '
+        Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.Detalle})
+        Me.Detail.Height = 25
+        Me.Detail.Name = "Detail"
+        Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        Me.Detail.StylePriority.UsePadding = False
+        Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'ss
+        '
+        Me.ss.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ss.Location = New System.Drawing.Point(342, 200)
+        Me.ss.Name = "ss"
+        Me.ss.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.ss.Size = New System.Drawing.Size(258, 17)
+        Me.ss.StylePriority.UseFont = False
+        Me.ss.Text = "T/C"
+        '
+        'monsimb
+        '
+        Me.monsimb.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.mon_simbolo", "")})
+        Me.monsimb.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.monsimb.Location = New System.Drawing.Point(183, 200)
+        Me.monsimb.Name = "monsimb"
+        Me.monsimb.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.monsimb.Size = New System.Drawing.Size(50, 17)
+        Me.monsimb.StylePriority.UseFont = False
+        '
+        'raya2
+        '
+        Me.raya2.BackColor = System.Drawing.Color.Transparent
+        Me.raya2.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
+        Me.raya2.Location = New System.Drawing.Point(0, 267)
+        Me.raya2.Name = "raya2"
+        Me.raya2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.raya2.Size = New System.Drawing.Size(650, 2)
+        Me.raya2.StylePriority.UseBackColor = False
+        Me.raya2.StylePriority.UseBorders = False
+        Me.raya2.StylePriority.UsePadding = False
+        '
+        'NyA
+        '
+        Me.NyA.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NyA.Location = New System.Drawing.Point(8, 100)
+        Me.NyA.Name = "NyA"
+        Me.NyA.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.NyA.Size = New System.Drawing.Size(167, 17)
+        Me.NyA.StylePriority.UseFont = False
+        Me.NyA.Text = "Nombres y Apellidos:"
+        '
+        'Codigo
+        '
+        Me.Codigo.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Codigo.Location = New System.Drawing.Point(8, 125)
+        Me.Codigo.Name = "Codigo"
+        Me.Codigo.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Codigo.Size = New System.Drawing.Size(167, 17)
+        Me.Codigo.StylePriority.UseFont = False
+        Me.Codigo.Text = "Codigo:"
+        '
+        'XrLabel10
+        '
+        Me.XrLabel10.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.XrLabel10.Location = New System.Drawing.Point(8, 150)
+        Me.XrLabel10.Name = "XrLabel10"
+        Me.XrLabel10.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.XrLabel10.Size = New System.Drawing.Size(167, 17)
+        Me.XrLabel10.StylePriority.UseFont = False
+        Me.XrLabel10.Text = "Dependencia:"
+        '
+        'Dep
+        '
+        Me.Dep.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dep.Location = New System.Drawing.Point(8, 175)
+        Me.Dep.Name = "Dep"
+        Me.Dep.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Dep.Size = New System.Drawing.Size(167, 17)
+        Me.Dep.StylePriority.UseFont = False
+        Me.Dep.Text = "Cargo:"
+        '
+        'Salariom
+        '
+        Me.Salariom.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Salariom.Location = New System.Drawing.Point(8, 200)
+        Me.Salariom.Name = "Salariom"
+        Me.Salariom.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Salariom.Size = New System.Drawing.Size(167, 17)
+        Me.Salariom.StylePriority.UseFont = False
+        Me.Salariom.Text = "Salario Mensual: "
+        '
+        'Ingreso
+        '
+        Me.Ingreso.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Ingreso.Location = New System.Drawing.Point(8, 225)
+        Me.Ingreso.Name = "Ingreso"
+        Me.Ingreso.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Ingreso.Size = New System.Drawing.Size(167, 17)
+        Me.Ingreso.StylePriority.UseFont = False
+        Me.Ingreso.Text = "Fecha de Ingreso:"
+        '
+        'Salida
+        '
+        Me.Salida.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Salida.Location = New System.Drawing.Point(8, 250)
+        Me.Salida.Name = "Salida"
+        Me.Salida.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Salida.Size = New System.Drawing.Size(167, 17)
+        Me.Salida.StylePriority.UseFont = False
+        Me.Salida.Text = "Fecha de salida:"
+        '
+        'NyA2
+        '
+        Me.NyA2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.nombre", "")})
+        Me.NyA2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NyA2.Location = New System.Drawing.Point(183, 100)
+        Me.NyA2.Name = "NyA2"
+        Me.NyA2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.NyA2.Size = New System.Drawing.Size(467, 17)
+        Me.NyA2.StylePriority.UseFont = False
+        '
+        'Codigo2
+        '
+        Me.Codigo2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.emp_codigo", "{0:n8}")})
+        Me.Codigo2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Codigo2.Location = New System.Drawing.Point(183, 125)
+        Me.Codigo2.Name = "Codigo2"
+        Me.Codigo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Codigo2.Size = New System.Drawing.Size(467, 17)
+        Me.Codigo2.StylePriority.UseFont = False
+        '
+        'Dep2
+        '
+        Me.Dep2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.dep_nombre", "")})
+        Me.Dep2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Dep2.Location = New System.Drawing.Point(183, 150)
+        Me.Dep2.Name = "Dep2"
+        Me.Dep2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Dep2.Size = New System.Drawing.Size(467, 17)
+        Me.Dep2.StylePriority.UseFont = False
+        '
+        'Cargo2
+        '
+        Me.Cargo2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.Funcion", "")})
+        Me.Cargo2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cargo2.Location = New System.Drawing.Point(183, 175)
+        Me.Cargo2.Name = "Cargo2"
+        Me.Cargo2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Cargo2.Size = New System.Drawing.Size(467, 17)
+        Me.Cargo2.StylePriority.UseFont = False
+        '
+        'Salariom2
+        '
+        Me.Salariom2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.liq_smensual", "{0:n2}")})
+        Me.Salariom2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Salariom2.Location = New System.Drawing.Point(233, 200)
+        Me.Salariom2.Name = "Salariom2"
+        Me.Salariom2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Salariom2.Size = New System.Drawing.Size(100, 17)
+        Me.Salariom2.StylePriority.UseFont = False
+        Me.Salariom2.StylePriority.UseTextAlignment = False
+        Me.Salariom2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'Ingreso2
+        '
+        Me.Ingreso2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.emp_fingreso", "{0:dd""-""MMMM""-""yyyy}")})
+        Me.Ingreso2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Ingreso2.Location = New System.Drawing.Point(183, 225)
+        Me.Ingreso2.Name = "Ingreso2"
+        Me.Ingreso2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Ingreso2.Size = New System.Drawing.Size(467, 17)
+        Me.Ingreso2.StylePriority.UseFont = False
+        '
+        'Salida2
+        '
+        Me.Salida2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.baj_fecha", "{0:dd""-""MMMM""-""yyyy}")})
+        Me.Salida2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Salida2.Location = New System.Drawing.Point(183, 250)
+        Me.Salida2.Name = "Salida2"
+        Me.Salida2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Salida2.Size = New System.Drawing.Size(467, 17)
+        Me.Salida2.StylePriority.UseFont = False
+        '
+        'TC
+        '
+        Me.TC.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.liq_tc", "{0:n2}")})
+        Me.TC.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TC.Location = New System.Drawing.Point(283, 75)
+        Me.TC.Name = "TC"
+        Me.TC.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.TC.Size = New System.Drawing.Size(67, 17)
+        Me.TC.StylePriority.UseFont = False
+        Me.TC.StylePriority.UseTextAlignment = False
+        Me.TC.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        Me.TC.Visible = False
+        '
+        'salariocord
+        '
+        Me.salariocord.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.liq_salario", "{0:n2}")})
+        Me.salariocord.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.salariocord.Location = New System.Drawing.Point(350, 75)
+        Me.salariocord.Name = "salariocord"
+        Me.salariocord.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.salariocord.Size = New System.Drawing.Size(33, 17)
+        Me.salariocord.StylePriority.UseFont = False
+        Me.salariocord.StylePriority.UseTextAlignment = False
+        Me.salariocord.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+        Me.salariocord.Visible = False
+        '
+        'PageHeader
+        '
+        Me.PageHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.ss, Me.monsimb, Me.raya2, Me.Salida2, Me.Codigo, Me.XrLabel10, Me.Dep, Me.Salariom, Me.Ingreso, Me.Salida, Me.NyA2, Me.Codigo2, Me.Dep2, Me.Cargo2, Me.Salariom2, Me.Ingreso2, Me.NyA, Me.salariocord, Me.TC, Me.raya, Me.Picture, Me.Fecha2, Me.Fecha, Me.Liqnum2, Me.Liqnum, Me.Liquidacionf, Me.empresa})
+        Me.PageHeader.Height = 269
+        Me.PageHeader.Name = "PageHeader"
+        Me.PageHeader.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        Me.PageHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'raya
+        '
+        Me.raya.BackColor = System.Drawing.Color.Transparent
+        Me.raya.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
+        Me.raya.Location = New System.Drawing.Point(0, 92)
+        Me.raya.Name = "raya"
+        Me.raya.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        Me.raya.Size = New System.Drawing.Size(650, 2)
+        Me.raya.StylePriority.UseBackColor = False
+        Me.raya.StylePriority.UseBorders = False
+        Me.raya.StylePriority.UsePadding = False
+        '
+        'Picture
+        '
+        Me.Picture.Location = New System.Drawing.Point(8, 8)
+        Me.Picture.Name = "Picture"
+        Me.Picture.Size = New System.Drawing.Size(92, 59)
+        '
+        'Fecha2
+        '
+        Me.Fecha2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.liq_fecha", "{0:dd""-""MMMM""-""yyyy}")})
+        Me.Fecha2.Location = New System.Drawing.Point(142, 74)
+        Me.Fecha2.Name = "Fecha2"
+        Me.Fecha2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Fecha2.Size = New System.Drawing.Size(108, 17)
+        '
+        'Fecha
+        '
+        Me.Fecha.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Fecha.Location = New System.Drawing.Point(8, 75)
+        Me.Fecha.Name = "Fecha"
+        Me.Fecha.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Fecha.Size = New System.Drawing.Size(133, 17)
+        Me.Fecha.StylePriority.UseFont = False
+        Me.Fecha.Text = "Fecha de elaboracion:"
+        '
+        'Liqnum2
+        '
+        Me.Liqnum2.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "vLiquidacionEnc.liq_codigo", "")})
+        Me.Liqnum2.Location = New System.Drawing.Point(575, 74)
+        Me.Liqnum2.Name = "Liqnum2"
+        Me.Liqnum2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Liqnum2.Size = New System.Drawing.Size(67, 17)
+        '
+        'Liqnum
+        '
+        Me.Liqnum.Font = New System.Drawing.Font("Times New Roman", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Liqnum.Location = New System.Drawing.Point(475, 75)
+        Me.Liqnum.Name = "Liqnum"
+        Me.Liqnum.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Liqnum.Size = New System.Drawing.Size(100, 17)
+        Me.Liqnum.StylePriority.UseFont = False
+        Me.Liqnum.Text = "Liquidacion N°:"
+        '
+        'Liquidacionf
+        '
+        Me.Liquidacionf.Font = New System.Drawing.Font("Times New Roman", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Liquidacionf.Location = New System.Drawing.Point(8, 33)
+        Me.Liquidacionf.Multiline = True
+        Me.Liquidacionf.Name = "Liquidacionf"
+        Me.Liquidacionf.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.Liquidacionf.Size = New System.Drawing.Size(642, 33)
+        Me.Liquidacionf.StylePriority.UseFont = False
+        Me.Liquidacionf.StylePriority.UseTextAlignment = False
+        Me.Liquidacionf.Text = "Memoria de Cálculo de Liquidación" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "de Prestaciones Sociales"
+        Me.Liquidacionf.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'empresa
+        '
+        Me.empresa.BackColor = System.Drawing.Color.Transparent
+        Me.empresa.DataBindings.AddRange(New DevExpress.XtraReports.UI.XRBinding() {New DevExpress.XtraReports.UI.XRBinding("Text", Nothing, "GetLogoEmpresa.empresa", "")})
+        Me.empresa.Font = New System.Drawing.Font("Times New Roman", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.empresa.Location = New System.Drawing.Point(8, 0)
+        Me.empresa.Name = "empresa"
+        Me.empresa.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100.0!)
+        Me.empresa.Size = New System.Drawing.Size(642, 33)
+        Me.empresa.StylePriority.UseBackColor = False
+        Me.empresa.StylePriority.UseFont = False
+        Me.empresa.StylePriority.UseTextAlignment = False
+        Me.empresa.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
+        '
+        'PageFooter
+        '
+        Me.PageFooter.Height = 8
+        Me.PageFooter.Name = "PageFooter"
+        Me.PageFooter.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100.0!)
+        Me.PageFooter.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        '
+        'Detalle
+        '
+        Me.Detalle.Location = New System.Drawing.Point(0, 0)
+        Me.Detalle.Name = "Detalle"
+        Me.Detalle.Size = New System.Drawing.Size(650, 25)
+        '
+        'LiquidacionMem
+        '
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail, Me.PageHeader, Me.PageFooter})
+        Me.Version = "8.3"
+        CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
+
+    End Sub
+    Friend WithEvents Detail As DevExpress.XtraReports.UI.DetailBand
+    Friend WithEvents PageHeader As DevExpress.XtraReports.UI.PageHeaderBand
+    Friend WithEvents PageFooter As DevExpress.XtraReports.UI.PageFooterBand
+    Friend WithEvents Liquidacionf As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents empresa As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Fecha2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Fecha As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Liqnum2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Liqnum As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Salariom As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Dep As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel10 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Codigo As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents NyA As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents raya As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Salida As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Ingreso As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Salida2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Ingreso2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Salariom2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Cargo2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Dep2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Codigo2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents NyA2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Picture As DevExpress.XtraReports.UI.XRPictureBox
+    Friend WithEvents raya2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents monsimb As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents salariocord As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents ss As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents TC As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Detalle As DevExpress.XtraReports.UI.XRSubreport
+End Class

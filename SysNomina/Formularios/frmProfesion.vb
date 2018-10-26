@@ -1,0 +1,93 @@
+Imports System
+Imports iTextSharp
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
+Imports System.IO
+Public Class frmProfesion
+
+    Inherits System.Windows.Forms.Form
+
+    Private Shared ChildInstance As frmProfesion = Nothing
+
+    Public Shared Function Instance() As frmProfesion
+        If ChildInstance Is Nothing OrElse ChildInstance.IsDisposed = True Then
+            ChildInstance = New frmProfesion()
+        End If
+        ChildInstance.BringToFront()
+
+        Return ChildInstance
+
+    End Function
+    Private Sub frmAreas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        cargar()
+        Me.Text = "Mantenimiento de Profesiones"
+        Me.Refresh()
+
+    End Sub
+    Public Sub cargar()
+        dgProfesion.DataSource = VB.SysContab.ProfesionDB.GetList().Tables("Profesion")
+        If Me.VProfesion.DataRowCount <> 0 Then
+            Registro = Me.VProfesion.GetFocusedRowCellValue("Codigo")
+        Else
+            Registro = "Vacio"
+        End If
+
+    End Sub
+
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmdNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdNuevo.Click
+        Dim z As frmAgregarProfesion = frmAgregarProfesion.Instance
+        Nuevo = "SI"
+        z.MdiParent = Me.MdiParent
+        z.Show()
+
+    End Sub
+
+    Private Sub cmdModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdModificar.Click
+        If Me.VProfesion.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+
+        Dim f As frmAgregarProfesion = frmAgregarProfesion.Instance
+        Registro = Me.VProfesion.GetFocusedRowCellValue("Codigo")
+
+        Nuevo = "NO"
+        f.txtCodigo.Text = Me.VProfesion.GetFocusedRowCellValue("Codigo")
+        f.txtNombre.Text = Me.VProfesion.GetFocusedRowCellValue("Descripcion")
+        f.MdiParent = Me.MdiParent
+        f.Show()
+
+    End Sub
+
+
+    Private Sub cmdBorrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdBorrar.Click
+
+        If Me.VProfesion.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+        Registro = Me.VProfesion.GetFocusedRowCellValue("Codigo")
+
+        If MsgBox("Esta seguro que dese borrar el registro?  ", MsgBoxStyle.YesNo + MsgBoxStyle.Question) = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        If VB.SysContab.ProfesionDB.Delete(Registro) = False Then
+            MsgBox("No se pudo borrar el registro", MsgBoxStyle.Critical, "STS-Nomina")
+            Exit Sub
+        End If
+        Me.cargar()
+
+    End Sub
+
+    Private Sub VProfesion_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles VProfesion.FocusedRowChanged
+        Registro = Me.VProfesion.GetFocusedRowCellValue("Codigo")
+    End Sub
+
+   
+End Class

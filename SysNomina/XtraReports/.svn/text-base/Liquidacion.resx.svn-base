@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="Detail.Name" xml:space="preserve">
+    <value>Detail</value>
+  </metadata>
+  <metadata name="Maximo.Name" xml:space="preserve">
+    <value>Maximo</value>
+  </metadata>
+  <metadata name="lMaximo.Name" xml:space="preserve">
+    <value>lMaximo</value>
+  </metadata>
+  <metadata name="Promedio.Name" xml:space="preserve">
+    <value>Promedio</value>
+  </metadata>
+  <metadata name="lPromedio.Name" xml:space="preserve">
+    <value>lPromedio</value>
+  </metadata>
+  <metadata name="ss.Name" xml:space="preserve">
+    <value>ss</value>
+  </metadata>
+  <metadata name="monsimb.Name" xml:space="preserve">
+    <value>monsimb</value>
+  </metadata>
+  <metadata name="Liq_det.Name" xml:space="preserve">
+    <value>Liq_det</value>
+  </metadata>
+  <metadata name="raya2.Name" xml:space="preserve">
+    <value>raya2</value>
+  </metadata>
+  <metadata name="NyA.Name" xml:space="preserve">
+    <value>NyA</value>
+  </metadata>
+  <metadata name="Codigo.Name" xml:space="preserve">
+    <value>Codigo</value>
+  </metadata>
+  <metadata name="XrLabel10.Name" xml:space="preserve">
+    <value>XrLabel10</value>
+  </metadata>
+  <metadata name="Dep.Name" xml:space="preserve">
+    <value>Dep</value>
+  </metadata>
+  <metadata name="Salariom.Name" xml:space="preserve">
+    <value>Salariom</value>
+  </metadata>
+  <metadata name="Ingreso.Name" xml:space="preserve">
+    <value>Ingreso</value>
+  </metadata>
+  <metadata name="Salida.Name" xml:space="preserve">
+    <value>Salida</value>
+  </metadata>
+  <metadata name="NyA2.Name" xml:space="preserve">
+    <value>NyA2</value>
+  </metadata>
+  <metadata name="Codigo2.Name" xml:space="preserve">
+    <value>Codigo2</value>
+  </metadata>
+  <metadata name="Dep2.Name" xml:space="preserve">
+    <value>Dep2</value>
+  </metadata>
+  <metadata name="Cargo2.Name" xml:space="preserve">
+    <value>Cargo2</value>
+  </metadata>
+  <metadata name="Salariom2.Name" xml:space="preserve">
+    <value>Salariom2</value>
+  </metadata>
+  <metadata name="Ingreso2.Name" xml:space="preserve">
+    <value>Ingreso2</value>
+  </metadata>
+  <metadata name="Salida2.Name" xml:space="preserve">
+    <value>Salida2</value>
+  </metadata>
+  <metadata name="TC.Name" xml:space="preserve">
+    <value>TC</value>
+  </metadata>
+  <metadata name="salariocord.Name" xml:space="preserve">
+    <value>salariocord</value>
+  </metadata>
+  <metadata name="PageHeader.Name" xml:space="preserve">
+    <value>PageHeader</value>
+  </metadata>
+  <metadata name="sfijo.Name" xml:space="preserve">
+    <value>sfijo</value>
+  </metadata>
+  <metadata name="raya.Name" xml:space="preserve">
+    <value>raya</value>
+  </metadata>
+  <metadata name="Picture.Name" xml:space="preserve">
+    <value>Picture</value>
+  </metadata>
+  <metadata name="Fecha2.Name" xml:space="preserve">
+    <value>Fecha2</value>
+  </metadata>
+  <metadata name="Fecha.Name" xml:space="preserve">
+    <value>Fecha</value>
+  </metadata>
+  <metadata name="Liqnum2.Name" xml:space="preserve">
+    <value>Liqnum2</value>
+  </metadata>
+  <metadata name="Liqnum.Name" xml:space="preserve">
+    <value>Liqnum</value>
+  </metadata>
+  <metadata name="Liquidacionf.Name" xml:space="preserve">
+    <value>Liquidacionf</value>
+  </metadata>
+  <metadata name="empresa.Name" xml:space="preserve">
+    <value>empresa</value>
+  </metadata>
+  <metadata name="PageFooter.Name" xml:space="preserve">
+    <value>PageFooter</value>
+  </metadata>
+  <metadata name="inssl.Name" xml:space="preserve">
+    <value>inssl</value>
+  </metadata>
+  <metadata name="ir.Name" xml:space="preserve">
+    <value>ir</value>
+  </metadata>
+  <metadata name="teg.Name" xml:space="preserve">
+    <value>teg</value>
+  </metadata>
+  <metadata name="ting.Name" xml:space="preserve">
+    <value>ting</value>
+  </metadata>
+  <metadata name="monto_letras.Name" xml:space="preserve">
+    <value>monto_letras</value>
+  </metadata>
+  <metadata name="detallado.Name" xml:space="preserve">
+    <value>detallado</value>
+  </metadata>
+  <metadata name="XrLabel21.Name" xml:space="preserve">
+    <value>XrLabel21</value>
+  </metadata>
+  <metadata name="INSS_P.Name" xml:space="preserve">
+    <value>INSS_P</value>
+  </metadata>
+  <metadata name="INATEC.Name" xml:space="preserve">
+    <value>INATEC</value>
+  </metadata>
+  <metadata name="Inatec1.Name" xml:space="preserve">
+    <value>Inatec1</value>
+  </metadata>
+  <metadata name="INSS.Name" xml:space="preserve">
+    <value>INSS</value>
+  </metadata>
+  <metadata name="TT_REC.Name" xml:space="preserve">
+    <value>TT_REC</value>
+  </metadata>
+  <metadata name="ttrecib.Name" xml:space="preserve">
+    <value>ttrecib</value>
+  </metadata>
+  <metadata name="raya1.Name" xml:space="preserve">
+    <value>raya1</value>
+  </metadata>
+  <metadata name="XrLabel15.Name" xml:space="preserve">
+    <value>XrLabel15</value>
+  </metadata>
+  <metadata name="XrLabel14.Name" xml:space="preserve">
+    <value>XrLabel14</value>
+  </metadata>
+  <metadata name="autorizado.Name" xml:space="preserve">
+    <value>autorizado</value>
+  </metadata>
+  <metadata name="revisado.Name" xml:space="preserve">
+    <value>revisado</value>
+  </metadata>
+  <metadata name="elaborado.Name" xml:space="preserve">
+    <value>elaborado</value>
+  </metadata>
+  <metadata name="f_autorizado.Name" xml:space="preserve">
+    <value>f_autorizado</value>
+  </metadata>
+  <metadata name="f_revisado.Name" xml:space="preserve">
+    <value>f_revisado</value>
+  </metadata>
+  <metadata name="f_elaborado.Name" xml:space="preserve">
+    <value>f_elaborado</value>
+  </metadata>
+  <metadata name="cedula.Name" xml:space="preserve">
+    <value>cedula</value>
+  </metadata>
+  <metadata name="cedula_num.Name" xml:space="preserve">
+    <value>cedula_num</value>
+  </metadata>
+  <metadata name="nombre.Name" xml:space="preserve">
+    <value>nombre</value>
+  </metadata>
+  <metadata name="rec_conf.Name" xml:space="preserve">
+    <value>rec_conf</value>
+  </metadata>
+  <metadata name="firma_recib.Name" xml:space="preserve">
+    <value>firma_recib</value>
+  </metadata>
+  <metadata name="rayadoble.Name" xml:space="preserve">
+    <value>rayadoble</value>
+  </metadata>
+  <metadata name="$this.Name" xml:space="preserve">
+    <value>Liquidacion</value>
+  </metadata>
+</root>

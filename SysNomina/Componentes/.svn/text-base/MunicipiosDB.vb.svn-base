@@ -1,0 +1,34 @@
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+
+Namespace VB.SysContab
+
+
+    Public Class MunicipiosDB
+
+        Public Shared Function GetList(ByVal Departamento As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+            Try
+                DBCommand = New SqlDataAdapter("SELECT Codigo_Municipio AS Codigo, Nombre_Municipio AS Nombre FROM Municipios WHERE Codigo_Departamento = " & Departamento & " OR Codigo_Municipio = 0", DBConn)
+                DBCommand.Fill(dsFicha, "Municipios")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+
+
+            DBConn.Close()
+
+            Return dsFicha
+
+        End Function
+
+    End Class
+
+End Namespace

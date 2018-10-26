@@ -1,0 +1,241 @@
+﻿Public Class frmProduccion 
+
+    Private Sub frmProduccion_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Me.cargar()
+    End Sub
+
+    Private Sub cargar()
+        Me.calc_Produccion.EditValue = 0.0
+        Me.cbFechas.Properties.DataSource = Nothing
+
+        Me.cbPlanillas.Properties.DataSource = VB.SysContab.PeriodoNominaDB.GetList_Activos().Tables(0)
+        Me.cbPlanillas.Properties.DisplayMember = "per_descripcion"
+        Me.cbPlanillas.Properties.ValueMember = "per_codigo"
+
+        Me.cbempleados.DataSource = VB.SysContab.EmpleadosDB.GetList().Tables(0)
+        Me.cbempleados.DisplayMember = "Nombre"
+        Me.cbempleados.ValueMember = "Codigo"
+
+        Me.cbcategorias.DataSource = Cat_ProdDB.Lista(EmpresaActual, 0, False)
+        Me.cbcategorias.DisplayMember = "cat_desccorta"
+        Me.cbcategorias.ValueMember = "cat_codigo"
+
+        Me.cbTipoAsistencia.DataSource = RH_Produccion.RH_TipoAsistencia_List(0)
+        Me.cbTipoAsistencia.DisplayMember = "asi_descripcion"
+        Me.cbTipoAsistencia.ValueMember = "asi_codigo"
+
+        Me.cbAreas.Properties.DataSource = VB.SysContab.AreaDB.RH_Prod_Area(0)
+        Me.cbAreas.Properties.DisplayMember = "are_descripcion"
+        Me.cbAreas.Properties.ValueMember = "id"
+
+    End Sub
+
+    Private Sub Inicializar()
+
+    End Sub
+
+    Private Sub Refrescar()
+        Dim h As Integer
+        Dim i As String
+        Dim j As Date
+        Dim k As Decimal
+
+        h = Me.cbAreas.EditValue
+        i = Me.cbPlanillas.EditValue
+        j = Me.cbPlanillas.GetColumnValue("per_finicio")
+        k = Me.calc_Produccion.EditValue
+
+        Me.cbPlanillas.Properties.DataSource = VB.SysContab.PeriodoNominaDB.GetList_Activos().Tables(0)
+        Me.cbPlanillas.Properties.DisplayMember = "per_descripcion"
+        Me.cbPlanillas.Properties.ValueMember = "per_codigo"
+
+        Me.cbPlanillas.EditValue = i
+        validar_Planillas()
+        Me.cbFechas.EditValue = j
+        Me.calc_Produccion.EditValue = Me.cbFechas.Properties.DataSource.rows(0)("produccion")
+        Me.calc_Minimo.EditValue = Me.cbFechas.Properties.DataSource.rows(0)("minimo")
+
+        Me.Pivot()
+
+    End Sub
+
+    'Private Sub PorDia()
+    '    Me.dgProduccion.DataSource = RH_Produccion.RH_ProduccionDetalle_List(Me.cbFechas.GetColumnValue("prod_id"), _
+    '       EmpresaActual, Me.cbFechas.EditValue, Me.cbFechas.EditValue, Me.cbAreas.EditValue)
+
+    '    For l As Integer = 0 To Me.vLista.Columns.Count - 3
+    '        Me.vLista.Columns(l).OptionsColumn.ReadOnly = True
+    '    Next
+
+
+
+    '    Me.vLista.Columns("prod_id").Visible = False
+    '    Me.vLista.Columns("dia").Visible = False
+    '    Me.vLista.Columns("emp_codigo").Caption = "Empleado"
+    '    Me.vLista.Columns("emp_codigo").ColumnEdit = Me.cbempleados
+
+    '    Me.vLista.Columns("produccion").Caption = "Produccion"
+    '    Me.vLista.Columns("produccion").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+    '    Me.vLista.Columns("produccion").DisplayFormat.FormatString = "n0"
+    '    Me.vLista.Columns("produccion").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+    '    Me.vLista.Columns("produccion").SummaryItem.DisplayFormat = "{0;n0}"
+    '    Me.vLista.Columns("cat_codigo").Caption = "Categoria"
+    '    Me.vLista.Columns("cat_codigo").ColumnEdit = Me.cbcategorias
+    'End Sub
+
+    Private Sub Pivot()
+        Try
+            Me.dgProduccion.DataSource = Nothing
+
+            Me.dgProduccion.DataSource = RH_Produccion.RH_ProduccionDetalle_List_Pivot(Me.cbFechas.Properties.DataSource.rows(0)("prod_id"), _
+              EmpresaActual, Me.cbAreas.EditValue, cbPlanillas.GetColumnValue("per_codigo").ToString.Substring(1, 8), _
+              cbPlanillas.GetColumnValue("per_codigo").ToString.Substring(0, 1))
+
+            For i As Integer = 2 To Me.BandedView.Bands.Count - 1
+                Me.BandedView.Bands(i).Caption = Format(Me.cbFechas.Properties.DataSource.rows(i - 2)("per_fecha"), "dd/MMM/yyyy")
+
+            Next
+            For i As Integer = 0 To Me.BandedView.Columns.Count - 1
+                If Me.BandedView.Columns(i).Name = "BCemp_codigo" Then
+                    Me.BandedView.Columns(i).FieldName = "emp_codigo"
+
+                ElseIf Me.BandedView.Columns(i).Name = "BCemp_ccodigo" Then
+                    Me.BandedView.Columns(i).FieldName = "emp_codigo"
+                Else
+                    Me.BandedView.Columns(i).FieldName = Me.BandedView.Columns(i).Name.Substring(2, 7)
+                    Me.BandedView.Columns(i).Caption = IIf(Me.BandedView.Columns(i).Name.Substring(8, 1) = "P", "Produccion", IIf(Me.BandedView.Columns(i).Name.Substring(8, 1) = "C", "Categoria", "Asistencia"))
+                    Me.BandedView.Columns(i).ColumnEdit = IIf(Me.BandedView.Columns(i).Name.Substring(8, 1) = "P", Nothing, IIf(Me.BandedView.Columns(i).Name.Substring(8, 1) = "C", Me.cbcategorias, Me.cbTipoAsistencia))
+                End If
+
+            Next
+
+            Me.BandedView.BestFitColumns()
+           
+
+            'Me.BandedView.Columns("emp_codigo").Caption = "Empleado"
+            'Me.BandedView.Columns("emp_codigo").ColumnEdit = Me.cbempleados
+        Catch ex As Exception
+
+        End Try
+       
+    End Sub
+
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub validar_Planillas()
+        Me.cbFechas.Properties.DataSource = Nothing
+        If Me.cbPlanillas.EditValue Is Nothing Then
+            Me.cbFechas.Enabled = False
+            Me.calc_Produccion.Enabled = False
+            Me.cmdCrearEncabezado.Enabled = False
+            Exit Sub
+        Else
+            Me.cbFechas.Enabled = True
+            Me.cbFechas.Properties.DataSource = VB.SysContab.PeriodoNominaDB.GetList_Fechas(Me.cbPlanillas.EditValue, Me.cbAreas.EditValue)
+            Me.cbFechas.Properties.DisplayMember = "per_fecha"
+            Me.cbFechas.Properties.ValueMember = "per_fecha"
+        End If
+    End Sub
+    Private Sub cbPlanillas_EditValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbPlanillas.EditValueChanged
+        validar_Planillas()
+    End Sub
+
+    Private Sub cbPlanillas_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cbPlanillas.Validating
+        If Me.cbPlanillas.EditValue Is Nothing Then
+            Me.cbFechas.Enabled = False
+            Me.calc_Produccion.Enabled = False
+            Me.cmdCrearEncabezado.Enabled = False
+            Exit Sub
+        Else
+            Me.cbFechas.Enabled = True
+            Me.cbFechas.Properties.DataSource = VB.SysContab.PeriodoNominaDB.GetList_Fechas(Me.cbPlanillas.EditValue, Me.cbAreas.EditValue)
+            Me.cbFechas.Properties.DisplayMember = "per_fecha"
+            Me.cbFechas.Properties.ValueMember = "per_fecha"
+        End If
+
+    End Sub
+
+  
+    Private Sub cbFechas_EditValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbFechas.EditValueChanged
+        Me.calc_Produccion.Enabled = True
+        Me.cmdCrearEncabezado.Enabled = True
+
+        If Me.cbFechas.Properties.DataSource.rows(0)("prod_id") = 0 Then
+            'Si no existe el encabezado de Produccion para la Nomina, Pedir el dato de produccion del Dia.
+            Me.cmdGuardar.Enabled = False
+            Me.calc_Produccion.Focus()
+        Else
+            Me.calc_Produccion.EditValue = Me.cbFechas.Properties.DataSource.rows(0)("produccion")
+            Me.cmdGuardar.Enabled = True
+            Me.Refrescar()
+        End If
+    End Sub
+
+    Private Sub cbFechas_Validating(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles cbFechas.Validating
+        Me.calc_Produccion.Enabled = True
+        Me.cmdCrearEncabezado.Enabled = True
+
+        If Me.cbFechas.Properties.DataSource.rows(0)("prod_id") = 0 Then
+            'Si no existe el encabezado de Produccion para la Nomina, Pedir el dato de produccion del Dia.
+            Me.cmdGuardar.Enabled = False
+            Me.calc_Produccion.Focus()
+        Else
+            Me.calc_Produccion.EditValue = Me.cbFechas.Properties.DataSource.rows(0)("produccion")
+            Me.cmdGuardar.Enabled = True
+            Me.Refrescar()
+        End If
+    End Sub
+
+   
+    Private Sub cmdCrearEncabezado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCrearEncabezado.Click
+        RH_Produccion.RH_Produccion_Add(Me.cbFechas.Properties.DataSource.rows(0)("prod_id"), _
+            EmpresaActual, Me.cbPlanillas.EditValue.ToString.Substring(0, 1), _
+            Me.cbPlanillas.EditValue.ToString.Substring(1, 8), _
+            Me.calc_Produccion.EditValue, Me.cbFechas.GetColumnValue("procesado"), Me.cbAreas.EditValue, Me.calc_Minimo.EditValue)
+
+        Me.Refrescar()
+    End Sub
+
+    Private Sub cmdRefrescar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdRefrescar.Click
+        Me.cargar()
+        Me.Refrescar()
+    End Sub
+
+    Private Sub cmdGuardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdGuardar.Click
+        Dim Empleado As String
+        Dim Fecha As DateTime
+        Dim Produccion As Double
+        Dim Categoria, Asistencia As Integer
+        'Ciclo de los Empleados
+        For i As Integer = 0 To Me.BandedView.DataRowCount - 1
+            Empleado = Me.BandedView.GetRowCellValue(i, "emp_codigo")
+            For j As Integer = 2 To Me.BandedView.Bands.Count - 1
+                Fecha = Me.cbFechas.Properties.DataSource.rows(j - 2)("per_fecha")
+                For k As Integer = 0 To Me.BandedView.Bands(j).Columns.Count - 1
+                    If Me.BandedView.Bands(j).Columns(k).FieldName.Substring(6, 1) = "P" Then
+                        Produccion = Me.BandedView.GetRowCellValue(i, Me.BandedView.Bands(j).Columns(k).FieldName)
+                    ElseIf Me.BandedView.Bands(j).Columns(k).FieldName.Substring(6, 1) = "C" Then
+                        Categoria = Me.BandedView.GetRowCellValue(i, Me.BandedView.Bands(j).Columns(k).FieldName)
+                    Else
+                        Asistencia = Me.BandedView.GetRowCellValue(i, Me.BandedView.Bands(j).Columns(k).FieldName)
+                    End If
+                Next
+                'Guardar el registro
+                RH_Produccion.RH_ProduccionDetalle_Add_Update(Me.cbFechas.Properties.DataSource.rows(0)("prod_id"), _
+                    Fecha, Empleado, Produccion, Categoria, Asistencia)
+            Next
+        Next
+    End Sub
+
+    Private Sub cbAreas_EditValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbAreas.EditValueChanged
+        Me.Refrescar()
+    End Sub
+
+    Private Sub cmdBorrarEncabezado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdBorrarEncabezado.Click
+        If MsgBox("Esta seguro de borrar la produccion de la semana para " & Me.cbAreas.Text & " ? ", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo, "Sts.Nomina") = MsgBoxResult.Yes Then
+            RH_Produccion.RH_Produccion_Delete(Me.cbFechas.Properties.DataSource.rows(0)("prod_id"))
+        End If
+    End Sub
+End Class

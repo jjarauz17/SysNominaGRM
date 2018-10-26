@@ -1,0 +1,289 @@
+Public Class frmIngresos_Tipo
+#Region "Variables"
+    Dim DT As New DataTable
+#End Region
+    Private Sub frmIngresos_Tipo_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        DT.Columns.Add("Empleado", System.Type.GetType("System.String"), "")
+
+        Dim Valor As New DataColumn
+        Valor.ColumnName = "Valor"
+        Valor.DataType = System.Type.GetType("System.Double")
+        Valor.AllowDBNull = False
+        Valor.DefaultValue = 0.0
+        DT.Columns.Add(Valor)
+
+
+        DT.Columns.Add("Monto", System.Type.GetType("System.Double"), "")
+
+        Dim Comentarios As New DataColumn
+        Comentarios.ColumnName = "ptm_comentarios"
+        Comentarios.DataType = System.Type.GetType("System.String")
+        Comentarios.AllowDBNull = False
+        Comentarios.DefaultValue = ""
+        DT.Columns.Add(Comentarios)
+
+        Me.cbFormaPago.Properties.DataSource = VB.SysContab.EmpleadosDB.GetFormaPagoEmpleados
+        Me.cbFormaPago.Properties.DisplayMember = "descripcion"
+        Me.cbFormaPago.Properties.ValueMember = "codigo"
+        Me.cbFormaPago.EditValue = QuincenaTrabajo.Substring(0, 1)
+
+        Me.dgIngresos.DataSource = DT
+        Me.VIngresos.Columns("Empleado").Width = 250
+        Me.VIngresos.Columns("Monto").Width = 150
+        Me.VIngresos.Columns("Valor").Width = 100
+        Me.VIngresos.Columns("Valor").Visible = False
+        Me.VIngresos.Columns("Empleado").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+        Me.VIngresos.Columns("Empleado").SummaryItem.DisplayFormat = "{0:n0}"
+
+        Me.VIngresos.Columns("Monto").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.VIngresos.Columns("Monto").SummaryItem.DisplayFormat = "{0:n2}"
+        Me.VIngresos.Columns("Monto").DisplayFormat.FormatString = "n2"
+        Me.VIngresos.Columns("Monto").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+
+        Me.VIngresos.Columns("Valor").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.VIngresos.Columns("Valor").SummaryItem.DisplayFormat = "{0:n2}"
+        Me.VIngresos.Columns("Valor").DisplayFormat.FormatString = "n2"
+        Me.VIngresos.Columns("Valor").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+
+
+        Me.cbTipoIngreso.Properties.DataSource = VB.SysContab.TipoIngresoDB.GetList("%").Tables(0)
+        Me.cbTipoIngreso.Properties.DisplayMember = "Descripcion"
+        Me.cbTipoIngreso.Properties.ValueMember = "Codigo"
+
+        Me.cbEmpleados.DataSource = VB.SysContab.EmpleadosDB.GetLists().Tables(0)
+        Me.cbEmpleados.DisplayMember = "nombre"
+        Me.cbEmpleados.ValueMember = "emp_codigo"
+
+        Me.cbMoneda.Properties.DataSource = VB.SysContab.MonedaDB.GetList().Tables(0)
+        Me.cbMoneda.Properties.DisplayMember = "Descripcion"
+        Me.cbMoneda.Properties.ValueMember = "Codigo"
+
+
+        Me.dgIngresos.Enabled = False
+        Me.chkRegular.Checked = True
+
+    End Sub
+
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmdAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAceptar.Click
+        If Me.cbTipoIngreso.EditValue = "" Or Me.cbTipoIngreso.EditValue Is Nothing Then
+            MsgBox("Seleccione el tipo de ingreso", MsgBoxStyle.Exclamation, "Sts.Nomina")
+            Exit Sub
+        End If
+        'Tipo 1: Valor se pone en Nomina (Unico)
+        'Tipo 2: Valor se pone en Fijo (Cuota Fija)
+        'Tipo 3: Valor se resta de Monto (# de Cuotas)
+        'Tipo 4: Porcentaje de Ingresos --No se usa
+        'Tipo 5: Depende de pago por Dia
+        'Tipo 6: Depende de pago por Hora
+        'Tipo 7: Depende del factor/formula
+        Dim Monto, Valor As Double
+        For i As Integer = 0 To Me.VIngresos.DataRowCount - 1
+            Try
+                Valor = 1
+                Monto = 0
+                Select Case Me.cbTipoIngreso.GetColumnValue("Tipo")
+                    Case 5, 6, 7
+                        If Me.cbTipoIngreso.GetColumnValue("Tipo") = 5 Then
+                            Monto = Me.VIngresos.GetRowCellValue(i, "Monto")
+                            If Me.cbTipoIngreso.GetColumnValue("Valor Fijo") = False Then
+                                Valor = Math.Round(Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("SalarioxDia"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetRowCellValue(i, "Empleado"))) * _
+                                        IIf(Me.cbTipoIngreso.GetColumnValue("Doble") = True, 2, 1) * _
+                                        VB.SysContab.Tasa_CambioDB.TasaCambioDia( _
+                                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Day, _
+                                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Month, _
+                                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Year, _
+                                            Me.cbMoneda.EditValue, _
+                                            Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("mon_codigo"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetRowCellValue(i, "Empleado")))), 2)
+                            Else
+                                Valor = Me.VIngresos.GetRowCellValue(i, "Valor")
+                            End If
+                        ElseIf Me.cbTipoIngreso.GetColumnValue("Tipo") = 6 Then
+                            Monto = Me.VIngresos.GetRowCellValue(i, "Monto")
+                            If Me.cbTipoIngreso.GetColumnValue("Valor Fijo") = False Then
+                                Valor = Math.Round(Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("SalarioxHora"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetRowCellValue(i, "Empleado"))) * _
+                                        IIf(Me.cbTipoIngreso.GetColumnValue("Doble") = True, 2, 1) * _
+                                        VB.SysContab.Tasa_CambioDB.TasaCambioDia( _
+                                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Day, _
+                                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Month, _
+                                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Year, _
+                                            Me.cbMoneda.EditValue, _
+                                            Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("mon_codigo"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetRowCellValue(i, "Empleado")))), 2)
+                            Else
+                                Valor = Me.VIngresos.GetRowCellValue(i, "Valor")
+                            End If
+                        Else
+                            Monto = Me.VIngresos.GetRowCellValue(i, "Monto")
+                            Valor = Me.VIngresos.GetRowCellValue(i, "Valor")
+                        End If
+                        Monto *= Valor
+                        VB.SysContab.IngresoDB.Additem("0", Me.VIngresos.GetRowCellValue(i, "Empleado"), _
+                           Now.Date, _
+                           VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal, _
+                           Math.Round(Monto, 2), _
+                           Me.cbTipoIngreso.EditValue, _
+                           False, _
+                           Me.cbMoneda.EditValue, _
+                           IIf(Me.cbTipoIngreso.GetColumnValue("Tipo") = 2, False, True), _
+                           True, _
+                           False, _
+                           Me.VIngresos.GetRowCellValue(i, "Monto"), _
+                           Valor, Me.VIngresos.GetRowCellValue(i, "ptm_comentarios"))
+
+                    Case Else
+                        Monto = Me.VIngresos.GetRowCellValue(i, "Monto")
+                        VB.SysContab.IngresoDB.Additem("0", Me.VIngresos.GetRowCellValue(i, "Empleado"), _
+                            Now.Date, _
+                            VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal, _
+                            Math.Round(Monto, 2), _
+                            Me.cbTipoIngreso.EditValue, _
+                            False, _
+                            Me.cbMoneda.EditValue, _
+                            IIf(Me.cbTipoIngreso.GetColumnValue("Tipo") = 2, False, True), _
+                            Me.chkRegular.EditValue, _
+                            False, _
+                            0, _
+                            0, Me.VIngresos.GetRowCellValue(i, "ptm_comentarios"))
+
+                End Select
+            Catch ex As Exception
+
+            End Try
+
+        Next
+        Me.Close()
+    End Sub
+
+    Private Sub cbTipoDeduccion_EditValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles cbTipoIngreso.EditValueChanged
+        If Me.cbTipoIngreso.Properties.DataSource Is DBNull.Value Then
+            Me.dgIngresos.Enabled = False
+            Exit Sub
+        Else
+            If Me.cbTipoIngreso.GetColumnValue("Valor Fijo") = True Then
+                Me.VIngresos.Columns("Valor").Visible = True
+            Else
+                If Me.cbTipoIngreso.GetColumnValue("Tipo") = 7 Then
+                    Me.VIngresos.Columns("Valor").Visible = True
+                Else
+                    Me.VIngresos.Columns("Valor").Visible = False
+                End If
+
+            End If
+
+            Select Case Me.cbTipoIngreso.GetColumnValue("Tipo")
+                Case 3
+                    Me.spCuotas.MaxValue = 120
+                    Me.spCuotas.ReadOnly = False
+                    Me.VIngresos.Columns("Monto").Caption = "Monto"
+                Case 5
+                    Me.spCuotas.MaxValue = 1
+                    Me.spCuotas.ReadOnly = True
+                    Me.VIngresos.Columns("Monto").Caption = "Salario por Dia"
+                Case 6
+                    Me.spCuotas.MaxValue = 1
+                    Me.spCuotas.ReadOnly = True
+                    Me.VIngresos.Columns("Monto").Caption = "Salario por Hora"
+                Case 7
+                    Me.spCuotas.MaxValue = 1
+                    Me.spCuotas.ReadOnly = True
+                    Me.VIngresos.Columns("Valor").Caption = "Factor"
+                Case Else
+                    Me.spCuotas.MaxValue = 1
+                    Me.spCuotas.ReadOnly = True
+                    Me.VIngresos.Columns("Monto").Caption = "Monto"
+            End Select
+            Me.dgIngresos.Enabled = True
+
+        End If
+    End Sub
+
+    Private Sub VDeducciones_BeforeLeaveRow(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.RowAllowEventArgs) Handles VIngresos.BeforeLeaveRow
+
+        If Me.VIngresos.GetFocusedRowCellValue("Empleado") Is DBNull.Value Or Me.VIngresos.GetFocusedRowCellValue("Empleado") Is Nothing Then
+            Me.VIngresos.DeleteRow(Me.VIngresos.FocusedRowHandle)
+        End If
+    End Sub
+
+    Private Sub VDeducciones_CellValueChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs) Handles VIngresos.CellValueChanged
+        If e.Column.FieldName = "Empleado" Then
+            'Buscar el empleado en la tabla
+            If DT.Compute("Count(Empleado)", "Empleado = '" & Me.VIngresos.GetFocusedRowCellValue("Empleado") & "'") >= 1 Then
+                MsgBox("Ya esta en la lista el empleado", MsgBoxStyle.Critical, "Sts.Nomina")
+                Me.VIngresos.DeleteRow(Me.VIngresos.FocusedRowHandle)
+            End If
+            If Me.cbTipoIngreso.GetColumnValue("Tipo") = 5 Then
+                Me.VIngresos.SetFocusedRowCellValue(Me.VIngresos.Columns("Valor"), _
+                    Math.Round(Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("SalarioxDia"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetFocusedRowCellValue("Empleado"))) * _
+                    IIf(Me.cbTipoIngreso.GetColumnValue("Doble") = True, 2, 1) * _
+                    VB.SysContab.Tasa_CambioDB.TasaCambioDia( _
+                    VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Day, _
+                    VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Month, _
+                    VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Year, _
+                    Me.cbMoneda.EditValue, _
+                    Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("mon_codigo"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetFocusedRowCellValue("Empleado")))) _
+                    , 2))
+
+                Me.VIngresos.Columns("Valor").OptionsColumn.AllowEdit = True
+            ElseIf Me.cbTipoIngreso.GetColumnValue("Tipo") = 6 Then
+                Me.VIngresos.SetFocusedRowCellValue(Me.VIngresos.Columns("Valor"), _
+                   Math.Round(Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("SalarioxHora"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetFocusedRowCellValue("Empleado"))) * _
+                   IIf(Me.cbTipoIngreso.GetColumnValue("Doble") = True, 2, 1) * _
+                   VB.SysContab.Tasa_CambioDB.TasaCambioDia( _
+                   VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Day, _
+                   VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Month, _
+                   VB.SysContab.PeriodoNominaDB.GetDetails(QuincenaTrabajo).FFinal.Year, _
+                   Me.cbMoneda.EditValue, _
+                   Me.cbEmpleados.GetDataSourceValue(Me.cbEmpleados.Columns("mon_codigo"), Me.cbEmpleados.GetDataSourceRowIndex("emp_codigo", Me.VIngresos.GetFocusedRowCellValue("Empleado")))) _
+                   , 2))
+                Me.VIngresos.Columns("Valor").OptionsColumn.AllowEdit = True
+            ElseIf Me.cbTipoIngreso.GetColumnValue("Tipo") = 7 Then
+                Me.VIngresos.SetFocusedRowCellValue(Me.VIngresos.Columns("Valor"), _
+                   Me.cbTipoIngreso.GetColumnValue("Factor"))
+                Me.VIngresos.Columns("Valor").OptionsColumn.AllowEdit = True
+            Else
+                Me.VIngresos.SetFocusedRowCellValue(Me.VIngresos.Columns("Valor"), 0.0)
+                Me.VIngresos.Columns("Valor").OptionsColumn.AllowEdit = False
+            End If
+        End If
+    End Sub
+
+
+    Private Sub dgDeducciones_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dgIngresos.KeyDown
+        If e.KeyCode = Keys.Delete Then
+            Me.VIngresos.DeleteRow(Me.VIngresos.FocusedRowHandle)
+        End If
+
+    End Sub
+    Private Sub chkEmpleados_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkEmpleados.CheckedChanged
+        If Me.chkEmpleados.EditValue = True And Me.dgIngresos.Enabled = True Then
+            Select Me.cbTipoIngreso.GetColumnValue("Tipo")
+                Case 4, 5, 6
+                    MsgBox("Esta herramienta no funciona para ingresos que dependan del salario del empleado.")
+                    Exit Sub
+            End Select
+            DT.Clear()
+            Dim fila As DataRow = DT.NewRow
+            For i As Integer = 0 To Me.cbEmpleados.DataSource.rows.count - 1
+                If Me.cbEmpleados.DataSource.rows(i)("emp_ffincontrato") Is DBNull.Value Then
+                    If Me.cbEmpleados.DataSource.rows(i)("emp_formapago") = IIf(Me.cbFormaPago.EditValue = "%", Me.cbEmpleados.DataSource.rows(i)("emp_formapago"), Me.cbFormaPago.EditValue) Then
+                        fila("Empleado") = Me.cbEmpleados.DataSource.rows(i)("emp_codigo")
+                        fila("Valor") = IIf(Me.cbTipoIngreso.GetColumnValue("Tipo") = 7, Me.cbTipoIngreso.GetColumnValue("Factor"), Me.ceMontoGeneral.EditValue)
+                        fila("Monto") = Me.ceMontoGeneral.EditValue
+                        DT.Rows.Add(fila)
+                        fila = DT.NewRow
+                    End If
+                End If
+            Next
+            fila = Nothing
+
+        End If
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        DT.Clear()
+    End Sub
+End Class

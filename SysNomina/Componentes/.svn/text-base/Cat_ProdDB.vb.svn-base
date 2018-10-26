@@ -1,0 +1,90 @@
+﻿Imports DbConnect
+
+Public Class Cat_Prod_Details
+    Public cat_codigo As Integer
+    Public empr_codigo As Integer
+    Public cat_descCorta As String
+    Public cat_descripcion As String
+    Public cat_valor As Double
+    Public cat_dias As Integer
+    Public cat_salarioxdia As Double
+    Public cat_minimo As Integer
+    Public cat_factor As Double
+    Public cat_activo As Boolean
+End Class
+Public Class Cat_ProdDB
+
+    '1) 
+    Public Shared Function Detalles(ByVal Empresa As Integer, ByVal Codigo As Integer) As Cat_Prod_Details
+
+        Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+        v.AddParameter("empr_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Empresa)
+        v.AddParameter("cat_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Codigo)
+
+        Try
+            Dim dt As New DataTable
+            dt = v.EjecutarComando("_RH_Cat_Prod_List", "tabla")
+            If dt.Rows.Count > 0 Then
+                Dim det As New Cat_Prod_Details
+                det.cat_codigo = dt.Rows(0)("cat_codigo")
+                det.empr_codigo = dt.Rows(0)("empr_codigo")
+                det.cat_descCorta = dt.Rows(0)("cat_descCorta")
+                det.cat_descripcion = dt.Rows(0)("cat_descripcion")
+                det.cat_valor = dt.Rows(0)("cat_valor")
+                det.cat_dias = dt.Rows(0)("cat_dias")
+                det.cat_salarioxdia = dt.Rows(0)("cat_salarioxdia")
+                det.cat_minimo = dt.Rows(0)("cat_minimo")
+                det.cat_factor = dt.Rows(0)("cat_factor")
+                det.cat_activo = dt.Rows(0)("cat_activo")
+                Return det
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return Nothing
+    End Function
+
+
+    '2) 
+    Public Shared Function Lista(ByVal Empresa As Integer, ByVal Codigo As Integer, ByVal Grid As Boolean) As DataTable
+
+        Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+        v.AddParameter("empr_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Empresa)
+        v.AddParameter("cat_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Codigo)
+        v.AddParameter("grid", SqlDbType.Bit, 1, ParameterDirection.Input, Grid)
+
+        Try
+            Return v.EjecutarComando("_RH_Cat_Prod_List", "tabla")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return Nothing
+    End Function
+
+    '3)
+    Public Shared Sub Agregar_Editar(ByVal Codigo As Integer, _
+            ByVal Empresa As Integer, _
+            ByVal DescCorta As String, ByVal Descripcion As String, _
+            ByVal Valor As Double, ByVal Dias As Integer, ByVal SalarioxDia As Double, _
+            ByVal Minimo As Integer, ByVal Factor As Double, ByVal Activo As Boolean)
+
+        Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+        v.AddParameter("empr_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Empresa)
+        v.AddParameter("cat_codigo", SqlDbType.Int, 5, ParameterDirection.Input, Codigo)
+        v.AddParameter("cat_descCorta", SqlDbType.NChar, 10, ParameterDirection.Input, DescCorta)
+        v.AddParameter("cat_descripcion", SqlDbType.NVarChar, 50, ParameterDirection.Input, Descripcion)
+        v.AddParameter("cat_valor", SqlDbType.Float, 5, ParameterDirection.Input, Valor)
+        v.AddParameter("cat_dias", SqlDbType.Int, 5, ParameterDirection.Input, Dias)
+        v.AddParameter("cat_salarioxdia", SqlDbType.Float, 5, ParameterDirection.Input, SalarioxDia)
+        v.AddParameter("cat_minimo", SqlDbType.Int, 5, ParameterDirection.Input, Minimo)
+        v.AddParameter("cat_factor", SqlDbType.Float, 5, ParameterDirection.Input, Factor)
+        v.AddParameter("cat_activo", SqlDbType.Bit, 5, ParameterDirection.Input, Activo)
+
+        Try
+            v.EjecutarComando("_RH_Cat_Prod", "tabla")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+End Class

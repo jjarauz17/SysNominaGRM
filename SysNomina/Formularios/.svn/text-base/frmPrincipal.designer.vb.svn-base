@@ -1,0 +1,912 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmPrincipal
+    Inherits DevExpress.XtraBars.Ribbon.RibbonForm
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
+        Me.RibbonControl = New DevExpress.XtraBars.Ribbon.RibbonControl()
+        Me.cmdLocalidad = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdFunciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdProfesiones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdMonedas = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdHorarios = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdFeriados = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdConstancias = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdRubrosEmpresa = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdTIngresos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdTDeducciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdDepartamentos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdTiposMovimientos = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu_TiposMovimientos = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.cmdReferencias = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdAreas = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdCargos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdEmpleados = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPeriodos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdGenerarMovimientos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdGenerarPlanilla = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPlanilla = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu_Planilla = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.cmdPermisos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdIngresos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdDeducciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdGenerarHExtras = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdAutorizarHE = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdReportesHE = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPagoVacaciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPagoAguinaldo = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdRevisionL = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdAprobacionL = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdLiquidacion = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdReportesL = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdCambiarEmpresa = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdImportar = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdAyuda = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdRoles = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdUsuarios = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdReportes = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu_Reportes = New DevExpress.XtraBars.PopupMenu(Me.components)
+        Me.cmdReportePlanilla = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdReporteComparativo = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdReporteHorasExtras = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdReporteECDeducciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdSolicitudes = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPanelMovimientos = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdPeriodoFiscal = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdOrganigrama = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdConsultas = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdRevAut = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdSalarioMinimo = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdRHConfiguraciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdEmpleadosLight = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdListadoReportes = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdHDeducciones = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdHIngreso = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdAreasProduccion = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdCatProduccion = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdEmpleadosCat = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdProduccion = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdAntiguedad = New DevExpress.XtraBars.BarButtonItem()
+        Me.cmdTipoAsistencias = New DevExpress.XtraBars.BarButtonItem()
+        Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.cmdGenerales = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.Nomina = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup6 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup7 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup9 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup11 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup12 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup13 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup8 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup10 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.Planilla_Semanal = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RPConfiguraciones = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup14 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.RibbonStatusBar = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
+        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
+        CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu_TiposMovimientos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu_Planilla, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu_Reportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'RibbonControl
+        '
+        Me.RibbonControl.ApplicationButtonText = Nothing
+        Me.RibbonControl.ApplicationIcon = CType(resources.GetObject("RibbonControl.ApplicationIcon"), System.Drawing.Bitmap)
+        '
+        '
+        '
+        Me.RibbonControl.ExpandCollapseItem.Id = 0
+        Me.RibbonControl.ExpandCollapseItem.Name = ""
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.cmdLocalidad, Me.cmdFunciones, Me.cmdProfesiones, Me.cmdMonedas, Me.cmdHorarios, Me.cmdFeriados, Me.cmdConstancias, Me.cmdRubrosEmpresa, Me.cmdTIngresos, Me.cmdTDeducciones, Me.cmdDepartamentos, Me.cmdTiposMovimientos, Me.cmdAreas, Me.cmdCargos, Me.cmdEmpleados, Me.cmdPeriodos, Me.cmdGenerarMovimientos, Me.cmdGenerarPlanilla, Me.cmdPlanilla, Me.cmdPermisos, Me.cmdIngresos, Me.cmdDeducciones, Me.cmdGenerarHExtras, Me.cmdAutorizarHE, Me.cmdReportesHE, Me.cmdPagoVacaciones, Me.cmdPagoAguinaldo, Me.cmdRevisionL, Me.cmdAprobacionL, Me.cmdLiquidacion, Me.cmdReportesL, Me.cmdCambiarEmpresa, Me.cmdImportar, Me.cmdAyuda, Me.cmdRoles, Me.cmdUsuarios, Me.cmdReportes, Me.BarButtonItem4, Me.cmdReportePlanilla, Me.cmdReporteComparativo, Me.cmdReporteHorasExtras, Me.cmdReporteECDeducciones, Me.cmdSolicitudes, Me.cmdPanelMovimientos, Me.cmdReferencias, Me.cmdPeriodoFiscal, Me.cmdOrganigrama, Me.cmdConsultas, Me.cmdRevAut, Me.cmdSalarioMinimo, Me.cmdRHConfiguraciones, Me.cmdEmpleadosLight, Me.cmdListadoReportes, Me.cmdHDeducciones, Me.cmdHIngreso, Me.cmdAreasProduccion, Me.cmdCatProduccion, Me.cmdEmpleadosCat, Me.cmdProduccion, Me.cmdAntiguedad, Me.cmdTipoAsistencias})
+        Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
+        Me.RibbonControl.MaxItemId = 96
+        Me.RibbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always
+        Me.RibbonControl.Name = "RibbonControl"
+        Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage5, Me.RibbonPage4, Me.Planilla_Semanal})
+        Me.RibbonControl.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
+        Me.RibbonControl.SelectedPage = Me.RibbonPage3
+        Me.RibbonControl.ShowPageHeadersMode = DevExpress.XtraBars.Ribbon.ShowPageHeadersMode.ShowOnMultiplePages
+        Me.RibbonControl.ShowToolbarCustomizeItem = False
+        Me.RibbonControl.Size = New System.Drawing.Size(804, 147)
+        Me.RibbonControl.StatusBar = Me.RibbonStatusBar
+        Me.RibbonControl.Toolbar.ShowCustomizeItem = False
+        '
+        'cmdLocalidad
+        '
+        Me.cmdLocalidad.Caption = "&Sucursales"
+        Me.cmdLocalidad.Id = 0
+        Me.cmdLocalidad.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.home
+        Me.cmdLocalidad.Name = "cmdLocalidad"
+        '
+        'cmdFunciones
+        '
+        Me.cmdFunciones.Caption = "&Funciones"
+        Me.cmdFunciones.Id = 4
+        Me.cmdFunciones.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.file
+        Me.cmdFunciones.Name = "cmdFunciones"
+        '
+        'cmdProfesiones
+        '
+        Me.cmdProfesiones.Caption = "&Profesiones"
+        Me.cmdProfesiones.Id = 5
+        Me.cmdProfesiones.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.group
+        Me.cmdProfesiones.Name = "cmdProfesiones"
+        '
+        'cmdMonedas
+        '
+        Me.cmdMonedas.Caption = "&Monedas"
+        Me.cmdMonedas.Id = 12
+        Me.cmdMonedas.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Currency_transfers
+        Me.cmdMonedas.Name = "cmdMonedas"
+        '
+        'cmdHorarios
+        '
+        Me.cmdHorarios.Caption = "&Horarios"
+        Me.cmdHorarios.Id = 13
+        Me.cmdHorarios.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.alarm
+        Me.cmdHorarios.Name = "cmdHorarios"
+        '
+        'cmdFeriados
+        '
+        Me.cmdFeriados.Caption = "F&eriados"
+        Me.cmdFeriados.Id = 14
+        Me.cmdFeriados.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.image_add
+        Me.cmdFeriados.Name = "cmdFeriados"
+        '
+        'cmdConstancias
+        '
+        Me.cmdConstancias.Caption = "C&onstancias"
+        Me.cmdConstancias.Id = 15
+        Me.cmdConstancias.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.todo_list
+        Me.cmdConstancias.Name = "cmdConstancias"
+        '
+        'cmdRubrosEmpresa
+        '
+        Me.cmdRubrosEmpresa.Caption = "&Rubros de Empresa"
+        Me.cmdRubrosEmpresa.Id = 16
+        Me.cmdRubrosEmpresa.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.configuration_edit
+        Me.cmdRubrosEmpresa.Name = "cmdRubrosEmpresa"
+        '
+        'cmdTIngresos
+        '
+        Me.cmdTIngresos.Caption = "Ingresos"
+        Me.cmdTIngresos.Id = 23
+        Me.cmdTIngresos.Name = "cmdTIngresos"
+        '
+        'cmdTDeducciones
+        '
+        Me.cmdTDeducciones.Caption = "Deducciones"
+        Me.cmdTDeducciones.Id = 24
+        Me.cmdTDeducciones.Name = "cmdTDeducciones"
+        '
+        'cmdDepartamentos
+        '
+        Me.cmdDepartamentos.Caption = "&Departamentos"
+        Me.cmdDepartamentos.Id = 25
+        Me.cmdDepartamentos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.maximize
+        Me.cmdDepartamentos.Name = "cmdDepartamentos"
+        '
+        'cmdTiposMovimientos
+        '
+        Me.cmdTiposMovimientos.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
+        Me.cmdTiposMovimientos.Caption = "Tipos de Movimientos"
+        Me.cmdTiposMovimientos.DropDownControl = Me.PopupMenu_TiposMovimientos
+        Me.cmdTiposMovimientos.Id = 27
+        Me.cmdTiposMovimientos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.archive
+        Me.cmdTiposMovimientos.Name = "cmdTiposMovimientos"
+        '
+        'PopupMenu_TiposMovimientos
+        '
+        Me.PopupMenu_TiposMovimientos.ItemLinks.Add(Me.cmdTIngresos)
+        Me.PopupMenu_TiposMovimientos.ItemLinks.Add(Me.cmdTDeducciones)
+        Me.PopupMenu_TiposMovimientos.ItemLinks.Add(Me.cmdReferencias)
+        Me.PopupMenu_TiposMovimientos.Name = "PopupMenu_TiposMovimientos"
+        Me.PopupMenu_TiposMovimientos.Ribbon = Me.RibbonControl
+        '
+        'cmdReferencias
+        '
+        Me.cmdReferencias.Caption = "Referencias"
+        Me.cmdReferencias.Id = 68
+        Me.cmdReferencias.Name = "cmdReferencias"
+        Me.cmdReferencias.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        '
+        'cmdAreas
+        '
+        Me.cmdAreas.Caption = "&Areas"
+        Me.cmdAreas.Id = 30
+        Me.cmdAreas.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.minimize
+        Me.cmdAreas.Name = "cmdAreas"
+        '
+        'cmdCargos
+        '
+        Me.cmdCargos.Caption = "&Cargos"
+        Me.cmdCargos.Id = 31
+        Me.cmdCargos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.profile
+        Me.cmdCargos.Name = "cmdCargos"
+        '
+        'cmdEmpleados
+        '
+        Me.cmdEmpleados.Caption = "Empleados"
+        Me.cmdEmpleados.Id = 32
+        Me.cmdEmpleados.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.user
+        Me.cmdEmpleados.Name = "cmdEmpleados"
+        Me.cmdEmpleados.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph
+        '
+        'cmdPeriodos
+        '
+        Me.cmdPeriodos.Caption = "Periodos"
+        Me.cmdPeriodos.Id = 33
+        Me.cmdPeriodos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.forms
+        Me.cmdPeriodos.Name = "cmdPeriodos"
+        '
+        'cmdGenerarMovimientos
+        '
+        Me.cmdGenerarMovimientos.Caption = "Generar Movimientos"
+        Me.cmdGenerarMovimientos.Id = 34
+        Me.cmdGenerarMovimientos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Money_Safe1
+        Me.cmdGenerarMovimientos.Name = "cmdGenerarMovimientos"
+        '
+        'cmdGenerarPlanilla
+        '
+        Me.cmdGenerarPlanilla.Caption = "Generar Planilla"
+        Me.cmdGenerarPlanilla.Id = 35
+        Me.cmdGenerarPlanilla.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Money_Bag
+        Me.cmdGenerarPlanilla.Name = "cmdGenerarPlanilla"
+        '
+        'cmdPlanilla
+        '
+        Me.cmdPlanilla.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
+        Me.cmdPlanilla.Caption = "Planilla"
+        Me.cmdPlanilla.DropDownControl = Me.PopupMenu_Planilla
+        Me.cmdPlanilla.Id = 36
+        Me.cmdPlanilla.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Money_Calculator
+        Me.cmdPlanilla.Name = "cmdPlanilla"
+        '
+        'PopupMenu_Planilla
+        '
+        Me.PopupMenu_Planilla.ItemLinks.Add(Me.cmdGenerarMovimientos)
+        Me.PopupMenu_Planilla.ItemLinks.Add(Me.cmdGenerarPlanilla)
+        Me.PopupMenu_Planilla.Name = "PopupMenu_Planilla"
+        Me.PopupMenu_Planilla.Ribbon = Me.RibbonControl
+        '
+        'cmdPermisos
+        '
+        Me.cmdPermisos.Caption = "Permisos"
+        Me.cmdPermisos.Id = 37
+        Me.cmdPermisos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.calendar_remove
+        Me.cmdPermisos.Name = "cmdPermisos"
+        '
+        'cmdIngresos
+        '
+        Me.cmdIngresos.Caption = "Ingresos"
+        Me.cmdIngresos.Id = 38
+        Me.cmdIngresos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Purse
+        Me.cmdIngresos.Name = "cmdIngresos"
+        '
+        'cmdDeducciones
+        '
+        Me.cmdDeducciones.Caption = "Deducciones"
+        Me.cmdDeducciones.Id = 39
+        Me.cmdDeducciones.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Money
+        Me.cmdDeducciones.Name = "cmdDeducciones"
+        '
+        'cmdGenerarHExtras
+        '
+        Me.cmdGenerarHExtras.Caption = "Generar H. Extras"
+        Me.cmdGenerarHExtras.Id = 40
+        Me.cmdGenerarHExtras.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.alarm_add
+        Me.cmdGenerarHExtras.Name = "cmdGenerarHExtras"
+        '
+        'cmdAutorizarHE
+        '
+        Me.cmdAutorizarHE.Caption = "Autorizar H. Extras"
+        Me.cmdAutorizarHE.Id = 41
+        Me.cmdAutorizarHE.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.dialog_20box
+        Me.cmdAutorizarHE.Name = "cmdAutorizarHE"
+        '
+        'cmdReportesHE
+        '
+        Me.cmdReportesHE.Caption = "Reportes"
+        Me.cmdReportesHE.Id = 42
+        Me.cmdReportesHE.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.file
+        Me.cmdReportesHE.Name = "cmdReportesHE"
+        '
+        'cmdPagoVacaciones
+        '
+        Me.cmdPagoVacaciones.Caption = "Pago de Vacaciones"
+        Me.cmdPagoVacaciones.Id = 43
+        Me.cmdPagoVacaciones.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.image
+        Me.cmdPagoVacaciones.Name = "cmdPagoVacaciones"
+        '
+        'cmdPagoAguinaldo
+        '
+        Me.cmdPagoAguinaldo.Caption = "Pago de Aguinaldo"
+        Me.cmdPagoAguinaldo.Id = 44
+        Me.cmdPagoAguinaldo.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.support
+        Me.cmdPagoAguinaldo.Name = "cmdPagoAguinaldo"
+        '
+        'cmdRevisionL
+        '
+        Me.cmdRevisionL.Caption = "Revisión"
+        Me.cmdRevisionL.Id = 45
+        Me.cmdRevisionL.LargeGlyph = CType(resources.GetObject("cmdRevisionL.LargeGlyph"), System.Drawing.Image)
+        Me.cmdRevisionL.Name = "cmdRevisionL"
+        '
+        'cmdAprobacionL
+        '
+        Me.cmdAprobacionL.Caption = "Aprobación"
+        Me.cmdAprobacionL.Id = 46
+        Me.cmdAprobacionL.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.__
+        Me.cmdAprobacionL.Name = "cmdAprobacionL"
+        '
+        'cmdLiquidacion
+        '
+        Me.cmdLiquidacion.Caption = "Liquidación"
+        Me.cmdLiquidacion.Id = 47
+        Me.cmdLiquidacion.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.calculator
+        Me.cmdLiquidacion.Name = "cmdLiquidacion"
+        '
+        'cmdReportesL
+        '
+        Me.cmdReportesL.Caption = "Reportes"
+        Me.cmdReportesL.Id = 48
+        Me.cmdReportesL.LargeGlyph = CType(resources.GetObject("cmdReportesL.LargeGlyph"), System.Drawing.Image)
+        Me.cmdReportesL.Name = "cmdReportesL"
+        '
+        'cmdCambiarEmpresa
+        '
+        Me.cmdCambiarEmpresa.Caption = "Cambiar Empresa"
+        Me.cmdCambiarEmpresa.Id = 49
+        Me.cmdCambiarEmpresa.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.import
+        Me.cmdCambiarEmpresa.Name = "cmdCambiarEmpresa"
+        '
+        'cmdImportar
+        '
+        Me.cmdImportar.Caption = "Importar Archivos"
+        Me.cmdImportar.Id = 50
+        Me.cmdImportar.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.installer
+        Me.cmdImportar.Name = "cmdImportar"
+        '
+        'cmdAyuda
+        '
+        Me.cmdAyuda.Caption = "Ayuda"
+        Me.cmdAyuda.Id = 51
+        Me.cmdAyuda.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Help
+        Me.cmdAyuda.Name = "cmdAyuda"
+        '
+        'cmdRoles
+        '
+        Me.cmdRoles.Caption = "Roles"
+        Me.cmdRoles.Id = 52
+        Me.cmdRoles.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.local_network_add
+        Me.cmdRoles.Name = "cmdRoles"
+        '
+        'cmdUsuarios
+        '
+        Me.cmdUsuarios.Caption = "Usuarios"
+        Me.cmdUsuarios.Id = 53
+        Me.cmdUsuarios.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.messenger_add
+        Me.cmdUsuarios.Name = "cmdUsuarios"
+        '
+        'cmdReportes
+        '
+        Me.cmdReportes.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
+        Me.cmdReportes.Caption = "Reportes"
+        Me.cmdReportes.DropDownControl = Me.PopupMenu_Reportes
+        Me.cmdReportes.Id = 54
+        Me.cmdReportes.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.open
+        Me.cmdReportes.Name = "cmdReportes"
+        Me.cmdReportes.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        '
+        'PopupMenu_Reportes
+        '
+        Me.PopupMenu_Reportes.ItemLinks.Add(Me.cmdReportePlanilla)
+        Me.PopupMenu_Reportes.ItemLinks.Add(Me.cmdReporteComparativo)
+        Me.PopupMenu_Reportes.ItemLinks.Add(Me.cmdReporteHorasExtras)
+        Me.PopupMenu_Reportes.ItemLinks.Add(Me.cmdReporteECDeducciones)
+        Me.PopupMenu_Reportes.Name = "PopupMenu_Reportes"
+        Me.PopupMenu_Reportes.Ribbon = Me.RibbonControl
+        '
+        'cmdReportePlanilla
+        '
+        Me.cmdReportePlanilla.Caption = "Planilla"
+        Me.cmdReportePlanilla.Id = 57
+        Me.cmdReportePlanilla.Name = "cmdReportePlanilla"
+        '
+        'cmdReporteComparativo
+        '
+        Me.cmdReporteComparativo.Caption = "Comparativo"
+        Me.cmdReporteComparativo.Id = 58
+        Me.cmdReporteComparativo.Name = "cmdReporteComparativo"
+        '
+        'cmdReporteHorasExtras
+        '
+        Me.cmdReporteHorasExtras.Caption = "Horas Extras"
+        Me.cmdReporteHorasExtras.Id = 59
+        Me.cmdReporteHorasExtras.Name = "cmdReporteHorasExtras"
+        '
+        'cmdReporteECDeducciones
+        '
+        Me.cmdReporteECDeducciones.Caption = "Estado Cuenta Deducciones"
+        Me.cmdReporteECDeducciones.Id = 60
+        Me.cmdReporteECDeducciones.Name = "cmdReporteECDeducciones"
+        '
+        'BarButtonItem4
+        '
+        Me.BarButtonItem4.Caption = "BarButtonItem4"
+        Me.BarButtonItem4.Id = 55
+        Me.BarButtonItem4.Name = "BarButtonItem4"
+        '
+        'cmdSolicitudes
+        '
+        Me.cmdSolicitudes.Caption = "Panel de Solicitudes"
+        Me.cmdSolicitudes.Id = 61
+        Me.cmdSolicitudes.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.notice_board
+        Me.cmdSolicitudes.Name = "cmdSolicitudes"
+        '
+        'cmdPanelMovimientos
+        '
+        Me.cmdPanelMovimientos.Caption = "Panel Movimientos"
+        Me.cmdPanelMovimientos.Id = 67
+        Me.cmdPanelMovimientos.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.forms
+        Me.cmdPanelMovimientos.Name = "cmdPanelMovimientos"
+        '
+        'cmdPeriodoFiscal
+        '
+        Me.cmdPeriodoFiscal.Caption = "Periodo Fiscal"
+        Me.cmdPeriodoFiscal.Id = 69
+        Me.cmdPeriodoFiscal.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.bar_chart_add1
+        Me.cmdPeriodoFiscal.Name = "cmdPeriodoFiscal"
+        '
+        'cmdOrganigrama
+        '
+        Me.cmdOrganigrama.Caption = "Organigrama"
+        Me.cmdOrganigrama.Id = 70
+        Me.cmdOrganigrama.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.connect1
+        Me.cmdOrganigrama.Name = "cmdOrganigrama"
+        '
+        'cmdConsultas
+        '
+        Me.cmdConsultas.Caption = "Consultas"
+        Me.cmdConsultas.Id = 71
+        Me.cmdConsultas.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.archive_add
+        Me.cmdConsultas.Name = "cmdConsultas"
+        '
+        'cmdRevAut
+        '
+        Me.cmdRevAut.Caption = "Revisar/Autorizar"
+        Me.cmdRevAut.Id = 72
+        Me.cmdRevAut.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.todo_list
+        Me.cmdRevAut.Name = "cmdRevAut"
+        '
+        'cmdSalarioMinimo
+        '
+        Me.cmdSalarioMinimo.Caption = "Cambio Salario Minimo"
+        Me.cmdSalarioMinimo.Id = 73
+        Me.cmdSalarioMinimo.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.__
+        Me.cmdSalarioMinimo.Name = "cmdSalarioMinimo"
+        '
+        'cmdRHConfiguraciones
+        '
+        Me.cmdRHConfiguraciones.Caption = "Configuraciones"
+        Me.cmdRHConfiguraciones.Id = 74
+        Me.cmdRHConfiguraciones.LargeGlyph = Global.StS.Nomina.My.Resources.Resources._stop
+        Me.cmdRHConfiguraciones.Name = "cmdRHConfiguraciones"
+        '
+        'cmdEmpleadosLight
+        '
+        Me.cmdEmpleadosLight.Caption = "Registro Empleados"
+        Me.cmdEmpleadosLight.Id = 75
+        Me.cmdEmpleadosLight.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.dialog_20box
+        Me.cmdEmpleadosLight.Name = "cmdEmpleadosLight"
+        '
+        'cmdListadoReportes
+        '
+        Me.cmdListadoReportes.Caption = "Listado de Reportes"
+        Me.cmdListadoReportes.Id = 87
+        Me.cmdListadoReportes.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.forms
+        Me.cmdListadoReportes.Name = "cmdListadoReportes"
+        '
+        'cmdHDeducciones
+        '
+        Me.cmdHDeducciones.Caption = "Deducciones"
+        Me.cmdHDeducciones.Id = 88
+        Me.cmdHDeducciones.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.attachment_remove
+        Me.cmdHDeducciones.Name = "cmdHDeducciones"
+        '
+        'cmdHIngreso
+        '
+        Me.cmdHIngreso.Caption = "Ingresos"
+        Me.cmdHIngreso.Id = 89
+        Me.cmdHIngreso.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.attachment_add
+        Me.cmdHIngreso.Name = "cmdHIngreso"
+        '
+        'cmdAreasProduccion
+        '
+        Me.cmdAreasProduccion.Caption = "Areas Produccion"
+        Me.cmdAreasProduccion.Id = 90
+        Me.cmdAreasProduccion.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.forms
+        Me.cmdAreasProduccion.Name = "cmdAreasProduccion"
+        '
+        'cmdCatProduccion
+        '
+        Me.cmdCatProduccion.Caption = "Categorias de Produccion"
+        Me.cmdCatProduccion.Id = 91
+        Me.cmdCatProduccion.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.zoom_out
+        Me.cmdCatProduccion.Name = "cmdCatProduccion"
+        '
+        'cmdEmpleadosCat
+        '
+        Me.cmdEmpleadosCat.Caption = "Empleados Categorias"
+        Me.cmdEmpleadosCat.Id = 92
+        Me.cmdEmpleadosCat.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.addressbook
+        Me.cmdEmpleadosCat.Name = "cmdEmpleadosCat"
+        '
+        'cmdProduccion
+        '
+        Me.cmdProduccion.Caption = "Produccion"
+        Me.cmdProduccion.Id = 93
+        Me.cmdProduccion.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.graph_add
+        Me.cmdProduccion.Name = "cmdProduccion"
+        '
+        'cmdAntiguedad
+        '
+        Me.cmdAntiguedad.Caption = "Antiguedad"
+        Me.cmdAntiguedad.Id = 94
+        Me.cmdAntiguedad.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.Admin_tools
+        Me.cmdAntiguedad.Name = "cmdAntiguedad"
+        '
+        'cmdTipoAsistencias
+        '
+        Me.cmdTipoAsistencias.Caption = "Tipos de Asistencias"
+        Me.cmdTipoAsistencias.Id = 95
+        Me.cmdTipoAsistencias.LargeGlyph = Global.StS.Nomina.My.Resources.Resources.addressbook
+        Me.cmdTipoAsistencias.Name = "cmdTipoAsistencias"
+        '
+        'RibbonPage1
+        '
+        Me.RibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.cmdGenerales, Me.RibbonPageGroup1})
+        Me.RibbonPage1.Name = "RibbonPage1"
+        Me.RibbonPage1.Text = "Catalogo"
+        '
+        'cmdGenerales
+        '
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdLocalidad)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdDepartamentos)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdAreas)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdCargos, True)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdFunciones)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdProfesiones)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdOrganigrama)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdProduccion)
+        Me.cmdGenerales.ItemLinks.Add(Me.cmdAntiguedad)
+        Me.cmdGenerales.Name = "cmdGenerales"
+        Me.cmdGenerales.Text = "Generales Planilla"
+        '
+        'RibbonPageGroup1
+        '
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdHorarios)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdMonedas)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdFeriados)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdConstancias, True)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdRubrosEmpresa)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdTiposMovimientos)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdRHConfiguraciones)
+        Me.RibbonPageGroup1.ItemLinks.Add(Me.cmdTipoAsistencias)
+        Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
+        Me.RibbonPageGroup1.Text = "Generales Sistema"
+        '
+        'RibbonPage2
+        '
+        Me.RibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2, Me.Nomina, Me.RibbonPageGroup3, Me.RibbonPageGroup4, Me.RibbonPageGroup5, Me.RibbonPageGroup6, Me.RibbonPageGroup7, Me.RibbonPageGroup9})
+        Me.RibbonPage2.Name = "RibbonPage2"
+        Me.RibbonPage2.Text = "Procesos"
+        '
+        'RibbonPageGroup2
+        '
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.cmdEmpleados)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.cmdSalarioMinimo)
+        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
+        Me.RibbonPageGroup2.Text = "Personal"
+        '
+        'Nomina
+        '
+        Me.Nomina.ItemLinks.Add(Me.cmdPeriodos)
+        Me.Nomina.ItemLinks.Add(Me.cmdPeriodoFiscal)
+        Me.Nomina.ItemLinks.Add(Me.cmdPlanilla)
+        Me.Nomina.ItemLinks.Add(Me.cmdRevAut)
+        Me.Nomina.Name = "Nomina"
+        Me.Nomina.Text = "Nomina"
+        '
+        'RibbonPageGroup3
+        '
+        Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
+        Me.RibbonPageGroup3.Text = "Horarios"
+        Me.RibbonPageGroup3.Visible = False
+        '
+        'RibbonPageGroup4
+        '
+        Me.RibbonPageGroup4.Glyph = Global.StS.Nomina.My.Resources.Resources.alarm_add
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdGenerarHExtras)
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdAutorizarHE)
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.cmdReportesHE)
+        Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
+        Me.RibbonPageGroup4.Text = "Horas Extras"
+        '
+        'RibbonPageGroup5
+        '
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.cmdPermisos)
+        Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
+        Me.RibbonPageGroup5.Text = "Permisos"
+        '
+        'RibbonPageGroup6
+        '
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.cmdIngresos)
+        Me.RibbonPageGroup6.ItemLinks.Add(Me.cmdDeducciones)
+        Me.RibbonPageGroup6.Name = "RibbonPageGroup6"
+        Me.RibbonPageGroup6.Text = "Movimientos"
+        '
+        'RibbonPageGroup7
+        '
+        Me.RibbonPageGroup7.ItemLinks.Add(Me.cmdPagoVacaciones)
+        Me.RibbonPageGroup7.ItemLinks.Add(Me.cmdPagoAguinaldo)
+        Me.RibbonPageGroup7.Name = "RibbonPageGroup7"
+        Me.RibbonPageGroup7.Text = "Prestaciones"
+        '
+        'RibbonPageGroup9
+        '
+        Me.RibbonPageGroup9.ItemLinks.Add(Me.cmdRevisionL)
+        Me.RibbonPageGroup9.ItemLinks.Add(Me.cmdAprobacionL)
+        Me.RibbonPageGroup9.ItemLinks.Add(Me.cmdLiquidacion)
+        Me.RibbonPageGroup9.ItemLinks.Add(Me.cmdReportesL, True)
+        Me.RibbonPageGroup9.Name = "RibbonPageGroup9"
+        Me.RibbonPageGroup9.Text = "Baja de Empleados"
+        '
+        'RibbonPage3
+        '
+        Me.RibbonPage3.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup11, Me.RibbonPageGroup12})
+        Me.RibbonPage3.Name = "RibbonPage3"
+        Me.RibbonPage3.Text = "Reportes"
+        '
+        'RibbonPageGroup11
+        '
+        Me.RibbonPageGroup11.ItemLinks.Add(Me.cmdReportes)
+        Me.RibbonPageGroup11.ItemLinks.Add(Me.cmdConsultas)
+        Me.RibbonPageGroup11.ItemLinks.Add(Me.cmdListadoReportes)
+        Me.RibbonPageGroup11.Name = "RibbonPageGroup11"
+        '
+        'RibbonPageGroup12
+        '
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.cmdSolicitudes)
+        Me.RibbonPageGroup12.ItemLinks.Add(Me.cmdOrganigrama)
+        Me.RibbonPageGroup12.Name = "RibbonPageGroup12"
+        Me.RibbonPageGroup12.Text = "Solicitudes"
+        '
+        'RibbonPage5
+        '
+        Me.RibbonPage5.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup13})
+        Me.RibbonPage5.Name = "RibbonPage5"
+        Me.RibbonPage5.Text = "Historicos"
+        Me.RibbonPage5.Visible = False
+        '
+        'RibbonPageGroup13
+        '
+        Me.RibbonPageGroup13.ItemLinks.Add(Me.cmdHIngreso)
+        Me.RibbonPageGroup13.ItemLinks.Add(Me.cmdHDeducciones)
+        Me.RibbonPageGroup13.Name = "RibbonPageGroup13"
+        Me.RibbonPageGroup13.Text = "Movimientos"
+        '
+        'RibbonPage4
+        '
+        Me.RibbonPage4.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup8, Me.RibbonPageGroup10})
+        Me.RibbonPage4.Name = "RibbonPage4"
+        Me.RibbonPage4.Text = "Herramientas"
+        '
+        'RibbonPageGroup8
+        '
+        Me.RibbonPageGroup8.ItemLinks.Add(Me.cmdCambiarEmpresa)
+        Me.RibbonPageGroup8.ItemLinks.Add(Me.cmdImportar)
+        Me.RibbonPageGroup8.ItemLinks.Add(Me.cmdAyuda)
+        Me.RibbonPageGroup8.Name = "RibbonPageGroup8"
+        '
+        'RibbonPageGroup10
+        '
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.cmdRoles)
+        Me.RibbonPageGroup10.ItemLinks.Add(Me.cmdUsuarios)
+        Me.RibbonPageGroup10.Name = "RibbonPageGroup10"
+        Me.RibbonPageGroup10.Text = "Seguridad"
+        '
+        'Planilla_Semanal
+        '
+        Me.Planilla_Semanal.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RPConfiguraciones, Me.RibbonPageGroup14})
+        Me.Planilla_Semanal.Name = "Planilla_Semanal"
+        Me.Planilla_Semanal.Text = "Planilla Semanal"
+        '
+        'RPConfiguraciones
+        '
+        Me.RPConfiguraciones.ItemLinks.Add(Me.cmdAreasProduccion)
+        Me.RPConfiguraciones.ItemLinks.Add(Me.cmdCatProduccion)
+        Me.RPConfiguraciones.ItemLinks.Add(Me.cmdEmpleadosCat)
+        Me.RPConfiguraciones.Name = "RPConfiguraciones"
+        Me.RPConfiguraciones.Text = "Configuraciones"
+        '
+        'RibbonPageGroup14
+        '
+        Me.RibbonPageGroup14.ItemLinks.Add(Me.cmdProduccion)
+        Me.RibbonPageGroup14.Name = "RibbonPageGroup14"
+        Me.RibbonPageGroup14.Text = "Ingreso Produccion"
+        '
+        'RepositoryItemTextEdit1
+        '
+        Me.RepositoryItemTextEdit1.AutoHeight = False
+        Me.RepositoryItemTextEdit1.Name = "RepositoryItemTextEdit1"
+        '
+        'RibbonStatusBar
+        '
+        Me.RibbonStatusBar.Location = New System.Drawing.Point(0, 418)
+        Me.RibbonStatusBar.Name = "RibbonStatusBar"
+        Me.RibbonStatusBar.Ribbon = Me.RibbonControl
+        Me.RibbonStatusBar.Size = New System.Drawing.Size(804, 31)
+        '
+        'XtraTabbedMdiManager1
+        '
+        Me.XtraTabbedMdiManager1.MdiParent = Me
+        '
+        'PopupMenu1
+        '
+        Me.PopupMenu1.Name = "PopupMenu1"
+        Me.PopupMenu1.Ribbon = Me.RibbonControl
+        '
+        'frmPrincipal
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(804, 449)
+        Me.Controls.Add(Me.RibbonStatusBar)
+        Me.Controls.Add(Me.RibbonControl)
+        Me.IsMdiContainer = True
+        Me.Name = "frmPrincipal"
+        Me.Ribbon = Me.RibbonControl
+        Me.StatusBar = Me.RibbonStatusBar
+        Me.Text = "Sts.Nomina V3.01"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu_TiposMovimientos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu_Planilla, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu_Reportes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+
+    Friend WithEvents RibbonControl As DevExpress.XtraBars.Ribbon.RibbonControl
+    Friend WithEvents RibbonPage1 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonStatusBar As DevExpress.XtraBars.Ribbon.RibbonStatusBar
+    Friend WithEvents cmdLocalidad As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdFunciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdProfesiones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdGenerales As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdMonedas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdHorarios As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdFeriados As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdConstancias As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdRubrosEmpresa As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdTIngresos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdTDeducciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdDepartamentos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdTiposMovimientos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu_TiposMovimientos As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents cmdAreas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdCargos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPage2 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents cmdEmpleados As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdPeriodos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents Nomina As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdGenerarMovimientos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdGenerarPlanilla As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdPlanilla As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu_Planilla As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents cmdPermisos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdIngresos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdDeducciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup4 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup5 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup6 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup7 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup9 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdGenerarHExtras As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdAutorizarHE As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReportesHE As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdPagoVacaciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdPagoAguinaldo As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdRevisionL As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdAprobacionL As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdLiquidacion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReportesL As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdCambiarEmpresa As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdImportar As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdAyuda As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdRoles As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdUsuarios As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReportes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPage3 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonPageGroup11 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup12 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPage4 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonPageGroup8 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPageGroup10 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents PopupMenu_Reportes As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents cmdReportePlanilla As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReporteComparativo As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReporteHorasExtras As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdReporteECDeducciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdSolicitudes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RepositoryItemTextEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents cmdPanelMovimientos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
+    Friend WithEvents cmdReferencias As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu1 As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents cmdPeriodoFiscal As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdOrganigrama As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdConsultas As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdRevAut As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdSalarioMinimo As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdRHConfiguraciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdEmpleadosLight As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdListadoReportes As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdHDeducciones As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPage5 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RibbonPageGroup13 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdHIngreso As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdAreasProduccion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents Planilla_Semanal As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents RPConfiguraciones As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdCatProduccion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdEmpleadosCat As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdProduccion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup14 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents cmdAntiguedad As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdTipoAsistencias As DevExpress.XtraBars.BarButtonItem
+
+
+End Class

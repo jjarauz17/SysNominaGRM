@@ -1,0 +1,483 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmProduccion
+    Inherits DevExpress.XtraEditors.XtraForm
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.calc_Minimo = New DevExpress.XtraEditors.CalcEdit()
+        Me.cmdRefrescar = New DevExpress.XtraEditors.SimpleButton()
+        Me.cbAreas = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cmdCrearEncabezado = New DevExpress.XtraEditors.SimpleButton()
+        Me.calc_Produccion = New DevExpress.XtraEditors.CalcEdit()
+        Me.cbFechas = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cbPlanillas = New DevExpress.XtraEditors.LookUpEdit()
+        Me.cmdSalir = New DevExpress.XtraEditors.SimpleButton()
+        Me.cmdGuardar = New DevExpress.XtraEditors.SimpleButton()
+        Me.dgProduccion = New DevExpress.XtraGrid.GridControl()
+        Me.vLista = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.cbempleados = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.cbcategorias = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem()
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.SimpleLabelItem1 = New DevExpress.XtraLayout.SimpleLabelItem()
+        Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem()
+        CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.LayoutControl1.SuspendLayout()
+        CType(Me.calc_Minimo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbAreas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.calc_Produccion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbFechas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbPlanillas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgProduccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vLista, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbempleados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbcategorias, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SimpleLabelItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'LayoutControl1
+        '
+        Me.LayoutControl1.Controls.Add(Me.calc_Minimo)
+        Me.LayoutControl1.Controls.Add(Me.cmdRefrescar)
+        Me.LayoutControl1.Controls.Add(Me.cbAreas)
+        Me.LayoutControl1.Controls.Add(Me.cmdCrearEncabezado)
+        Me.LayoutControl1.Controls.Add(Me.calc_Produccion)
+        Me.LayoutControl1.Controls.Add(Me.cbFechas)
+        Me.LayoutControl1.Controls.Add(Me.cbPlanillas)
+        Me.LayoutControl1.Controls.Add(Me.cmdSalir)
+        Me.LayoutControl1.Controls.Add(Me.cmdGuardar)
+        Me.LayoutControl1.Controls.Add(Me.dgProduccion)
+        Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControl1.Name = "LayoutControl1"
+        Me.LayoutControl1.Root = Me.LayoutControlGroup1
+        Me.LayoutControl1.Size = New System.Drawing.Size(601, 434)
+        Me.LayoutControl1.TabIndex = 0
+        Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'calc_Minimo
+        '
+        Me.calc_Minimo.Location = New System.Drawing.Point(290, 84)
+        Me.calc_Minimo.Name = "calc_Minimo"
+        Me.calc_Minimo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.calc_Minimo.Properties.DisplayFormat.FormatString = "n0"
+        Me.calc_Minimo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.calc_Minimo.Properties.EditFormat.FormatString = "n0"
+        Me.calc_Minimo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.calc_Minimo.Size = New System.Drawing.Size(115, 20)
+        Me.calc_Minimo.StyleController = Me.LayoutControl1
+        Me.calc_Minimo.TabIndex = 13
+        '
+        'cmdRefrescar
+        '
+        Me.cmdRefrescar.Location = New System.Drawing.Point(344, 400)
+        Me.cmdRefrescar.Name = "cmdRefrescar"
+        Me.cmdRefrescar.Size = New System.Drawing.Size(79, 22)
+        Me.cmdRefrescar.StyleController = Me.LayoutControl1
+        Me.cmdRefrescar.TabIndex = 12
+        Me.cmdRefrescar.Text = "&Refrescar"
+        '
+        'cbAreas
+        '
+        Me.cbAreas.Location = New System.Drawing.Point(172, 60)
+        Me.cbAreas.Name = "cbAreas"
+        Me.cbAreas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbAreas.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("are_descripcion", 200, "Area")})
+        Me.cbAreas.Properties.NullText = "[Seleccione un Area de Produccion]"
+        Me.cbAreas.Size = New System.Drawing.Size(233, 20)
+        Me.cbAreas.StyleController = Me.LayoutControl1
+        Me.cbAreas.TabIndex = 11
+        '
+        'cmdCrearEncabezado
+        '
+        Me.cmdCrearEncabezado.Location = New System.Drawing.Point(326, 132)
+        Me.cmdCrearEncabezado.Name = "cmdCrearEncabezado"
+        Me.cmdCrearEncabezado.Size = New System.Drawing.Size(79, 22)
+        Me.cmdCrearEncabezado.StyleController = Me.LayoutControl1
+        Me.cmdCrearEncabezado.TabIndex = 10
+        Me.cmdCrearEncabezado.Text = "Guardar"
+        '
+        'calc_Produccion
+        '
+        Me.calc_Produccion.Location = New System.Drawing.Point(290, 108)
+        Me.calc_Produccion.Name = "calc_Produccion"
+        Me.calc_Produccion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.calc_Produccion.Properties.DisplayFormat.FormatString = "n0"
+        Me.calc_Produccion.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.calc_Produccion.Properties.EditFormat.FormatString = "n0"
+        Me.calc_Produccion.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.calc_Produccion.Size = New System.Drawing.Size(115, 20)
+        Me.calc_Produccion.StyleController = Me.LayoutControl1
+        Me.calc_Produccion.TabIndex = 9
+        '
+        'cbFechas
+        '
+        Me.cbFechas.Location = New System.Drawing.Point(172, 36)
+        Me.cbFechas.Name = "cbFechas"
+        Me.cbFechas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbFechas.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("per_fecha", "Fechas", 20, DevExpress.Utils.FormatType.DateTime, "d", True, DevExpress.Utils.HorzAlignment.[Default])})
+        Me.cbFechas.Properties.DisplayFormat.FormatString = "d"
+        Me.cbFechas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.cbFechas.Properties.EditFormat.FormatString = "d"
+        Me.cbFechas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.cbFechas.Properties.NullText = "[Seleccione una Fecha de Trabajo]"
+        Me.cbFechas.Size = New System.Drawing.Size(233, 20)
+        Me.cbFechas.StyleController = Me.LayoutControl1
+        Me.cbFechas.TabIndex = 8
+        '
+        'cbPlanillas
+        '
+        Me.cbPlanillas.Location = New System.Drawing.Point(172, 12)
+        Me.cbPlanillas.Name = "cbPlanillas"
+        Me.cbPlanillas.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbPlanillas.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("per_descripcion", "Descripcion")})
+        Me.cbPlanillas.Properties.NullText = "[Seleccione una Planilla]"
+        Me.cbPlanillas.Size = New System.Drawing.Size(233, 20)
+        Me.cbPlanillas.StyleController = Me.LayoutControl1
+        Me.cbPlanillas.TabIndex = 7
+        '
+        'cmdSalir
+        '
+        Me.cmdSalir.Location = New System.Drawing.Point(510, 400)
+        Me.cmdSalir.Name = "cmdSalir"
+        Me.cmdSalir.Size = New System.Drawing.Size(79, 22)
+        Me.cmdSalir.StyleController = Me.LayoutControl1
+        Me.cmdSalir.TabIndex = 6
+        Me.cmdSalir.Text = "&Salir"
+        '
+        'cmdGuardar
+        '
+        Me.cmdGuardar.Location = New System.Drawing.Point(427, 400)
+        Me.cmdGuardar.Name = "cmdGuardar"
+        Me.cmdGuardar.Size = New System.Drawing.Size(79, 22)
+        Me.cmdGuardar.StyleController = Me.LayoutControl1
+        Me.cmdGuardar.TabIndex = 5
+        Me.cmdGuardar.Text = "&Guardar"
+        '
+        'dgProduccion
+        '
+        Me.dgProduccion.Location = New System.Drawing.Point(12, 158)
+        Me.dgProduccion.MainView = Me.vLista
+        Me.dgProduccion.Name = "dgProduccion"
+        Me.dgProduccion.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.cbempleados, Me.cbcategorias})
+        Me.dgProduccion.Size = New System.Drawing.Size(577, 238)
+        Me.dgProduccion.TabIndex = 4
+        Me.dgProduccion.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.vLista})
+        '
+        'vLista
+        '
+        Me.vLista.GridControl = Me.dgProduccion
+        Me.vLista.Name = "vLista"
+        '
+        'cbempleados
+        '
+        Me.cbempleados.AutoHeight = False
+        Me.cbempleados.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbempleados.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("emp_codigo", "Codigo", 20, DevExpress.Utils.FormatType.None, "", False, DevExpress.Utils.HorzAlignment.[Default]), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Nombre")})
+        Me.cbempleados.Name = "cbempleados"
+        '
+        'cbcategorias
+        '
+        Me.cbcategorias.AutoHeight = False
+        Me.cbcategorias.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbcategorias.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("cat_descripcion", "Descripcion")})
+        Me.cbcategorias.Name = "cbcategorias"
+        '
+        'LayoutControlGroup1
+        '
+        Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
+        Me.LayoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.LayoutControlGroup1.GroupBordersVisible = False
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem4, Me.EmptySpaceItem2, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.EmptySpaceItem3, Me.LayoutControlItem7, Me.SimpleLabelItem1, Me.LayoutControlItem8, Me.LayoutControlItem9, Me.LayoutControlItem10})
+        Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlGroup1.Name = "Root"
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(601, 434)
+        Me.LayoutControlGroup1.Text = "Root"
+        Me.LayoutControlGroup1.TextVisible = False
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.dgProduccion
+        Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 146)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(581, 242)
+        Me.LayoutControlItem1.Text = "LayoutControlItem1"
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem1.TextToControlDistance = 0
+        Me.LayoutControlItem1.TextVisible = False
+        '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.Control = Me.cmdGuardar
+        Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(415, 388)
+        Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem2.MinSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem2.Text = "LayoutControlItem2"
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem2.TextToControlDistance = 0
+        Me.LayoutControlItem2.TextVisible = False
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.cmdSalir
+        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(498, 388)
+        Me.LayoutControlItem3.MaxSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem3.MinSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem3.Text = "LayoutControlItem3"
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextToControlDistance = 0
+        Me.LayoutControlItem3.TextVisible = False
+        '
+        'EmptySpaceItem1
+        '
+        Me.EmptySpaceItem1.AllowHotTrack = False
+        Me.EmptySpaceItem1.CustomizationFormText = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Location = New System.Drawing.Point(0, 388)
+        Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(332, 26)
+        Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
+        Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.cbPlanillas
+        Me.LayoutControlItem4.CustomizationFormText = "Seleccione una planilla:"
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem4.MaxSize = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem4.MinSize = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem4.Text = "Seleccione una planilla:"
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(156, 13)
+        '
+        'EmptySpaceItem2
+        '
+        Me.EmptySpaceItem2.AllowHotTrack = False
+        Me.EmptySpaceItem2.CustomizationFormText = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Location = New System.Drawing.Point(397, 0)
+        Me.EmptySpaceItem2.MinSize = New System.Drawing.Size(104, 24)
+        Me.EmptySpaceItem2.Name = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.Size = New System.Drawing.Size(184, 146)
+        Me.EmptySpaceItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.EmptySpaceItem2.Text = "EmptySpaceItem2"
+        Me.EmptySpaceItem2.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.cbFechas
+        Me.LayoutControlItem5.CustomizationFormText = "Seleccione una fecha:"
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 24)
+        Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem5.MinSize = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem5.Text = "Seleccione una fecha:"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(156, 13)
+        '
+        'LayoutControlItem6
+        '
+        Me.LayoutControlItem6.Control = Me.calc_Produccion
+        Me.LayoutControlItem6.CustomizationFormText = "Produccion del Dia:"
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(118, 96)
+        Me.LayoutControlItem6.MaxSize = New System.Drawing.Size(279, 24)
+        Me.LayoutControlItem6.MinSize = New System.Drawing.Size(279, 24)
+        Me.LayoutControlItem6.Name = "LayoutControlItem6"
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(279, 24)
+        Me.LayoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem6.Text = "Produccion del Dia:"
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(156, 13)
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.AllowHotTrack = False
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 72)
+        Me.EmptySpaceItem3.MinSize = New System.Drawing.Size(104, 24)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(118, 74)
+        Me.EmptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem7
+        '
+        Me.LayoutControlItem7.Control = Me.cmdCrearEncabezado
+        Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(314, 120)
+        Me.LayoutControlItem7.MaxSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem7.MinSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem7.Name = "LayoutControlItem7"
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem7.Text = "LayoutControlItem7"
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem7.TextToControlDistance = 0
+        Me.LayoutControlItem7.TextVisible = False
+        '
+        'SimpleLabelItem1
+        '
+        Me.SimpleLabelItem1.AllowHotTrack = False
+        Me.SimpleLabelItem1.CustomizationFormText = "Guardar Produccion del Dia -->>"
+        Me.SimpleLabelItem1.Location = New System.Drawing.Point(118, 120)
+        Me.SimpleLabelItem1.MaxSize = New System.Drawing.Size(196, 26)
+        Me.SimpleLabelItem1.MinSize = New System.Drawing.Size(196, 26)
+        Me.SimpleLabelItem1.Name = "SimpleLabelItem1"
+        Me.SimpleLabelItem1.Size = New System.Drawing.Size(196, 26)
+        Me.SimpleLabelItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.SimpleLabelItem1.Text = "Guardar Produccion del Dia -->>"
+        Me.SimpleLabelItem1.TextSize = New System.Drawing.Size(156, 13)
+        '
+        'LayoutControlItem8
+        '
+        Me.LayoutControlItem8.Control = Me.cbAreas
+        Me.LayoutControlItem8.CustomizationFormText = "Area:"
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(0, 48)
+        Me.LayoutControlItem8.Name = "LayoutControlItem8"
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(397, 24)
+        Me.LayoutControlItem8.Text = "Area:"
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(156, 13)
+        '
+        'LayoutControlItem9
+        '
+        Me.LayoutControlItem9.Control = Me.cmdRefrescar
+        Me.LayoutControlItem9.CustomizationFormText = "LayoutControlItem9"
+        Me.LayoutControlItem9.Location = New System.Drawing.Point(332, 388)
+        Me.LayoutControlItem9.MaxSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem9.MinSize = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem9.Name = "LayoutControlItem9"
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(83, 26)
+        Me.LayoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
+        Me.LayoutControlItem9.Text = "LayoutControlItem9"
+        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem9.TextToControlDistance = 0
+        Me.LayoutControlItem9.TextVisible = False
+        '
+        'LayoutControlItem10
+        '
+        Me.LayoutControlItem10.Control = Me.calc_Minimo
+        Me.LayoutControlItem10.CustomizationFormText = "Produccion Minima:"
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(118, 72)
+        Me.LayoutControlItem10.Name = "LayoutControlItem10"
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(279, 24)
+        Me.LayoutControlItem10.Text = "Produccion Minima:"
+        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(156, 13)
+        '
+        'frmProduccion
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(601, 434)
+        Me.Controls.Add(Me.LayoutControl1)
+        Me.Name = "frmProduccion"
+        Me.Text = "Produccion"
+        CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.calc_Minimo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbAreas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.calc_Produccion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbFechas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbPlanillas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgProduccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vLista, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbempleados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbcategorias, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SimpleLabelItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
+    Friend WithEvents LayoutControlGroup1 As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents cmdSalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents dgProduccion As DevExpress.XtraGrid.GridControl
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem1 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents cbPlanillas As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents cbFechas As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents calc_Produccion As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents cmdCrearEncabezado As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents SimpleLabelItem1 As DevExpress.XtraLayout.SimpleLabelItem
+    Friend WithEvents cbempleados As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
+    Friend WithEvents cbcategorias As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
+    Friend WithEvents cbAreas As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents cmdRefrescar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents vLista As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents calc_Minimo As DevExpress.XtraEditors.CalcEdit
+    Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem
+End Class

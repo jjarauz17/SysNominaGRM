@@ -1,0 +1,65 @@
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+Imports DbConnect
+
+
+Namespace VB.SysContab
+
+    Public Class AguinaldoDB
+
+        Public Function GetList(ByVal Empleado As String, ByVal Filtro As String, ByVal VerDetalle As Boolean) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion)
+            DBCommand = New SqlDataAdapter("_GetListAguinaldo", DBConn)
+
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+
+            Dim pEmpresa As New SqlParameter("@Empresa", SqlDbType.Int)
+            Dim pEmpleado As New SqlParameter("@Empleado", SqlDbType.NVarChar)
+            Dim pfiltro As New SqlParameter("@Filtro", SqlDbType.NVarChar)
+            Dim pDetalle As New SqlParameter("@VerDetalle", SqlDbType.Bit)
+
+            pEmpresa.Value = EmpresaActual
+            pEmpleado.Value = Empleado
+            pfiltro.Value = Filtro
+            pDetalle.Value = VerDetalle
+
+            DBCommand.SelectCommand.Parameters.Add(pEmpresa)
+            DBCommand.SelectCommand.Parameters.Add(pEmpleado)
+            DBCommand.SelectCommand.Parameters.Add(pfiltro)
+            DBCommand.SelectCommand.Parameters.Add(pDetalle)
+
+            Try
+                DBCommand.Fill(dsFicha, "Aguinaldo")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+
+            End Try
+
+            DBConn.Close()
+
+            Return dsFicha
+        End Function
+
+        Public Shared Function GetListDetalle(ByVal Empleado As String, ByVal desde As Date, ByVal hasta As Date) As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("Empleado", SqlDbType.NVarChar, 8, ParameterDirection.Input, Empleado)
+            v.AddParameter("_Desde", SqlDbType.SmallDateTime, 50, ParameterDirection.Input, Desde)
+            v.AddParameter("_Hasta", SqlDbType.SmallDateTime, 50, ParameterDirection.Input, Hasta)
+            Try
+                Return v.EjecutarComando("CALC_SalarioAguinaldo_Mes_Detalle", "Detalle")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return Nothing
+            End Try
+        End Function
+
+    End Class
+End Namespace

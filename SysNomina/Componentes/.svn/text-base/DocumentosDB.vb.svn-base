@@ -1,0 +1,397 @@
+Imports System.IO
+Imports DbConnect
+Imports System.Data.SqlClient
+
+
+Namespace VB.SysContab
+    Public Class DocumentosDB
+        Public Function Leer_Archivo(ByVal Archivo As String, ByRef DS As DataSet) As Integer
+            Dim delimStr As String = ","
+            Dim delimiter As Char() = delimStr.ToCharArray()
+            Dim split As String() = Nothing
+
+            Dim Linea As String
+            Dim i, j As Integer
+
+
+
+            If Not File.Exists(Archivo) Then
+                MsgBox("No existe el archivo: " & Archivo, MsgBoxStyle.Information)
+                Exit Function
+            End If
+            Dim ConnectionFile As New System.IO.StreamReader(Archivo)
+
+            DS.Tables.Add("Archivo")
+            i = 1
+            Do While True
+                Try
+                    Linea = ConnectionFile.ReadLine.ToString()
+                Catch ex As Exception
+                    If i = 0 Then
+                        GoTo fallo
+                    End If
+                    Exit Do
+                End Try
+
+                If Linea.Length = 0 And i = 1 Then
+                    GoTo fallo
+                    Exit Do
+                End If
+                If Linea.Length = 0 Then ' Si no tiene nada en la linea
+                    Exit Do
+                End If
+                split = Linea.Split(delimiter)
+                If i <= 1 Then 'Primera Linea contiene la descripcion de los campos del encabezado
+                    If DS.Tables("Archivo").Columns.Count = 0 Then
+                        For j = 0 To split.GetUpperBound(0)
+                            DS.Tables("Archivo").Columns.Add(split(j).Trim)
+                        Next
+                    Else
+                        GoTo fallo
+                        DS.Tables.Clear()
+                        Exit Do
+                    End If
+                Else
+                    If DS.Tables("Archivo").Columns.Count = 0 Then
+                        GoTo fallo
+                        DS.Tables.Clear()
+                        Exit Do
+                    Else
+                        If split(0) <> "" Then
+                            DS.Tables("Archivo").Rows.Add(split)
+                        End If
+                    End If
+
+                End If
+                i = i + 1
+            Loop
+
+            Return 1
+fallo:      Return -1
+
+        End Function
+
+        Public Function Leer_Archivo_Reloj(ByVal Archivo As String, ByRef DS As DataSet) As Integer
+            Dim delimStr As String = ","
+            Dim delimiter As Char() = delimStr.ToCharArray()
+            Dim split As String() = Nothing
+
+            Dim Linea As String
+            Dim i, j As Integer
+
+            Dim TotalColumnas As Integer
+
+            If Not File.Exists(Archivo) Then
+                MsgBox("No existe el archivo: " & Archivo, MsgBoxStyle.Information)
+                Exit Function
+            End If
+            Dim ConnectionFile As New System.IO.StreamReader(Archivo)
+
+            DS.Tables.Add("Archivo")
+            i = 1
+            Do While True
+                Try
+                    Linea = ConnectionFile.ReadLine.ToString()
+                Catch ex As Exception
+                    If i = 0 Then
+                        GoTo fallo
+                    End If
+                    Exit Do
+                End Try
+
+                If Linea.Length = 0 And i = 1 Then
+                    GoTo fallo
+                    Exit Do
+                End If
+                If Linea.Length = 0 Then
+                    Exit Do
+                End If
+                split = Linea.Split(delimiter)
+                If i <= 1 Then 'Primera Linea contiene la descripcion de los campos del encabezado
+                    If DS.Tables("Archivo").Columns.Count = 0 Then
+                        For j = 0 To split.GetUpperBound(0)
+                            DS.Tables("Archivo").Columns.Add(split(j).Trim)
+                        Next
+                        TotalColumnas = split.GetUpperBound(0)
+                    Else
+                        GoTo fallo
+                        DS.Tables.Clear()
+                        Exit Do
+                    End If
+                Else
+                    If split.GetUpperBound(0) <> TotalColumnas Then
+                        GoTo fallo
+                        DS.Tables.Clear()
+                        Exit Do
+                    Else
+                        If DS.Tables("Archivo").Columns.Count = 0 Then
+                            GoTo fallo
+                            DS.Tables.Clear()
+                            Exit Do
+                        Else
+                            DS.Tables("Archivo").Rows.Add(split)
+                        End If
+                    End If
+                End If
+                i = i + 1
+            Loop
+
+            Return 1
+fallo:      Return -1
+
+        End Function
+
+        Public Function Leer_Archivo_Reloj_2(ByVal Archivo As String, ByRef DS As DataSet) As Integer
+            Dim delimStr As String = ","
+            Dim delimiter As Char() = delimStr.ToCharArray()
+            Dim split As String() = Nothing
+            Dim Fechas(30) As String
+
+            Dim Linea As String
+            Dim i As Integer ' j
+
+            'Dim TotalColumnas As Integer
+
+            If Not File.Exists(Archivo) Then
+                MsgBox("No existe el archivo: " & Archivo, MsgBoxStyle.Information)
+                Exit Function
+            End If
+            Dim ConnectionFile As New System.IO.StreamReader(Archivo)
+
+            DS.Tables.Add("Archivo")
+            i = 1
+            DS.Tables("Archivo").Columns.Add("INSS")
+            DS.Tables("Archivo").Columns.Add("date")
+            DS.Tables("Archivo").Columns.Add("IN")
+            DS.Tables("Archivo").Columns.Add("OUT")
+            DS.Tables("Archivo").Columns.Add("LUNCH")
+            DS.Tables("Archivo").Columns.Add("reghrs")
+            DS.Tables("Archivo").Columns.Add("othrs")
+            Dim n As Integer = 2
+            Dim ancho As Integer = 5
+            'Dim anchoReg As Integer
+            Dim r As Integer = 0
+            Dim x As Integer = 0
+            Dim y As Integer = 0 'va a contener la cantidad de dias incluidos en el reporte
+            Dim z As Integer = 0
+            Dim _in, _out, _lunch, _reghrs, _othrs As Integer
+            _in = -1
+            _out = -1
+            _lunch = -1
+            _reghrs = -1
+            _othrs = -1
+
+            Do While True
+                Try
+                    Linea = ConnectionFile.ReadLine.ToString()
+                Catch ex As Exception
+                    If i = 0 Then
+                        GoTo fallo
+                    End If
+                    Exit Do
+                End Try
+
+                If Linea.Length = 0 And i = 1 Then
+                    GoTo fallo
+                    Exit Do
+                End If
+                If Linea.Length = 0 Then
+                    Exit Do
+                End If
+                split = Linea.Split(delimiter)
+               
+                If i <= 1 Then 'En la primer linea se encuentra las fechas
+
+                    For x = 0 To split.GetUpperBound(0)  '- ancho + 1
+                        If IsDate(split(x)) Then  '+ n
+                            Fechas(y) = split(x)  '+ n
+                            y += 1
+                        End If
+                    Next
+                ElseIf i = 2 Then
+                    ancho = ((split.GetUpperBound(0) + 1) - 2) / y
+                    ' If ((split.GetUpperBound(0) + 1) - 2) Mod ancho <> 0 Then
+                    For r = 0 To (ancho + n) - 1
+                        Select Case split(r).ToUpper
+                            Case "IN"
+                                _in = r - n
+                            Case "OUT"
+                                _out = r - n
+                            Case "LUNCH"
+                                _lunch = r - n
+                            Case "REGHRS"
+                                _reghrs = r - n
+                            Case "OTHRS"
+                                _othrs = r - n
+                        End Select
+
+                    Next
+                    'End If
+                ElseIf i > 2 Then
+
+                    Dim registro(6) As String 'crea un array para ingresar el registro en la tabla
+                    For x = 0 To y - 1
+                        registro(0) = split(0)
+                        registro(1) = Fechas(x)
+                        registro(2) = IIf(_in = -1, "", split(n + (x * ancho) + _in))  'IN
+                        registro(3) = IIf(_out = -1, "", split(n + (x * ancho) + _out))  'OUT
+                        registro(4) = IIf(_lunch = -1, "", split(n + (x * ancho) + _lunch))   'LUNCH
+                        registro(5) = IIf(_reghrs = -1, "", split(n + (x * ancho) + _reghrs))   'REGHRS
+                        registro(6) = IIf(_othrs = -1, "", split(n + (x * ancho) + _othrs))   'OTHRS
+                        DS.Tables("Archivo").Rows.Add(registro)
+                    Next
+
+                End If
+                i = i + 1
+            Loop
+
+            Return 1
+fallo:      Return -1
+
+        End Function
+
+       
+
+        ' Public Function Reloj(ByVal User As String, _
+        'ByVal Desde As Date, _
+        'ByVal Hasta As Date, _
+        'ByVal Pwd As String, _
+        'ByRef Ds As DataSet) As DataSet
+        'Dim PostString As String
+        'Dim PostData() As Byte
+
+        'PostString = "login=" & miniURLencode(User) & _
+        '  "&password=" & miniURLencode(Pwd) & _
+        '  "&begindate=" & miniURLencode(Desde.Date) & _
+        '  "&enddate=" & miniURLencode(Hasta.Date)
+
+        'PostData = System.Text.Encoding.Unicode.GetBytes(PostString)
+
+
+        'Dim http As New MSXML2.ServerXMLHTTP()
+        'Dim xmldoc As New MSXML.DOMDocument()
+
+        'http.open("POST", "https://www.payrollservers.us/sc/excelxml/default.asp")
+        'http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+        ''http.send(PostData)
+        'http.send(PostString)
+
+        'Dim httpresponse As String
+        'httpresponse = "<?xml version=""1.0"" encoding=""ISO-8859-1""?>" & http.responseText
+
+        'Dim objStreamWriter As StreamWriter = New StreamWriter(Application.StartupPath() & "\exportfiles\reloj.xml", False, System.Text.Encoding.Unicode)
+        'objStreamWriter.Flush()
+
+        'objStreamWriter.WriteLine(httpresponse)
+        'objStreamWriter.Close()
+
+
+        'Ds.ReadXml(Application.StartupPath() & "\exportfiles\reloj.xml")
+        'Return Ds
+        'End Function
+
+        ' this converts each character of the strings to a urlencode
+        ' (a percent sign plus two ASCII hex digits) for sending to the server.
+        Function miniURLencode(ByVal what As String) As String
+            Dim i As Long
+            miniURLencode = ""
+            For i = 1 To Len(what)
+                miniURLencode = miniURLencode & "%" & Hex(Asc(Mid(what, i, 1)))
+            Next
+            Return miniURLencode
+        End Function
+
+
+        Public Shared Function Postear_Archivo(ByVal Archivo() As Byte, ByVal Nombre_Archivo As String, _
+            ByVal Tipo_Archivo As String, ByVal Tipo_Movimiento As String, ByVal Moneda As String, ByVal Iniciar_el As Date, _
+            ByVal Cuotas As Integer, ByVal Nomina_Regular As Boolean, ByVal Mantto_Valor As Boolean) As Boolean
+
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("Nombre_Archivo", SqlDbType.NVarChar, 1000, ParameterDirection.Input, Nombre_Archivo)
+            v.AddParameter("Archivo", SqlDbType.VarBinary, 8000, ParameterDirection.Input, Archivo)
+
+            v.AddParameter("Tipo_Archivo", SqlDbType.NVarChar, 1, ParameterDirection.Input, Tipo_Archivo)
+            v.AddParameter("Tipo_Movimiento", SqlDbType.NVarChar, 50, ParameterDirection.Input, Tipo_Movimiento)
+            v.AddParameter("Moneda", SqlDbType.NVarChar, 50, ParameterDirection.Input, Moneda)
+            v.AddParameter("Iniciar_el", SqlDbType.SmallDateTime, 1, ParameterDirection.Input, Iniciar_el)
+            v.AddParameter("Cuotas", SqlDbType.Int, 5, ParameterDirection.Input, Cuotas)
+            v.AddParameter("Nomina_Regular", SqlDbType.Bit, 1, ParameterDirection.Input, Nomina_Regular)
+            v.AddParameter("Mantto_Valor", SqlDbType.Bit, 1, ParameterDirection.Input, Mantto_Valor)
+
+
+            Try
+                v.EjecutarComando("_RH_Importacion_Add")
+                Return True
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+            v = Nothing
+        End Function
+
+        Public Shared Function Get_Importacion(ByVal Usuario As String) As DataTable
+
+            Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("Usuario", SqlDbType.NVarChar, 100, ParameterDirection.Input, Usuario)
+
+            Try
+                Return v.EjecutarComando("_RH_Importacion_Get", "ListaArchivos")
+
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return Nothing
+            End Try
+            v = Nothing
+        End Function
+
+        Public Shared Function Get_Archivo(ByVal ID As Integer) As Byte()
+
+            'Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+            'v.AddParameter("ID", SqlDbType.Int, 5, ParameterDirection.Input, ID)
+            'v.AddParameter("Archivo", SqlDbType.VarBinary, 8000, ParameterDirection.Output, 0)
+
+            'Try
+            '    v.EjecutarComando("_RH_Importacion_Archivo", "ListaArchivos")
+            '    Return v.GetParameter("Archivo").Valor
+
+            'Catch ex As Exception
+            '    MsgBox(ex.Message)
+            '    Return Nothing
+            'End Try
+            'v = Nothing
+
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+            DBCommand = New SqlDataAdapter("_RH_Importacion_Archivo", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+            DBCommand.SelectCommand.CommandTimeout = 0
+
+
+            Dim pID As New SqlParameter("@ID", SqlDbType.Int)
+            Dim pArchivo As New SqlParameter("@Archivo", SqlDbType.VarBinary, 8000)
+
+            pID.Value = ID
+            pArchivo.Direction = ParameterDirection.Output
+
+            DBCommand.SelectCommand.Parameters.Add(pID)
+            DBCommand.SelectCommand.Parameters.Add(pArchivo)
+
+
+            Try
+                DBConn.Open()
+                DBCommand.SelectCommand.ExecuteNonQuery()
+                Return pArchivo.Value
+                DBConn.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return Nothing
+                DBConn.Close()
+            End Try
+
+        End Function
+    End Class
+End Namespace

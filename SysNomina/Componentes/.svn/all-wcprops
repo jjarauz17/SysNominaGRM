@@ -1,0 +1,443 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/SysNomina_Carnic/!svn/ver/11/StS.Nomina/Componentes
+END
+AguinaldoDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/AguinaldoDB.vb
+END
+Novedades_INSSDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Novedades_INSSDB.vb
+END
+Vacaciones.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Vacaciones.vb
+END
+XMLSchema1.xsx
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/XMLSchema1.xsx
+END
+EmpleadosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Componentes/EmpleadosDB.vb
+END
+Grupos_InventarioDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Grupos_InventarioDB.vb
+END
+CargosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/CargosDB.vb
+END
+Rutinas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Rutinas.vb
+END
+MCS_DB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MCS_DB.vb
+END
+DeduccionesDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DeduccionesDB.vb
+END
+HorariosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/HorariosDB.vb
+END
+RubrosEmpresaDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/RubrosEmpresaDB.vb
+END
+DetalleIngreso.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DetalleIngreso.vb
+END
+AreasDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SysNomina_Carnic/!svn/ver/14/StS.Nomina/Componentes/AreasDB.vb
+END
+PermisosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/PermisosDB.vb
+END
+PeriodoNominaDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Componentes/PeriodoNominaDB.vb
+END
+MenuDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MenuDB.vb
+END
+IngresoDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/IngresoDB.vb
+END
+LocalidadDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/LocalidadDB.vb
+END
+TiposDeduccionDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/TiposDeduccionDB.vb
+END
+RegEntSal.vb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/RegEntSal.vb
+END
+EmpresasDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/EmpresasDB.vb
+END
+AuditoriaDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/AuditoriaDB.vb
+END
+RegimenINSSDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/10/StS.Nomina/Componentes/RegimenINSSDB.vb
+END
+RH_Produccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/21/StS.Nomina/Componentes/RH_Produccion.vb
+END
+TiposMovimientosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/TiposMovimientosDB.vb
+END
+rh_antiguedad.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/9/StS.Nomina/Componentes/rh_antiguedad.vb
+END
+DataGridComboBoxColumn.resx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DataGridComboBoxColumn.resx
+END
+RH_IR.vb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/SysNomina_Carnic/!svn/ver/11/StS.Nomina/Componentes/RH_IR.vb
+END
+LiquidacionDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/LiquidacionDB.vb
+END
+Tasa_CambioDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Tasa_CambioDB.vb
+END
+HorasExtrasDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/HorasExtrasDB.vb
+END
+DepartamentosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DepartamentosDB.vb
+END
+DepartamentosCDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DepartamentosCDB.vb
+END
+MyDataGridBoolColumn.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MyDataGridBoolColumn.vb
+END
+BoolValueChangedEventArgs.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/BoolValueChangedEventArgs.vb
+END
+RelojDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/RelojDB.vb
+END
+EmpHorariosSemanaDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/EmpHorariosSemanaDB.vb
+END
+MunicipiosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MunicipiosDB.vb
+END
+TiposPermisosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/TiposPermisosDB.vb
+END
+DetalleDeduccionesDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DetalleDeduccionesDB.vb
+END
+MyDataGridBoolColumn.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MyDataGridBoolColumn.resx
+END
+PaisesDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/PaisesDB.vb
+END
+MonedasDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MonedasDB.vb
+END
+RH_Reportes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Componentes/RH_Reportes.vb
+END
+EmpHorariosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/EmpHorariosDB.vb
+END
+AhorroDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/AhorroDB.vb
+END
+Cat_ProdDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Cat_ProdDB.vb
+END
+FeriadosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/FeriadosDB.vb
+END
+PlanillaDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/PlanillaDB.vb
+END
+Empleado_Categoria.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/16/StS.Nomina/Componentes/Empleado_Categoria.vb
+END
+ComboValueChanged.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/ComboValueChanged.vb
+END
+RH_Configuraciones.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/10/StS.Nomina/Componentes/RH_Configuraciones.vb
+END
+Activos_FijosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Activos_FijosDB.vb
+END
+Empleado_BajaDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/6/StS.Nomina/Componentes/Empleado_BajaDB.vb
+END
+ProfesionDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/ProfesionDB.vb
+END
+SysAsistenciasDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/SysAsistenciasDB.vb
+END
+SeguridadDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/SeguridadDB.vb
+END
+Catalogo_BancosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Catalogo_BancosDB.vb
+END
+MarcaRelojDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/MarcaRelojDB.vb
+END
+DocumentosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DocumentosDB.vb
+END
+DataGridComboBoxColumn.vb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/DataGridComboBoxColumn.vb
+END
+Email.vb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/Email.vb
+END
+CamposDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/CamposDB.vb
+END
+RH_Empleados_Light.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/6/StS.Nomina/Componentes/RH_Empleados_Light.vb
+END
+XMLSchema1.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/XMLSchema1.xsd
+END
+PeriodosDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/PeriodosDB.vb
+END
+TMovDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/TMovDB.vb
+END
+CatalogoDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/CatalogoDB.vb
+END
+FuncionesDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/FuncionesDB.vb
+END
+RegistroDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/RegistroDB.vb
+END
+SolicitudDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/SolicitudDB.vb
+END
+TipoIngresoDB.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Componentes/TipoIngresoDB.vb
+END

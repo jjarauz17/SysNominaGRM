@@ -1,0 +1,211 @@
+Imports DevExpress.XtraTreeList.Nodes
+Public Class frmOrganigrama
+#Region "Variables"
+    Dim Cargado As Boolean = False
+#End Region
+    Private Sub frmOrganigrama_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.cargar()
+        Cargado = True
+    End Sub
+
+    Private Sub cargar()
+
+        Me.cbDebitos.DataSource = VB.SysContab.CatalogoDB.Listar_RH_Catalogo(False)
+        Me.cbDebitos.DisplayMember = "Nombre"
+        Me.cbDebitos.ValueMember = "Cuenta"
+
+        Me.cbCreditos.DataSource = VB.SysContab.CatalogoDB.Listar_RH_Catalogo(False)
+        Me.cbCreditos.DisplayMember = "Nombre"
+        Me.cbCreditos.ValueMember = "Cuenta"
+
+
+        Me.cbEmpleados.DataSource = VB.SysContab.EmpleadosDB.Lista_Combo("0")
+        Me.cbEmpleados.DisplayMember = "nombre"
+        Me.cbEmpleados.ValueMember = "emp_codigo"
+
+        Me.TreeList1.DataSource = VB.SysContab.RH_OrganigramaDB.Listar()
+        Me.TreeList1.KeyFieldName = "org_codigo"
+        Me.TreeList1.ParentFieldName = "org_padre"
+        Me.TreeList1.BestFitColumns()
+        Me.TreeList1.Columns("org_descripcion").Caption = "Centro de Costo"
+        Me.TreeList1.Columns("org_sufijo").Visible = True
+        Me.TreeList1.Columns("org_sufijo").Caption = "Prefijo Contable"
+        Me.TreeList1.Columns("empr_codigo").Visible = False
+        Me.TreeList1.Columns("emp_codigo").ColumnEdit = Me.cbEmpleados
+        Me.TreeList1.Columns("emp_codigo").Visible = False
+        Me.TreeList1.Columns("org_email").Visible = False
+        Me.TreeList1.Columns("org_nivel").Visible = False
+        Me.TreeList1.Columns("org_activo").Visible = False
+        Me.TreeList1.Columns("org_path").Visible = False
+
+    End Sub
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+
+
+        Dim parentNode As TreeListNode = TreeList1.FocusedNode
+        If parentNode Is Nothing Then
+            Exit Sub
+        End If
+        If parentNode.GetValue("org_descripcion") Is DBNull.Value Then
+            Exit Sub
+        End If
+        If parentNode.GetValue("org_descripcion") = "" Then
+            Exit Sub
+        End If
+
+        Dim newNode As TreeListNode = TreeList1.AppendNode(New Object() {""}, parentNode)
+        TreeList1.SetNodeIndex(newNode, parentNode.Nodes.Count - 1)
+        parentNode.Expanded = True
+        TreeList1.FocusedNode = newNode
+        If parentNode.GetValue("org_codigo") Is DBNull.Value Then
+        Else
+            TreeList1.FocusedNode.SetValue("org_padre", parentNode.GetValue("org_codigo"))
+        End If
+    End Sub
+
+    Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton2.Click
+        Dim Node As TreeListNode = TreeList1.FocusedNode
+        If Node Is Nothing Then
+            Exit Sub
+        End If
+        TreeList1.DeleteNode(Node)
+    End Sub
+
+    Private Sub TreeList1_AfterFocusNode(ByVal sender As Object, ByVal e As DevExpress.XtraTreeList.NodeEventArgs) Handles TreeList1.AfterFocusNode
+        If Me.TreeList1.FocusedNode.GetValue("org_codigo") Is DBNull.Value Then
+            Exit Sub
+        End If
+        Me.GridControl1.DataSource = VB.SysContab.RH_OrganigramaDB.Plantilla(Me.TreeList1.FocusedNode.GetValue("org_codigo"))
+        Me.vLista.BestFitColumns()
+        Me.vLista.Columns("rub_codigo").Caption = "Código"
+        Me.vLista.Columns("rub_tipo").Caption = "Tipo de Movimiento"
+        Me.vLista.Columns("rub_descripcion").Caption = "Descripción"
+        Me.vLista.Columns("org_codigo").Visible = False
+        Me.vLista.Columns("rub_cuentadebito").ColumnEdit = Me.cbDebitos
+        Me.vLista.Columns("rub_cuentadebito").Caption = "Cuenta Débito"
+        Me.vLista.Columns("rub_cuentacredito").ColumnEdit = Me.cbCreditos
+        Me.vLista.Columns("rub_cuentacredito").Caption = "Cuenta Crédito"
+        For i As Integer = 0 To Me.vLista.Columns.Count - 1
+            If Me.vLista.Columns(i).FieldName = "rub_cuentadebito" Or Me.vLista.Columns(i).FieldName = "rub_cuentacredito" Then
+                Me.vLista.Columns(i).OptionsColumn.ReadOnly = False
+                Me.vLista.Columns(i).OptionsColumn.AllowFocus = True
+            Else
+                Me.vLista.Columns(i).OptionsColumn.ReadOnly = True
+                Me.vLista.Columns(i).OptionsColumn.AllowFocus = False
+            End If
+
+        Next
+
+    End Sub
+
+    Private Sub TreeList1_BeforeFocusNode(ByVal sender As Object, ByVal e As DevExpress.XtraTreeList.BeforeFocusNodeEventArgs) Handles TreeList1.BeforeFocusNode
+        If Cargado = True Then
+            If e.OldNode Is Nothing Then
+                Exit Sub
+            End If
+            If e.OldNode.GetValue("org_descripcion") Is DBNull.Value Then
+                e.CanFocus = False
+            Else : e.CanFocus = True
+            End If
+        End If
+    End Sub
+
+    Private Sub TreeList1_ValidateNode(ByVal sender As Object, ByVal e As DevExpress.XtraTreeList.ValidateNodeEventArgs) Handles TreeList1.ValidateNode
+        Dim cadena As String
+        cadena = sender.focusednode.getvalue("org_descripcion")
+        If cadena Is DBNull.Value Or cadena = "" Then
+            e.ErrorText = "Debe describir el elemento del organigrama"
+            e.Valid = False
+        End If
+    End Sub
+
+    Private Sub SimpleButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton4.Click
+        Me.Close()
+    End Sub
+
+    Private Sub SimpleButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton3.Click
+
+        'Procesar los borrados
+        Dim dt As DataTable
+        dt = Me.TreeList1.DataSource.getchanges(DataRowState.Deleted)
+        If Not dt Is Nothing Then
+            dt.RejectChanges()
+
+            For i As Integer = 0 To dt.Rows.Count - 1
+                If dt.Rows(i)("org_codigo") Is DBNull.Value Then
+                Else
+                    VB.SysContab.RH_OrganigramaDB.Borrar(dt.Rows(i)("org_codigo"))
+                End If
+            Next
+            dt.Dispose()
+        End If
+        For i As Integer = 0 To TreeList1.Nodes(0).Nodes.Count - 1
+            Me.guardar(TreeList1.Nodes(0).Nodes(i), _
+                IIf(TreeList1.Nodes(0).Nodes(i).Level = 1, 0, _
+                TreeList1.Nodes(0).Nodes(i).GetValue("org_codigo")), "")
+        Next
+    End Sub
+
+    Private Sub guardar(ByRef Nodo As TreeListNode, ByVal Padre As Integer, ByVal Camino As String)
+        'Procesar el actual
+
+        Camino = Camino + IIf(Padre = 0, "", ",") + Padre.ToString
+        If Not Nodo.GetValue("org_codigo") Is DBNull.Value Then
+            VB.SysContab.RH_OrganigramaDB.Modificar(Nodo.GetValue("org_codigo"), _
+                Padre, _
+                Nodo.GetValue("org_descripcion").ToString, _
+                Nodo.GetValue("emp_codigo").ToString, _
+                Nodo.GetValue("org_email").ToString, _
+                Camino, _
+                Nodo.GetValue("org_sufijo"))
+        Else
+            Nodo.SetValue("org_codigo", _
+                VB.SysContab.RH_OrganigramaDB.Agregar(Padre, _
+                            Nodo.GetValue("org_descripcion"), _
+                            Nodo.GetValue("emp_codigo").ToString, _
+                            Nodo.GetValue("org_email").ToString, _
+                            Camino, Nodo.GetValue("org_sufijo").ToString))
+        End If
+        Padre = Nodo.GetValue("org_codigo")
+        For i As Integer = 0 To Nodo.Nodes.Count - 1
+            guardar(Nodo.Nodes(i), Padre, Camino)
+        Next
+
+    End Sub
+
+   
+    Private Sub SimpleButton5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton5.Click
+        If Me.vLista.DataRowCount = 0 Then
+            MsgBox("No hay datos en la lista", MsgBoxStyle.Critical, "SysNomina")
+            Exit Sub
+        End If
+
+        For i As Integer = 0 To Me.vLista.DataRowCount - 1
+
+            VB.SysContab.RH_OrganigramaDB.Plantilla_Add(Me.TreeList1.FocusedNode.GetValue("org_codigo"), _
+             Me.vLista.GetRowCellValue(i, "rub_codigo"), _
+             Me.vLista.GetRowCellValue(i, "rub_tipo"), _
+             Me.vLista.GetRowCellValue(i, "rub_cuentadebito"), _
+             Me.vLista.GetRowCellValue(i, "rub_cuentacredito"))
+
+        Next
+    End Sub
+
+    Private Sub cmdLimpiarPlantilla_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLimpiarPlantilla.Click
+
+    End Sub
+
+    Private Sub SimpleButton6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton6.Click
+        Dim f As New frmComprobante
+        f.ShowDialog()
+    End Sub
+
+    Private Sub SimpleButton7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton7.Click
+        Dim f As New frmPlantillaDetalle
+        f.TRubro = Me.vLista.GetFocusedRowCellValue("rub_tipo")
+        f.Rubro = Me.vLista.GetFocusedRowCellValue("rub_codigo")
+
+        f.ShowDialog()
+    End Sub
+End Class

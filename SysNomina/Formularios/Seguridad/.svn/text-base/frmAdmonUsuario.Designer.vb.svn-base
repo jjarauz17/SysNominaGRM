@@ -1,0 +1,228 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmAdmonUsuario
+    Inherits DevExpress.XtraEditors.XtraForm
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.txtnombre = New DevExpress.XtraEditors.TextEdit
+        Me.txtlogin = New DevExpress.XtraEditors.TextEdit
+        Me.GridDetalle = New DevExpress.XtraGrid.GridControl
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.cmdnuevo = New DevExpress.XtraEditors.SimpleButton
+        Me.CmdGuardar = New DevExpress.XtraEditors.SimpleButton
+        Me.cmdeditar = New DevExpress.XtraEditors.SimpleButton
+        Me.cmdsalir = New DevExpress.XtraEditors.SimpleButton
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.txtcargo = New DevExpress.XtraEditors.TextEdit
+        Me.Roles = New DevExpress.XtraEditors.LookUpEdit
+        CType(Me.txtnombre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtlogin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridDetalle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtcargo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Roles.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.Black
+        Me.Label1.Location = New System.Drawing.Point(24, 11)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Nombre:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Black
+        Me.Label2.Location = New System.Drawing.Point(24, 41)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(42, 13)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Login:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Black
+        Me.Label3.Location = New System.Drawing.Point(24, 91)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(30, 13)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Rol:"
+        '
+        'txtnombre
+        '
+        Me.txtnombre.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtnombre.Enabled = False
+        Me.txtnombre.Location = New System.Drawing.Point(100, 11)
+        Me.txtnombre.Name = "txtnombre"
+        Me.txtnombre.Size = New System.Drawing.Size(333, 20)
+        Me.txtnombre.TabIndex = 0
+        '
+        'txtlogin
+        '
+        Me.txtlogin.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtlogin.Enabled = False
+        Me.txtlogin.Location = New System.Drawing.Point(100, 38)
+        Me.txtlogin.Name = "txtlogin"
+        Me.txtlogin.Size = New System.Drawing.Size(333, 20)
+        Me.txtlogin.TabIndex = 1
+        '
+        'GridDetalle
+        '
+        Me.GridDetalle.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GridDetalle.Location = New System.Drawing.Point(14, 129)
+        Me.GridDetalle.MainView = Me.GridView1
+        Me.GridDetalle.Name = "GridDetalle"
+        Me.GridDetalle.Size = New System.Drawing.Size(505, 208)
+        Me.GridDetalle.TabIndex = 4
+        Me.GridDetalle.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
+        '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GridDetalle
+        Me.GridView1.Name = "GridView1"
+        Me.GridView1.OptionsBehavior.Editable = False
+        Me.GridView1.OptionsView.ShowGroupPanel = False
+        '
+        'cmdnuevo
+        '
+        Me.cmdnuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.cmdnuevo.Location = New System.Drawing.Point(107, 343)
+        Me.cmdnuevo.Name = "cmdnuevo"
+        Me.cmdnuevo.Size = New System.Drawing.Size(75, 34)
+        Me.cmdnuevo.TabIndex = 5
+        Me.cmdnuevo.Text = "&Nuevo"
+        '
+        'CmdGuardar
+        '
+        Me.CmdGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.CmdGuardar.Enabled = False
+        Me.CmdGuardar.Location = New System.Drawing.Point(268, 343)
+        Me.CmdGuardar.Name = "CmdGuardar"
+        Me.CmdGuardar.Size = New System.Drawing.Size(75, 34)
+        Me.CmdGuardar.TabIndex = 7
+        Me.CmdGuardar.Text = "&Guardar"
+        '
+        'cmdeditar
+        '
+        Me.cmdeditar.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.cmdeditar.Enabled = False
+        Me.cmdeditar.Location = New System.Drawing.Point(187, 343)
+        Me.cmdeditar.Name = "cmdeditar"
+        Me.cmdeditar.Size = New System.Drawing.Size(75, 34)
+        Me.cmdeditar.TabIndex = 6
+        Me.cmdeditar.Text = "E&ditar"
+        '
+        'cmdsalir
+        '
+        Me.cmdsalir.Anchor = System.Windows.Forms.AnchorStyles.Bottom
+        Me.cmdsalir.Location = New System.Drawing.Point(348, 343)
+        Me.cmdsalir.Name = "cmdsalir"
+        Me.cmdsalir.Size = New System.Drawing.Size(75, 34)
+        Me.cmdsalir.TabIndex = 8
+        Me.cmdsalir.Text = "&Salir"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.Black
+        Me.Label4.Location = New System.Drawing.Point(24, 68)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(44, 13)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Cargo:"
+        '
+        'txtcargo
+        '
+        Me.txtcargo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtcargo.Enabled = False
+        Me.txtcargo.Location = New System.Drawing.Point(100, 65)
+        Me.txtcargo.Name = "txtcargo"
+        Me.txtcargo.Size = New System.Drawing.Size(333, 20)
+        Me.txtcargo.TabIndex = 2
+        '
+        'Roles
+        '
+        Me.Roles.Location = New System.Drawing.Point(100, 91)
+        Me.Roles.Name = "Roles"
+        Me.Roles.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.Roles.Size = New System.Drawing.Size(333, 20)
+        Me.Roles.TabIndex = 9
+        '
+        'frmAdmonUsuario
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(531, 392)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Roles)
+        Me.Controls.Add(Me.GridDetalle)
+        Me.Controls.Add(Me.cmdnuevo)
+        Me.Controls.Add(Me.CmdGuardar)
+        Me.Controls.Add(Me.cmdeditar)
+        Me.Controls.Add(Me.cmdsalir)
+        Me.Controls.Add(Me.txtcargo)
+        Me.Controls.Add(Me.txtlogin)
+        Me.Controls.Add(Me.txtnombre)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Name = "frmAdmonUsuario"
+        Me.Text = "Administracion de Usuario"
+        CType(Me.txtnombre.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtlogin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridDetalle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtcargo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Roles.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents txtnombre As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtlogin As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents GridDetalle As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents cmdnuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents CmdGuardar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdeditar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents cmdsalir As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents txtcargo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents Roles As DevExpress.XtraEditors.LookUpEdit
+End Class

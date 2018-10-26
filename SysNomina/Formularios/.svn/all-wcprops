@@ -1,0 +1,1709 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/SysNomina_Carnic/!svn/ver/13/StS.Nomina/Formularios
+END
+frmECDeduccion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmECDeduccion.Designer.vb
+END
+frmPanelSolicitudes.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPanelSolicitudes.Designer.vb
+END
+frmPanelSolicitudes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPanelSolicitudes.vb
+END
+frmReporteLiquidacion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReporteLiquidacion.resx
+END
+FrmRolesAgregar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmRolesAgregar.vb
+END
+frmECMovimientos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmECMovimientos.Designer.vb
+END
+FrmGenerarHExtras.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmGenerarHExtras.vb
+END
+frmDeduccion_Pagos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDeduccion_Pagos.Designer.vb
+END
+frmAuditoriaEmpleado.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAuditoriaEmpleado.Designer.vb
+END
+frmImpuestos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImpuestos.Designer.vb
+END
+frmExplorador.resx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmExplorador.resx
+END
+frmAgregarPermisos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPermisos.vb
+END
+frmPanelSolicitudes_Impresion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPanelSolicitudes_Impresion.Designer.vb
+END
+FrmGenerarHExtras.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmGenerarHExtras.resx
+END
+frmRHProduccion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRHProduccion.Designer.vb
+END
+frmCodigosBarra.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCodigosBarra.vb
+END
+frmImportar_Eppa.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportar_Eppa.Designer.vb
+END
+frmAutHExtras.resx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAutHExtras.resx
+END
+frmAgregarPermisos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPermisos.resx
+END
+frmLiquidacion_Causas.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_Causas.resx
+END
+frmEditarUsuarios.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEditarUsuarios.resx
+END
+FrmRolesEditar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmRolesEditar.vb
+END
+frmImportacion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportacion.vb
+END
+frmAgregarFuncion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarFuncion.vb
+END
+frmPrincipal.resx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmPrincipal.resx
+END
+FrmAgregarPeriodoNomina.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarPeriodoNomina.vb
+END
+frmAprobacionEmpleados_Baja.resx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionEmpleados_Baja.resx
+END
+frmPeriodoFiscalNomina.resx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPeriodoFiscalNomina.resx
+END
+frmDeduccion_Pagos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDeduccion_Pagos.resx
+END
+frmAgregarFuncion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarFuncion.resx
+END
+frmECDeduccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmECDeduccion.vb
+END
+frmLiquidacion_FormaPago.resx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_FormaPago.resx
+END
+frmTiposRubrosEmpresa.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTiposRubrosEmpresa.vb
+END
+frmAgregarEmpHorario.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarEmpHorario.resx
+END
+FrmAgregarTDeduccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarTDeduccion.vb
+END
+frmImportacion_Archivos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportacion_Archivos.vb
+END
+FrmAgregarTDeduccion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarTDeduccion.resx
+END
+frmAgregarDeduccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDeduccion.vb
+END
+frmAgregarEmpleado.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarEmpleado.resx
+END
+frmAgregarMReloj.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarMReloj.resx
+END
+frmImportacion_Archivos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportacion_Archivos.resx
+END
+frmCamposEmpleados_EmpleadosAgregar.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCamposEmpleados_EmpleadosAgregar.Designer.vb
+END
+frmAgregarProfesion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarProfesion.vb
+END
+frmReporteLiquidacion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReporteLiquidacion.Designer.vb
+END
+frmDepartamentos_Murohs.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDepartamentos_Murohs.Designer.vb
+END
+frmEmpleados_ExportarDatos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_ExportarDatos.resx
+END
+frmCampos_Datos_Agregar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Datos_Agregar.vb
+END
+frmRevisionEmpleados_BajaEditar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRevisionEmpleados_BajaEditar.resx
+END
+frmRHProduccion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRHProduccion.resx
+END
+frmLocalidad.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLocalidad.designer.vb
+END
+frmAgregarDepartamento.vb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/3/StS.Nomina/Formularios/frmAgregarDepartamento.vb
+END
+XtraForm1.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/XtraForm1.Designer.vb
+END
+frmProfesion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmProfesion.resx
+END
+frmEditarHExtras.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEditarHExtras.resx
+END
+frmPrincipal.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmPrincipal.vb
+END
+frmVisorTexto.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmVisorTexto.vb
+END
+frmGridDatos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmGridDatos.resx
+END
+frmPanelSolicitudes_Impresion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPanelSolicitudes_Impresion.vb
+END
+frmReportesEmpleados.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReportesEmpleados.vb
+END
+frmCamposEmpleados_EmpleadosAgregar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCamposEmpleados_EmpleadosAgregar.vb
+END
+frmAuditoriaEmpleado.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAuditoriaEmpleado.resx
+END
+frmImpuestos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImpuestos.resx
+END
+frmProfesion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmProfesion.Designer.vb
+END
+frmProduccion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Formularios/frmProduccion.Designer.vb
+END
+frmCat_Produccion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCat_Produccion.resx
+END
+frmTraslado_Empleador.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTraslado_Empleador.resx
+END
+frmDetalleConstancia.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDetalleConstancia.vb
+END
+frmAprobacionEmpleados_BajaEditar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionEmpleados_BajaEditar.vb
+END
+XtraForm1.vb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/XtraForm1.vb
+END
+frmRevisionEmpleados_Baja.resx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRevisionEmpleados_Baja.resx
+END
+frmAgregarMReloj.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarMReloj.vb
+END
+frmCampos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos.vb
+END
+frmAgregarAhorro.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarAhorro.vb
+END
+FrmAgregarTIngreso.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarTIngreso.vb
+END
+frmSeleccionarPeriodo.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSeleccionarPeriodo.resx
+END
+frmVerPlanilla.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmVerPlanilla.resx
+END
+frmAgregarFeriados.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarFeriados.vb
+END
+frmAutHExtras.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAutHExtras.vb
+END
+frmGenPagoNominaElectronica.vb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmGenPagoNominaElectronica.vb
+END
+frmECMovimientos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmECMovimientos.resx
+END
+frmAgregarEmpleado_Baja.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarEmpleado_Baja.vb
+END
+frmCampos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos.resx
+END
+frmLiquidacion_Causas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_Causas.vb
+END
+frmSolictudConstancia.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSolictudConstancia.resx
+END
+frmImp_colillas.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImp_colillas.Designer.vb
+END
+frmImp_colillas.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Formularios/frmImp_colillas.vb
+END
+frmDarDias.vb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDarDias.vb
+END
+frmCatalogos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmCatalogos.Designer.vb
+END
+frmLocalidad.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLocalidad.vb
+END
+frmImportacion_Archivos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportacion_Archivos.Designer.vb
+END
+frmPagoVacaciones.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPagoVacaciones.vb
+END
+frmGridDatos.resx.bak
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/14/StS.Nomina/Formularios/frmGridDatos.resx.bak
+END
+frmPagoVacaciones.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPagoVacaciones.resx
+END
+frmActivoEmpleado.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmActivoEmpleado.vb
+END
+frmImportacion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportacion.resx
+END
+frmLiquidacion_Causas.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_Causas.Designer.vb
+END
+frmTraslado_Empleador.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTraslado_Empleador.vb
+END
+frmProduccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/21/StS.Nomina/Formularios/frmProduccion.vb
+END
+FrmAgregarPeriodoNomina.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarPeriodoNomina.resx
+END
+frmSeleccionarPeriodo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSeleccionarPeriodo.vb
+END
+frmVerPlanilla.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/23/StS.Nomina/Formularios/frmVerPlanilla.vb
+END
+frmCambiarEmpresa.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCambiarEmpresa.vb
+END
+frmexportaciongrid.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmexportaciongrid.resx
+END
+frmAgregar_TipoRubrosEmpresa.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregar_TipoRubrosEmpresa.vb
+END
+frmAgregarTS.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarTS.Designer.vb
+END
+frmExplorador.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmExplorador.vb
+END
+frmECMovimientos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmECMovimientos.vb
+END
+frmImportacion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportacion.Designer.vb
+END
+FrmRolesAgregar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmRolesAgregar.resx
+END
+frmEmpleados_ExportarDatos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_ExportarDatos.vb
+END
+frmSolictudConstancia.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSolictudConstancia.vb
+END
+frmEmpleados_Baja_Liquidar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_Baja_Liquidar.resx
+END
+frmDeducciones_Tipo.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDeducciones_Tipo.resx
+END
+frmAgregarAhorro.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarAhorro.resx
+END
+FrmAgregarTIngreso.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarTIngreso.resx
+END
+frmAjustes_Salarial.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAjustes_Salarial.resx
+END
+frmRptPlanillaComparativo.resx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanillaComparativo.resx
+END
+frmDepartamentos_Murohs.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDepartamentos_Murohs.vb
+END
+frmConstancias.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmConstancias.Designer.vb
+END
+frmGenPagoNominaElectronica.resx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmGenPagoNominaElectronica.resx
+END
+frmEmpleados_Categorias.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SysNomina_Carnic/!svn/ver/16/StS.Nomina/Formularios/frmEmpleados_Categorias.Designer.vb
+END
+frmAgregarIngreso.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarIngreso.resx
+END
+frmCampos_Datos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Datos.Designer.vb
+END
+frmCampos_Datos_Agregar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Datos_Agregar.resx
+END
+frmGridDatos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmGridDatos.vb
+END
+frmCampos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos.Designer.vb
+END
+frmDarFeriados.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDarFeriados.vb
+END
+frmConsecutivoBac_Planilla.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmConsecutivoBac_Planilla.vb
+END
+frmAgregarCargo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/3/StS.Nomina/Formularios/frmAgregarCargo.vb
+END
+frmCat_Produccion_Detalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCat_Produccion_Detalle.vb
+END
+frmAgregarDepartamento.resx
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDepartamento.resx
+END
+FrmRolesEditar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmRolesEditar.resx
+END
+frmAuditoriaEmpleado.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAuditoriaEmpleado.vb
+END
+frmAgregarDeduccion_Cancelar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDeduccion_Cancelar.resx
+END
+frmImpuestos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImpuestos.vb
+END
+frmLiquidacion_Causas_Detalle.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_Causas_Detalle.Designer.vb
+END
+frmAprobacionRevision_Nomina.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionRevision_Nomina.vb
+END
+frmDptoProduccionSemanal.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Formularios/frmDptoProduccionSemanal.vb
+END
+frmReporteHE.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReporteHE.vb
+END
+frmexportaciongrid.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmexportaciongrid.vb
+END
+frmCampos_Datos_Agregar.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Datos_Agregar.Designer.vb
+END
+frmAgregarLocalidad.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarLocalidad.designer.vb
+END
+frmPanelSolicitudes_Impresion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPanelSolicitudes_Impresion.resx
+END
+frmCampos_Agregar.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Agregar.Designer.vb
+END
+frmCatalogos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/21/StS.Nomina/Formularios/frmCatalogos.vb
+END
+frmAgregarEmpleado.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Formularios/frmAgregarEmpleado.vb
+END
+frmECDeduccion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmECDeduccion.resx
+END
+frmGridDatos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmGridDatos.Designer.vb
+END
+frmAgregarDepartamento_Murohs.resx
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDepartamento_Murohs.resx
+END
+frmCambiarEmpresa.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCambiarEmpresa.resx
+END
+frmSolictudConstancia.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSolictudConstancia.Designer.vb
+END
+frmAgregarTS.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarTS.resx
+END
+frmGenPagoNominaElectronica.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmGenPagoNominaElectronica.Designer.vb
+END
+frmAgregarProfesion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarProfesion.Designer.vb
+END
+frmEmpleados_ExportarDatos_Grid.vb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_ExportarDatos_Grid.vb
+END
+frmCodigosBarra.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCodigosBarra.Designer.vb
+END
+frmRHProduccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRHProduccion.vb
+END
+FrmRolesListar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmRolesListar.vb
+END
+frmAgregarLocalidad.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarLocalidad.vb
+END
+frmConstancias.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmConstancias.vb
+END
+frmAgregarEmpleado_Baja.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarEmpleado_Baja.resx
+END
+frmAgregarProfesion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarProfesion.resx
+END
+frmEditarHExtras.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEditarHExtras.vb
+END
+frmAgregarPermisos_Empleado.resx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPermisos_Empleado.resx
+END
+frmRptPlanillaConsolidado.resx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanillaConsolidado.resx
+END
+frmAgregarPeriodoFiscal.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPeriodoFiscal.designer.vb
+END
+frmDepartamentos_Murohs.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDepartamentos_Murohs.resx
+END
+frmIngresos_Tipo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmIngresos_Tipo.vb
+END
+frmPeriodoFiscalNomina.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPeriodoFiscalNomina.Designer.vb
+END
+frmDeduccion_Pagos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDeduccion_Pagos.vb
+END
+frmLocalidad.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLocalidad.resx
+END
+FrmEmpHorarioSemana.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmEmpHorarioSemana.vb
+END
+frmTabla_Salarial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTabla_Salarial.vb
+END
+frmConsecutivoBac_Planilla.resx
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmConsecutivoBac_Planilla.resx
+END
+frmDarFeriados.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDarFeriados.resx
+END
+frmAgregarEmpHorario.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarEmpHorario.vb
+END
+FrmEmpHorarioSemana.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmEmpHorarioSemana.resx
+END
+frmActivoEmpleado.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmActivoEmpleado.resx
+END
+frmReportesEmpleados.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReportesEmpleados.resx
+END
+frmAgregarDepartamento_Murohs.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDepartamento_Murohs.vb
+END
+frmPermisosConsulta.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPermisosConsulta.Designer.vb
+END
+frmCampos_Datos.vb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Datos.vb
+END
+frmDetalleConstancia.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDetalleConstancia.Designer.vb
+END
+frmDeducciones_Tipo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmDeducciones_Tipo.vb
+END
+frmEmpleados_Baja_Liquidar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_Baja_Liquidar.vb
+END
+frmPanelSolicitudes.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPanelSolicitudes.resx
+END
+frmVisorTexto.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmVisorTexto.Designer.vb
+END
+frmAprobacionEmpleados_BajaEditar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionEmpleados_BajaEditar.resx
+END
+frmDetalleConstancia.resx
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDetalleConstancia.resx
+END
+frmAsignarHorarios.vb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAsignarHorarios.vb
+END
+FrmAgregarHorario.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarHorario.vb
+END
+FrmAgregarMoneda.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarMoneda.vb
+END
+frmRevisionEmpleados_BajaEditar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRevisionEmpleados_BajaEditar.vb
+END
+frmAgregarFeriados.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarFeriados.resx
+END
+frmAgregarDeduccion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDeduccion.resx
+END
+frmRptPlanillaConsolidado.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanillaConsolidado.vb
+END
+frmEditarUsuarios.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEditarUsuarios.Designer.vb
+END
+frmReportes.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReportes.vb
+END
+frmSeleccionarEmpresa.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSeleccionarEmpresa.vb
+END
+frmTiposRubrosEmpresa.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTiposRubrosEmpresa.Designer.vb
+END
+frmCodigosBarra.resx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCodigosBarra.resx
+END
+frmAgregarPeriodoFiscal.vb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPeriodoFiscal.vb
+END
+FrmRolesListar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmRolesListar.resx
+END
+frmDeducciones_Tipo.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmDeducciones_Tipo.Designer.vb
+END
+frmPeriodoFiscalNomina.vb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPeriodoFiscalNomina.vb
+END
+frmAhorro.vb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAhorro.vb
+END
+frmAgregarCargo.resx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarCargo.resx
+END
+frmVisorTexto.resx
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmVisorTexto.resx
+END
+frmAhorro.resx
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAhorro.resx
+END
+frmTabla_Salarial.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTabla_Salarial.resx
+END
+frmexportaciongrid.resx.bak
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/14/StS.Nomina/Formularios/frmexportaciongrid.resx.bak
+END
+frmCamposEmpleados_EmpleadosAgregar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCamposEmpleados_EmpleadosAgregar.resx
+END
+frmRptPlanillaConsolidado_New.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanillaConsolidado_New.vb
+END
+frmEmpleados_Categorias.vb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Formularios/frmEmpleados_Categorias.vb
+END
+frmProduccion.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/15/StS.Nomina/Formularios/frmProduccion.resx
+END
+frmRptPlanilla.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanilla.vb
+END
+frmRptPlanillaConsolidado_New.resx
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanillaConsolidado_New.resx
+END
+frmEmpleados_Categorias.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_Categorias.resx
+END
+frmCatalogos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCatalogos.resx
+END
+frmRptPlanillaComparativo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanillaComparativo.vb
+END
+frmAgregar_TipoRubrosEmpresa.resx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregar_TipoRubrosEmpresa.resx
+END
+XtraForm1.resx
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/XtraForm1.resx
+END
+frmLiquidacion_Causas_Detalle.vb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_Causas_Detalle.vb
+END
+frmCat_Produccion.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCat_Produccion.Designer.vb
+END
+frmRptPlanilla.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRptPlanilla.resx
+END
+frmAgregarIngreso.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/8/StS.Nomina/Formularios/frmAgregarIngreso.vb
+END
+frmAgregarPermisos_Empleado.vb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPermisos_Empleado.vb
+END
+frmLiquidacion_Causas_Detalle.resx
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_Causas_Detalle.resx
+END
+frmAsignarHorarios.resx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAsignarHorarios.resx
+END
+frmCampos_Agregar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Agregar.vb
+END
+FrmUsuarios.vb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmUsuarios.vb
+END
+frmAgregarArea.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarArea.resx
+END
+frmAgregar_TipoRubrosEmpresa.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregar_TipoRubrosEmpresa.designer.vb
+END
+frmReportes.resx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReportes.resx
+END
+frmCampos_Agregar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Agregar.resx
+END
+frmAprobacionEmpleados_Baja.vb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionEmpleados_Baja.vb
+END
+FrmUsuarios.resx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmUsuarios.resx
+END
+frmDptoProduccionSemanal.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDptoProduccionSemanal.Designer.vb
+END
+frmLiquidacion_FormaPago.vb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmLiquidacion_FormaPago.vb
+END
+frmIngresos_Tipo.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmIngresos_Tipo.resx
+END
+frmImportar_Eppa.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/19/StS.Nomina/Formularios/frmImportar_Eppa.vb
+END
+FrmUsuariosListar.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmUsuariosListar.resx
+END
+frmRevisionEmpleados_Baja.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmRevisionEmpleados_Baja.vb
+END
+frmAprobacionRevision_Nomina.resx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionRevision_Nomina.resx
+END
+frmDptoProduccionSemanal.resx
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDptoProduccionSemanal.resx
+END
+frmReporteHE.resx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReporteHE.resx
+END
+frmImportar_Eppa.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImportar_Eppa.resx
+END
+frmAgregarTS.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarTS.vb
+END
+frmPrincipal.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmPrincipal.designer.vb
+END
+frmTiposRubrosEmpresa.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTiposRubrosEmpresa.resx
+END
+frmIngresos_Tipo.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/SysNomina_Carnic/!svn/ver/20/StS.Nomina/Formularios/frmIngresos_Tipo.Designer.vb
+END
+frmCat_Produccion_Detalle.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCat_Produccion_Detalle.Designer.vb
+END
+frmCampos_Datos.resx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCampos_Datos.resx
+END
+frmAjustes_Salarial.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAjustes_Salarial.vb
+END
+frmAsignarHorarios.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAsignarHorarios.Designer.vb
+END
+frmAprobacionRevision_Nomina.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAprobacionRevision_Nomina.designer.vb
+END
+frmEmpleados_ExportarDatos_Grid.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_ExportarDatos_Grid.Designer.vb
+END
+frmAgregarPermisos_Empleado.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPermisos_Empleado.designer.vb
+END
+frmAgregarArea.vb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/SysNomina_Carnic/!svn/ver/3/StS.Nomina/Formularios/frmAgregarArea.vb
+END
+frmEditarUsuarios.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEditarUsuarios.vb
+END
+frmProfesion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmProfesion.vb
+END
+FrmAgregarMoneda.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarMoneda.resx
+END
+FrmAgregarHorario.resx
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmAgregarHorario.resx
+END
+frmEmpleados_ExportarDatos_Grid.resx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_ExportarDatos_Grid.resx
+END
+frmPermisosConsulta.vb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPermisosConsulta.vb
+END
+frmPagoAguinaldo.vb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPagoAguinaldo.vb
+END
+frmAgregarDeduccion_Cancelar.designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDeduccion_Cancelar.designer.vb
+END
+frmAgregarDeduccion_Cancelar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarDeduccion_Cancelar.vb
+END
+frmSeleccionarEmpresa.resx
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmSeleccionarEmpresa.resx
+END
+frmConstancias.resx
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmConstancias.resx
+END
+frmAgregarLocalidad.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarLocalidad.resx
+END
+frmImp_colillas.resx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmImp_colillas.resx
+END
+frmDarDias.resx
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmDarDias.resx
+END
+frmCambiarContraseña.vb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCambiarContrase%C3%B1a.vb
+END
+frmPermisosConsulta.resx
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPermisosConsulta.resx
+END
+frmPagoAguinaldo.resx
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmPagoAguinaldo.resx
+END
+frmAgregarPeriodoFiscal.resx
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmAgregarPeriodoFiscal.resx
+END
+frmEmpleados_ExportarDatos.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmEmpleados_ExportarDatos.Designer.vb
+END
+FrmUsuariosListar.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/FrmUsuariosListar.vb
+END
+frmCambiarContraseña.resx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCambiarContrase%C3%B1a.resx
+END
+frmCat_Produccion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCat_Produccion.vb
+END
+frmCat_Produccion_Detalle.resx
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmCat_Produccion_Detalle.resx
+END
+frmTraslado_Empleador.Designer.vb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmTraslado_Empleador.Designer.vb
+END
+frmReporteLiquidacion.vb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/SysNomina_Carnic/!svn/ver/2/StS.Nomina/Formularios/frmReporteLiquidacion.vb
+END

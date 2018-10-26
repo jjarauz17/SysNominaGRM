@@ -1,0 +1,150 @@
+Imports DbConnect
+Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Configuration
+
+Namespace VB.SysContab
+
+    Public Class MCS_DB
+        Public Shared Sub SnackBar_AplicarTransaccion(ByVal TPeriodo As String, _
+            ByVal Periodo As String, ByVal Empleado As String, _
+            ByVal Transaccion As String, ByVal Procesado As Boolean)
+
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion)
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("tperiodo", SqlDbType.NVarChar, 1, ParameterDirection.Input, TPeriodo)
+            v.AddParameter("periodo", SqlDbType.NVarChar, 8, ParameterDirection.Input, Periodo)
+            v.AddParameter("empleado", SqlDbType.NVarChar, 8, ParameterDirection.Input, Empleado)
+            v.AddParameter("transaccion", SqlDbType.NVarChar, 6, ParameterDirection.Input, Transaccion)
+            v.AddParameter("procesado", SqlDbType.Bit, 1, ParameterDirection.Input, Procesado)
+            Try
+                v.EjecutarComando("_MICROS_Updatetransacciones")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End Sub
+
+        Public Shared Function SnackBar_GetList(ByVal Periodo As String, ByVal TPeriodo As String) As DataTable
+            Dim v As New Connect(VB.SysContab.Conexion.AbrirConexion)
+            v.AddParameter("empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+            v.AddParameter("tperiodo", SqlDbType.NVarChar, 1, ParameterDirection.Input, TPeriodo)
+            v.AddParameter("periodo", SqlDbType.NVarChar, 8, ParameterDirection.Input, Periodo)
+            Try
+                Return v.EjecutarComando("_RH_SnackBar_GetListTransacciones", "Snack")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return Nothing
+            End Try
+        End Function
+
+
+        Public Shared Function GetList(ByVal Procesado As Boolean, ByVal Periodo As String, ByVal TPeriodo As String) As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_MCS_GetListTransacciones", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+            Dim pEmpresa As New SqlParameter("@Empresa", SqlDbType.Int)
+            pEmpresa.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pEmpresa)
+
+            Dim pProcesado As New SqlParameter("@Procesado", SqlDbType.Bit)
+            pProcesado.Value = Procesado
+            DBCommand.SelectCommand.Parameters.Add(pProcesado)
+
+            Dim pPeriodo As New SqlParameter("@Periodo", SqlDbType.NVarChar)
+            pPeriodo.Value = Periodo
+            DBCommand.SelectCommand.Parameters.Add(pPeriodo)
+
+            Dim pTPeriodo As New SqlParameter("@TPeriodo", SqlDbType.NVarChar)
+            pTPeriodo.Value = TPeriodo
+            DBCommand.SelectCommand.Parameters.Add(pTPeriodo)
+
+            Try
+                DBCommand.Fill(dsFicha, "MCS_Transacciones")
+                DBConn.Close()
+                Return dsFicha
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "STS-Nomina")
+                Return Nothing
+            End Try
+        End Function
+        Public Shared Function GetConfiguracion() As DataSet
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_MCS_GetConfiguracion", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+            Dim pEmpresa As New SqlParameter("@Empresa", SqlDbType.Int)
+
+            pEmpresa.Value = EmpresaActual
+
+            DBCommand.SelectCommand.Parameters.Add(pEmpresa)
+
+            Try
+                DBCommand.Fill(dsFicha, "MCS_Configuracion")
+                DBConn.Close()
+                If dsFicha.Tables(0).Rows.Count <> 1 Then
+                    Return Nothing
+                Else
+                    Return dsFicha
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "STS-Nomina")
+                Return Nothing
+            End Try
+        End Function
+        Public Shared Sub AplicarTransaccion(ByVal Empleado As String, _
+                ByVal Procesado As Boolean, _
+                ByVal Quincena As String, _
+                ByVal TransaccionEmpleado As String, _
+                ByVal TransaccionIVA As String)
+            Dim DBConn As SqlConnection
+            Dim DBCommand As SqlDataAdapter
+            Dim dsFicha As New DataSet()
+
+            DBConn = New SqlConnection(VB.SysContab.Conexion.AbrirConexion())
+
+            DBCommand = New SqlDataAdapter("_MCS_UpdateTransacciones", DBConn)
+            DBCommand.SelectCommand.CommandType = CommandType.StoredProcedure
+            Dim pEmpresa As New SqlParameter("@Empresa", SqlDbType.Int)
+            pEmpresa.Value = EmpresaActual
+            DBCommand.SelectCommand.Parameters.Add(pEmpresa)
+
+            Dim pProcesado As New SqlParameter("@Procesado", SqlDbType.Bit)
+            pProcesado.Value = Procesado
+            DBCommand.SelectCommand.Parameters.Add(pProcesado)
+
+            Dim pQuincena As New SqlParameter("@Quincena", SqlDbType.NVarChar)
+            pQuincena.Value = Quincena
+            DBCommand.SelectCommand.Parameters.Add(pQuincena)
+
+            Dim pEmpleado As New SqlParameter("@Empleado", SqlDbType.NVarChar)
+            pEmpleado.Value = Empleado
+            DBCommand.SelectCommand.Parameters.Add(pEmpleado)
+
+            Dim pTE As New SqlParameter("@TransaccionEmpleado", SqlDbType.NVarChar)
+            pTE.Value = TransaccionEmpleado
+            DBCommand.SelectCommand.Parameters.Add(pTE)
+
+            Dim pTIVA As New SqlParameter("@TransaccionIVA", SqlDbType.NVarChar)
+            pTIVA.Value = TransaccionIVA
+            DBCommand.SelectCommand.Parameters.Add(pTIVA)
+
+            Try
+                DBConn.Open()
+                DBCommand.SelectCommand.ExecuteNonQuery()
+                DBConn.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "STS-Nomina")
+            End Try
+        End Sub
+    End Class
+End Namespace

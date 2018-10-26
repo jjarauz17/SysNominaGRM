@@ -1,0 +1,15 @@
+﻿Public Class frmEmpleado_FechaBaja 
+#Region "Variables"
+    Public Codigo As String
+#End Region
+    Private Sub cmdAceptar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdAceptar.Click
+        VB.SysContab.Empleado_BajaDB.Additem(Codigo, Me.deFechaBaja.EditValue, "Arto 45", "J", "", True, True, 0)
+        VB.SysContab.Empleado_BajaDB.Revision(Codigo, deFechaBaja.EditValue, "", True, False, True)
+        VB.SysContab.Empleado_BajaDB.Aprobacion(Codigo, deFechaBaja.EditValue, "", True, False, True)
+        Me.Close()
+    End Sub
+
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+End Class

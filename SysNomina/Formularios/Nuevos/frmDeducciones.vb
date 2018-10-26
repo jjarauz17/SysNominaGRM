@@ -1,0 +1,141 @@
+﻿Public Class frmDeducciones
+#Region "Variables"
+    Dim Filtro As New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "[Cancelado] = False")
+    Public Tipo As String
+#End Region
+    Private Sub frmDeducciones_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        cargar()
+        Me.Text = "Mantenimiento de Deducciones de Empleados"
+        'VB.SysContab.Rutinas.UsuariosAcciones(Me, Me.Name & Tipo)
+        Me.Refresh()
+
+    End Sub
+    Sub cargar()
+        dgDeduccion.DataSource = VB.SysContab.DeduccionDB.GetList().Tables("Deduccion").DefaultView
+        Me.VDeduccion.Columns("Nomina Regular").Visible = False
+        Me.VDeduccion.Columns("Fecha").Visible = False
+        Me.VDeduccion.Columns("emp_formapago").Visible = False
+        Me.VDeduccion.Columns("Codigo").Width = 50
+        Me.VDeduccion.Columns("Empleado").Width = 250
+        Me.VDeduccion.Columns("Cancelado").FilterInfo = Filtro
+        Me.VDeduccion.Columns("Monto").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.VDeduccion.Columns("Monto").SummaryItem.DisplayFormat = "{0:n2}"
+        Me.VDeduccion.Columns("Monto").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.VDeduccion.Columns("Monto").DisplayFormat.FormatString = "n2"
+
+        Me.VDeduccion.Columns("Saldo").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.VDeduccion.Columns("Saldo").SummaryItem.DisplayFormat = "{0:n2}"
+        Me.VDeduccion.Columns("Saldo").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.VDeduccion.Columns("Saldo").DisplayFormat.FormatString = "n2"
+
+        Me.VDeduccion.Columns("Valor Cuota").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum
+        Me.VDeduccion.Columns("Valor Cuota").SummaryItem.DisplayFormat = "{0:n2}"
+        Me.VDeduccion.Columns("Valor Cuota").DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+        Me.VDeduccion.Columns("Valor Cuota").DisplayFormat.FormatString = "n2"
+
+        Me.VDeduccion.Columns("Codigo").SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+        Me.VDeduccion.Columns("Codigo").SummaryItem.DisplayFormat = "{0:n0}"
+        Me.VDeduccion.Columns("Codigo").SummaryItem.Tag = "Cuenta"
+
+        Me.VDeduccion.BestFitColumns()
+        If Me.VDeduccion.DataRowCount <> 0 Then
+            Registro = Me.VDeduccion.GetRowCellValue(0, "Codigo")
+        Else
+            Registro = "Vacio"
+        End If
+    End Sub
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+
+    End Sub
+
+    Private Sub cmdNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdNuevo.Click
+
+        Using f As frmAgregarDeduccion = frmAgregarDeduccion.Instance
+            Nuevo = "SI"
+            f.ShowDialog()
+            Me.cargar()
+        End Using
+    End Sub
+
+    Private Sub cmdModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdModificar.Click
+
+        If Me.VDeduccion.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "STS.Nomina")
+            Exit Sub
+        End If
+        Registro = Me.VDeduccion.GetFocusedRowCellValue("Codigo")
+
+        Using f As frmAgregarDeduccion = frmAgregarDeduccion.Instance
+            Nuevo = "NO"
+            f.ShowDialog()
+            Me.cargar()
+        End Using
+    End Sub
+
+
+    Private Sub cmdBorrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdBorrar.Click
+
+        If Me.VDeduccion.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "STS.Nomina")
+            Exit Sub
+        Else
+            Registro = Me.VDeduccion.GetFocusedRowCellValue("Codigo")
+        End If
+
+        If MsgBox("Esta seguro que dese borrar el Registro?", MsgBoxStyle.YesNo + MsgBoxStyle.Question) = Windows.Forms.DialogResult.No Then
+            Exit Sub
+        End If
+
+        VB.SysContab.DeduccionDB.delete(Registro)
+        MsgBox("El registro ha sido borrado", MsgBoxStyle.Information)
+        dgDeduccion.DataSource = VB.SysContab.DeduccionDB.GetList().Tables("Deduccion").DefaultView
+
+        If Me.VDeduccion.DataRowCount = 0 Then
+            Registro = "Vacio"
+        Else
+            Registro = Me.VDeduccion.GetFocusedRowCellValue("Codigo")
+        End If
+
+
+    End Sub
+
+    Private Sub txtBuscar_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        If e.KeyChar = "'" Then
+            e.Handled = True
+        End If
+    End Sub
+
+
+    Private Sub VDeduccion_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles VDeduccion.FocusedRowChanged
+        Registro = Me.VDeduccion.GetFocusedRowCellValue("Codigo")
+    End Sub
+
+    Private Sub cmdLote_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdLote.Click
+        If QuincenaTrabajo = "" Then
+            Dim g As frmSeleccionarPeriodo = frmSeleccionarPeriodo.Instance
+            g.ShowDialog()
+            If QuincenaTrabajo = "" Then
+                Exit Sub
+            End If
+        End If
+        Dim f As New frmDeducciones_Tipo
+        Nuevo = "SI"
+        f.WindowState = FormWindowState.Maximized
+        f.StartPosition = FormStartPosition.CenterScreen
+        f.ShowDialog()
+        Me.cargar()
+    End Sub
+
+    Private Sub chkTodos_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkTodos.CheckedChanged
+        If Me.chkTodos.Checked Then
+            Me.VDeduccion.Columns("Cancelado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "")
+        Else : Me.VDeduccion.Columns("Cancelado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "[Cancelado] = False")
+        End If
+    End Sub
+    Private Sub VDeduccion_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles VDeduccion.KeyUp
+        If e.KeyCode = Keys.F5 Then
+            Me.cargar()
+        End If
+    End Sub
+End Class

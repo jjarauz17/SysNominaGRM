@@ -1,0 +1,229 @@
+﻿Imports System.IO
+Imports System.Data.SqlClient
+Imports DbConnect
+
+Public Class frmEmpleados
+#Region "Variables"
+    Dim Filtro As New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "[Liquidado] = False and FechaFin is null")
+#End Region
+    Private Sub frmEmpleados_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.cargar()
+
+
+        Me.Text = "Mantenimiento de Empleados"
+        'VB.SysContab.Rutinas.UsuariosAcciones(Me, Me.Name)
+        Me.Refresh()
+
+    End Sub
+
+    Public Sub cargar()
+        dgEmpleados.DataSource = VB.SysContab.EmpleadosDB.GetList().Tables("Empleados")
+        Me.Empleados.Columns(0).Width = 80
+        Me.Empleados.Columns(1).Width = 250
+        Me.Empleados.Columns(2).Width = 300
+        Me.Empleados.Columns(3).Width = 50
+
+        Me.Empleados.Columns("Liquidado").Visible = False
+        Me.Empleados.Columns("Liquidado").OptionsColumn.ShowInCustomizationForm = False
+        Me.Empleados.Columns("Liquidado").FilterInfo = Filtro
+
+        Me.Empleados.Columns("SalarioxDia").Visible = False
+        Me.Empleados.Columns("SalarioxDia").OptionsColumn.ShowInCustomizationForm = False
+
+        Me.Empleados.Columns("SalarioxHora").Visible = False
+        Me.Empleados.Columns("SalarioxHora").OptionsColumn.ShowInCustomizationForm = False
+
+        Me.Empleados.Columns("Email").Visible = False
+        Me.Empleados.Columns("Usuario").Visible = False
+        Me.Empleados.Columns("Acumula Prestaciones").Visible = False
+        Me.Empleados.Columns("Forma de Pago").Visible = False
+        Me.Empleados.Columns("INSS").Visible = False
+        Me.Empleados.Columns("Cédula").Visible = False
+        Me.Empleados.Columns("FechaFin").Visible = False
+        Me.Empleados.Columns("Fecha Ingreso").Visible = False
+
+        Me.Empleados.Columns(0).SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+        Me.Empleados.Columns(0).SummaryItem.DisplayFormat = "{0:n0}"
+
+    End Sub
+    Private Sub cmdSalir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSalir.Click
+        Me.Close()
+    End Sub
+
+    Private Sub cmdNuevo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdNuevo.Click
+        Dim f As frmAgregarEmpleado = frmAgregarEmpleado.Instance
+
+        Nuevo = "SI"
+
+        f.cbDepartamento.EditValue = -1
+        f.cbCargo.EditValue = -1
+        f.cbFuncion.EditValue = -1
+        f.ShowDialog()
+        Me.cargar()
+        
+
+    End Sub
+
+    Private Sub cmdModificar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdModificar.Click
+
+        If Me.Empleados.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+
+        Registro = Me.Empleados.GetFocusedRowCellValue("Codigo")
+
+        If Registro = "Vacio" Or Registro Is Nothing Then
+            MsgBox("Seleccione el Empleado que desea Editar", MsgBoxStyle.Information)
+            Exit Sub
+        End If
+        Dim f As frmAgregarEmpleado = frmAgregarEmpleado.Instance
+        Nuevo = "NO"
+
+        f.ShowDialog()
+        Me.cargar()
+    End Sub
+
+    Private Sub cmdBorrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdBorrar.Click
+
+        If Me.Empleados.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+
+        Registro = Me.Empleados.GetFocusedRowCellValue("Codigo")
+
+        If MsgBox("Esta seguro que dese borrar el Empleado: " & _
+            Me.Empleados.GetFocusedRowCellValue("Nombre"), MsgBoxStyle.YesNo + MsgBoxStyle.Question) = MsgBoxResult.No Then
+            Exit Sub
+        End If
+
+        VB.SysContab.EmpleadosDB.delete(Me.Empleados.GetFocusedRowCellValue("Codigo"))
+        MsgBox("El registro ha sido borrado", MsgBoxStyle.Information)
+        dgEmpleados.DataSource = VB.SysContab.EmpleadosDB.GetList().Tables("Empleados")
+
+        If Me.Empleados.DataRowCount = 0 Then
+            Registro = "Vacio"
+        Else
+            Registro = Me.Empleados.GetFocusedRowCellValue("Codigo")
+        End If
+
+
+    End Sub
+
+
+
+    Private Sub cmdImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdImprimir.Click
+
+        Dim f As frmReportesEmpleados = frmReportesEmpleados.Instance
+
+        f.MdiParent = Me.MdiParent
+        f.Show()
+
+        f.cbDepartamentos.SelectedValue = 0
+        f.cbCargos.SelectedValue = 0
+        f.cbEmpleados.SelectedValue = 0
+        f.cbFunciones.SelectedValue = 0
+        f.cbNivel.SelectedValue = 0
+
+    End Sub
+
+
+    Private Sub bHorarios_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles bHorarios.Click
+        Dim f As frmAgregarEmpHorario = frmAgregarEmpHorario.Instance
+
+        Nuevo = "NO"
+
+        If Registro = "Vacio" Then
+            MsgBox("Seleccione el Empleado que desea Editar", MsgBoxStyle.Information)
+            Exit Sub
+        End If
+
+        f.MdiParent = Me.MdiParent
+        f.Show()
+
+    End Sub
+
+    Public Function ObtieneDatos(ByVal StrSQL As String) As DataTable
+        Dim DC As New SqlConnection(VB.SysContab.RutinasNomina.AbrirConexion)
+        Dim DA As New SqlDataAdapter(StrSQL, DC)
+        Dim DS As New DataTable
+        DA.Fill(DS)
+        Return DS
+    End Function
+
+    Private Sub cmdExpDatos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdExpDatos.Click
+        Dim f As New frmEmpleados_ExportarDatos_Grid
+        f.Show()
+    End Sub
+
+    Private Sub chkselector_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkselector.CheckedChanged
+        If chkselector.Checked Then Me.Empleados.ColumnsCustomization() Else Me.Empleados.DestroyCustomization()
+    End Sub
+
+    Private Sub Empleados_FocusedRowChanged(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles Empleados.FocusedRowChanged
+        Registro = Me.Empleados.GetFocusedRowCellValue("Codigo")
+    End Sub
+
+    Private Sub chkTodos_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkTodos.CheckedChanged
+        If Me.chkTodos.Checked Then
+            Me.Empleados.Columns("Liquidado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "")
+        Else : Me.Empleados.Columns("Liquidado").FilterInfo = New DevExpress.XtraGrid.Columns.ColumnFilterInfo(DevExpress.XtraGrid.Columns.ColumnFilterType.Custom, "[Liquidado] = False and FechaFin is null")
+        End If
+    End Sub
+
+    Private Sub Empleados_HideCustomizationForm(ByVal sender As Object, ByVal e As System.EventArgs) Handles Empleados.HideCustomizationForm
+        Me.chkselector.Checked = False
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdIR.Click
+        If Me.Empleados.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+        Dim r As New frmImpuestos
+        r.ShowDialog()
+
+    End Sub
+
+
+    Private Sub Empleados_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Empleados.KeyUp
+        If e.KeyCode = Keys.F5 Then
+            Me.cargar()
+        End If
+    End Sub
+
+    Private Sub cmdHeadCount_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdHeadCount.Click
+        Dim v As New Connect(VB.SysContab.RutinasNomina.AbrirConexion)
+        v.AddParameter("Empresa", SqlDbType.Int, 5, ParameterDirection.Input, EmpresaActual)
+        v.AddParameter("Hasta", SqlDbType.SmallDateTime, 5, ParameterDirection.Input, New Date(Now.Date.Year, Now.Date.Month, Date.DaysInMonth(Now.Year, Now.Month)))
+        Dim dt As New DataSet
+        dt.Tables.Add(v.EjecutarComando("_HeadCount", "HeadCount"))
+        Dim f As New frmGridDatos
+        f.MdiParent = Me.MdiParent
+        f.Origen = dt
+        f.Show()
+        dt = Nothing
+    End Sub
+
+
+    Private Sub cmdCodigosBarra_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdCodigosBarra.Click
+        If Me.Empleados.DataRowCount = 0 Then
+            MsgBox("No hay registros en la lista", MsgBoxStyle.Critical, "Sts.Nomina")
+            Exit Sub
+        End If
+        Dim r As New frmCodigosBarra
+        r.ShowDialog()
+    End Sub
+
+    Private Sub cmdPagos_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdPagos.Click
+        'Dim f As New frmDeduccion_Pagos
+        'f.ShowDialog()
+        'texto de la etiqueta del boton: Exportar P@go$
+
+        frmCatalogos.Dispose()
+        frmCatalogos.Tabla = VB.SysContab.EmpleadosDB.GetCatalogoEmpleados(2)
+        frmCatalogos.Show()
+
+    End Sub
+End Class
