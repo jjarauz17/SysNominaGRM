@@ -207,6 +207,7 @@ Public Class frmMain
         Dim DT As DataTable = Rol.ListDetalles(Cadena.Rol)
         Rol.Dispose()
         If DT.Rows.Count - 1 > 0 Then
+
             For Each Pagina As Ribbon.RibbonPage In ribbonControl.Pages
                 For i As Integer = 0 To DT.Rows.Count - 1
                     If DT.Rows(i)("Nombre") = Pagina.Name Then
